@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 52f4ce75d72607446894b661405672d3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - goalPrefab: {instanceID: 0}
+  - goalIntroParent: {instanceID: 0}
+  - goalGameParent: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

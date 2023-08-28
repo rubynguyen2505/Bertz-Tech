@@ -71,7 +71,7 @@ public class HintManager : MonoBehaviour
         return null;
     }
 
-    //Create the hint ehind the chosen match
+    //Create the hint behind the chosen match
     private void MarkHint()
     {
         GameObject move = PickOneRandomly();
