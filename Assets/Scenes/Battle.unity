@@ -942,8 +942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraOffset: -10
   aspectRatio: 0.625
-  padding: 1
-  yOffset: 3
+  padding: 2
+  yOffset: 0
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1983,9 +1983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ed62004ea523040962fc8ec609aaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  world: {fileID: 11400000, guid: ee4b5c522bddb8f49bcc65d240450f90, type: 2}
+  level: 2
   currentState: 1
   width: 6
-  height: 6
+  height: 8
   offSet: 10
   tilePrefab: {fileID: 5914918131645197852, guid: 95996e9aa954c6a498c25e2007d6a57e, type: 3}
   breakableTilePrefab: {fileID: 6325814517477873033, guid: 771ad84e1c653574f8e610dff9de65c2, type: 3}
@@ -1997,13 +1999,7 @@ MonoBehaviour:
   - {fileID: 6496350191541928849, guid: 90279b4465fdee44b9c309b64e94f7e4, type: 3}
   - {fileID: 1015204175331204409, guid: b47bea7f54533a54c838b7a107970e72, type: 3}
   destroyEffect: {fileID: 3903839006392915690, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-  boardLayout:
-  - x: 3
-    y: 3
-    tileKind: 0
-  - x: 4
-    y: 3
-    tileKind: 0
+  boardLayout: []
   currentDot: {fileID: 0}
   basePieceValue: 20
   refillDelay: 0.5
@@ -2526,7 +2522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!198 &1063032054
 ParticleSystem:
   m_ObjectHideFlags: 0

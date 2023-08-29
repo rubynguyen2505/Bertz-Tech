@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public void OnStartButton (){
-        SceneManager.LoadScene(1);
+    public void OnStartButton(){
+        SceneManager.LoadScene("Battle");
     }
 
     public void OnQuitButton(){
         Application.Quit();
     }
 
-    public void OnReturnButton (){
-        SceneManager.LoadScene(0);
+    public void OnReturnButton(){
+        SceneManager.LoadScene("Title Screen");
     }
 }

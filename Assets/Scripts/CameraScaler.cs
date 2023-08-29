@@ -9,7 +9,7 @@ public class CameraScaler : MonoBehaviour
     public float cameraOffset;
     public float aspectRatio = 0.5625f;
     public float padding = 2;
-    public float yOffset;
+    public float yOffset = 1;
 
     // Start is called before the first frame update
     void Start()
