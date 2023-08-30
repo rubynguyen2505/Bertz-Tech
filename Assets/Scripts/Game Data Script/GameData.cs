@@ -29,11 +29,12 @@ public class GameData : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        Load();
     }
 
     private void Start()
     {
-        Load();
+        
     }
 
     public void Save()
