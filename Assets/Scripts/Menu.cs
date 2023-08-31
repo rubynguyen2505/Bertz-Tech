@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public void OnStartButton(){
-        SceneManager.LoadScene("Battle");
+        SceneManager.LoadScene("Splash");
     }
 
     public void OnQuitButton(){
