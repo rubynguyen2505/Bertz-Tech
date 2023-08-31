@@ -462,9 +462,9 @@ public class Board : MonoBehaviour
 
     private IEnumerator FillBoardCo()
     {
-        RefillBoard();
+        
         yield return new WaitForSeconds(refillDelay);
-
+        RefillBoard();
         while (MatchesOnBoard())
         {
             streakValue ++;
