@@ -22,8 +22,8 @@ public class Dot : MonoBehaviour
     private FindMatches findMatches;
     private Board board;
     public GameObject otherDot;
-    private Vector2 firstTouchPosition;
-    private Vector2 finalTouchPosition;
+    private Vector2 firstTouchPosition = Vector2.zero;
+    private Vector2 finalTouchPosition = Vector2.zero;
     private Vector2 tempPosition;
 
     [Header("Swipe Stuff")]
@@ -102,8 +102,9 @@ public class Dot : MonoBehaviour
             if (board.allDots[column, row] != this.gameObject)
             {
                 board.allDots[column, row] = this.gameObject;
+                findMatches.FindAllMatches();
             }
-            findMatches.FindAllMatches();
+            
         }
         else
         {
@@ -121,8 +122,8 @@ public class Dot : MonoBehaviour
             if (board.allDots[column, row] != this.gameObject)
             {
                 board.allDots[column, row] = this.gameObject;
-            }
-            findMatches.FindAllMatches();
+                findMatches.FindAllMatches();
+            } 
         }
         else
         {
@@ -198,6 +199,8 @@ public class Dot : MonoBehaviour
         {
             hintManager.DestroyHint();
         }
+
+
         
         if (board.currentState == gameState.move)
         {
@@ -223,15 +226,12 @@ public class Dot : MonoBehaviour
             board.currentState = gameState.wait;
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
-            
             board.currentDot = this;
         }
         else
         {
-            board.currentState = gameState.move;
-            
-        }
-        
+            board.currentState = gameState.move;            
+        }        
     }
 
     void MovePiecesActual(Vector2 direction)
