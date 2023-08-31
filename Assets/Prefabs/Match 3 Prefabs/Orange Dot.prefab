@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1229912355885666189}
   - component: {fileID: -4916571368012855851}
   - component: {fileID: -5746328158153716881}
+  - component: {fileID: 4884780294744555872}
   m_Layer: 0
   m_Name: Orange Dot
   m_TagString: Orange Dot
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 507a8a8add805854e87f6460dc92a50d, type: 3}
+  m_Sprite: {fileID: 925972407, guid: 8727119280bfce34bbe5c1613affc9e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,3 +152,24 @@ MonoBehaviour:
   columnArrow: {fileID: 7894683963757491362, guid: 732ecd08d361dc14e89503b2c017ed9d, type: 3}
   colorBomb: {fileID: 2312222810241781233, guid: cf463070665b8d54b9e73db2f28bcd0c, type: 3}
   adjacentMarker: {fileID: 96185259791925928, guid: 3e8383990f048de49beec6b5cacc475b, type: 3}
+--- !u!95 &4884780294744555872
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037622303665789753}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88bf41b71c8ba4e48a514d7026c217ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
