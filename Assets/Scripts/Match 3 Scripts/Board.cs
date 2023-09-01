@@ -55,6 +55,7 @@ public class Board : MonoBehaviour
     public GameObject breakableTilePrefab;
     public GameObject lockTilePrefab;
     public GameObject concreteTilePrefab;
+    public GameObject slimePiecePrefab;
     public GameObject[] dots;
     public GameObject destroyEffect;
 
@@ -64,6 +65,7 @@ public class Board : MonoBehaviour
     private BackgroundTile[,] breakableTiles;
     public BackgroundTile[,] lockTiles;
     private BackgroundTile[,] concreteTiles;
+    private BackgroundTile[,] slimeTiles;
     private BackgroundTile[,] allTiles;
     public GameObject[,] allDots;
 
@@ -78,6 +80,7 @@ public class Board : MonoBehaviour
     private GoalManager goalManager;
     public float refillDelay = 0.5f;
     public int[] scoreGoals;
+    private bool makeSlime = true;
 
     private void Awake()
     {
@@ -110,6 +113,7 @@ public class Board : MonoBehaviour
         breakableTiles = new BackgroundTile[width, height];
         lockTiles = new BackgroundTile[width, height];
         concreteTiles = new BackgroundTile[width, height];
+        slimeTiles = new BackgroundTile[width, height];
         findMatches = FindObjectOfType<FindMatches>();
         blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
@@ -176,17 +180,34 @@ public class Board : MonoBehaviour
         }
     }
 
+    private void GenerateSlimeTiles()
+    {
+        //Look at all the tiles in the layout
+        for (int i = 0; i < boardLayout.Length; i++)
+        {
+            //If a tile is a 'Lock' type
+            if (boardLayout[i].tileKind == TileKind.Slime)
+            {
+                //Create a 'Lock' tile at that position
+                Vector2 tempPosition = new Vector2(boardLayout[i].x, boardLayout[i].y);
+                GameObject tile = Instantiate(slimePiecePrefab, tempPosition, Quaternion.identity);
+                slimeTiles[boardLayout[i].x, boardLayout[i].y] = tile.GetComponent<BackgroundTile>();
+            }
+        }
+    }
+
     private void SetUp()
     {
         GenerateBlankSpace();
         GenerateBreakableTiles();
         GenerateLockTiles();
         GenerateConcreteTiles();
+        GenerateSlimeTiles();
         for (int i = 0; i < width; i ++)
         {
             for (int j = 0; j < height; j ++)
             {
-                if (!blankSpaces[i, j] && !concreteTiles[i, j])
+                if (!blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
                     Vector2 tilePosition = new Vector2(i, j);
@@ -447,6 +468,7 @@ public class Board : MonoBehaviour
             }
             
             DamageConcrete(column, row);
+            DamageSlime(column, row);
 
             if (goalManager != null)
             {
@@ -537,6 +559,58 @@ public class Board : MonoBehaviour
         }
     }
 
+    private void DamageSlime(int column, int row)
+    {
+        if (column > 0)
+        {
+            if (slimeTiles[column - 1, row])
+            {
+                slimeTiles[column - 1, row].TakeDamage(1);
+                if (slimeTiles[column - 1, row].hitPoints <= 0)
+                {
+                    slimeTiles[column - 1, row] = null;
+                }
+                makeSlime = false;
+            }
+        }
+        if (column < width - 1)
+        {
+            if (slimeTiles[column + 1, row])
+            {
+                slimeTiles[column + 1, row].TakeDamage(1);
+                if (slimeTiles[column + 1, row].hitPoints <= 0)
+                {
+                    slimeTiles[column + 1, row] = null;
+                }
+                makeSlime = false;
+            }
+        }
+        if (row > 0)
+        {
+            if (slimeTiles[column, row - 1])
+            {
+                slimeTiles[column, row - 1].TakeDamage(1);
+                if (slimeTiles[column, row - 1].hitPoints <= 0)
+                {
+                    slimeTiles[column, row - 1] = null;
+                }
+                makeSlime = false;
+            }
+        }
+        if (row < height - 1)
+        {
+            if (slimeTiles[column, row + 1])
+            {
+                slimeTiles[column, row + 1].TakeDamage(1);
+                if (slimeTiles[column, row + 1].hitPoints <= 0)
+                {
+                    slimeTiles[column, row + 1] = null;
+                }
+                makeSlime = false;
+            }
+        }
+    }
+
     private IEnumerator DecreaseRowCo2()
     {
         for (int i = 0; i < width; i ++)
@@ -544,7 +618,7 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++)
             {
                 //IIf the current spot isn't blank and is empty
-                if (!blankSpaces[i, j] && allDots[i, j] == null && !concreteTiles[i, j])
+                if (!blankSpaces[i, j] && allDots[i, j] == null && !concreteTiles[i, j] && !slimeTiles[i, j])
                 {
                     //Loop from the space above tot he top of the column
                     for (int k = j + 1; k < height; k ++)
@@ -596,7 +670,7 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j ++)
             {
-                if (allDots[i, j] == null && !blankSpaces[i, j] && !concreteTiles[i, j])
+                if (allDots[i, j] == null && !blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
                     int dotToUse = Random.Range(0, dots.Length);
@@ -650,7 +724,8 @@ public class Board : MonoBehaviour
             yield break;
         }
         currentDot = null;
-        
+        CheckToMakeSlime();
+
         if (IsDeadlocked())
         {
             StartCoroutine(ShuffleBoard());
@@ -658,9 +733,71 @@ public class Board : MonoBehaviour
         }
         yield return new WaitForSeconds(refillDelay);
         currentState = gameState.move;
+        makeSlime = true;
         streakValue = 1;
     }
 
+    private void CheckToMakeSlime()
+    {
+        //Check the slime tiles array
+        for (int i = 0; i < width; i ++)
+        {
+            for(int j = 0;j < height; j ++)
+            {
+                if (slimeTiles[i, j] != null && makeSlime)
+                {
+                    //Call another method to make a new slime
+                    MakeNewSlime();
+                }
+            }
+        }
+    }
+
+    private Vector2 CheckForAdjacent(int column, int row)
+    {
+        if (allDots[column + 1, row] && column < width - 1)
+        {
+            return Vector2.right;
+        }
+        if (allDots[column - 1, row] && column > 0)
+        {
+            return Vector2.left;
+        }
+        if (allDots[column, row + 1] && row < height - 1)
+        {
+            return Vector2.up;
+        }
+        if (allDots[column, row - 1] && row > 0)
+        {
+            return Vector2.down;
+        }
+        return Vector2.zero;
+    }
+
+    private void MakeNewSlime()
+    {
+        bool slime = false;
+        int loops = 0;
+        while (!slime && loops < 200)
+        {
+            int newX = Random.Range(0, width);
+            int newY = Random.Range(0, height);
+            if (slimeTiles[newX, newY])
+            {
+                Vector2 adjacent = CheckForAdjacent(newX, newY);
+                if (adjacent != Vector2.zero)
+                {
+                    Destroy(allDots[newX + (int)adjacent.x, newY + (int)adjacent.y]);
+                    Vector2 tempPosition = new Vector2(newX + (int)adjacent.x, newY + (int)adjacent.y);
+                    GameObject tile = Instantiate(slimePiecePrefab, tempPosition, Quaternion.identity);
+                    slimeTiles[newX + (int)adjacent.x, newY + (int)adjacent.y] = tile.GetComponent<BackgroundTile>();
+                    slime = true;
+                }
+            }
+            loops++;
+        }
+    }
+        
     private void SwitchPieces(int column, int row, Vector2 direction)
     {
         if (allDots[column + (int)direction.x, row + (int)direction.y] != null)
@@ -777,7 +914,7 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++)
             {
                 //If this spot shouldn't be blank
-                if (!blankSpaces[i, j] && !concreteTiles[i, j])
+                if (!blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
                 {
                     //Pick a random number
                     int pieceToUse = Random.Range(0, newBoard.Count);
