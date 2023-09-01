@@ -9034,7 +9034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6efd52f4766fb4d966002d946e7739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Splash
+  sceneToLoad: Level Select
 --- !u!1 &1973381543
 GameObject:
   m_ObjectHideFlags: 0
