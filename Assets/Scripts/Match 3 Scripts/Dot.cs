@@ -111,7 +111,6 @@ public class Dot : MonoBehaviour
             //Directly set the position
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = tempPosition;
-            
         }
 
         if (Mathf.Abs(targetY - transform.position.y) > .1)

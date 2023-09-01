@@ -385,6 +385,42 @@ public class Board : MonoBehaviour
         }
     }
 
+    public void BombRow(int row)
+    {
+        for (int i = 0; i < width; i ++)
+        {
+            for (int j = 0; j < height; j ++) 
+            {
+                if (concreteTiles[i, j])
+                {
+                    concreteTiles[i, row].TakeDamage(1);
+                    if (concreteTiles[i, row].hitPoints <= 0)
+                    {
+                        concreteTiles[i, row] = null;
+                    }
+                }
+            }
+        }
+    }
+
+    public void BombColumn(int column)
+    {
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (concreteTiles[i, j])
+                {
+                    concreteTiles[column, i].TakeDamage(1);
+                    if (concreteTiles[column, i].hitPoints <= 0)
+                    {
+                        concreteTiles[column, i] = null;
+                    }
+                }
+            }
+        }
+    }
+
     private void DestroyMatchesAt(int column, int row)
     {
         if (allDots[column, row].GetComponent<Dot>().isMatched)
@@ -417,11 +453,13 @@ public class Board : MonoBehaviour
                 goalManager.CompareGoal(allDots[column, row].tag.ToString());
                 goalManager.UpdateGoals();
             }
+
             //Does the sound manager exist
             if (soundManager != null)
             {
                 soundManager.PlayRandomDestroyNoise();
             }
+
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, .5f);
             allDots[column, row].GetComponent<Dot>().PopAnimation();
@@ -506,7 +544,7 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++)
             {
                 //IIf the current spot isn't blank and is empty
-                if (!blankSpaces[i, j] && allDots[i, j] == null)
+                if (!blankSpaces[i, j] && allDots[i, j] == null && !concreteTiles[i, j])
                 {
                     //Loop from the space above tot he top of the column
                     for (int k = j + 1; k < height; k ++)
@@ -558,7 +596,7 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j ++)
             {
-                if (allDots[i, j] == null && !blankSpaces[i, j])
+                if (allDots[i, j] == null && !blankSpaces[i, j] && !concreteTiles[i, j])
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
                     int dotToUse = Random.Range(0, dots.Length);
@@ -625,12 +663,15 @@ public class Board : MonoBehaviour
 
     private void SwitchPieces(int column, int row, Vector2 direction)
     {
-        //Take the second piece and save it in a holder
-        GameObject holder = allDots[column + (int)direction.x, row + (int)direction.y] as GameObject;
-        //Switching the first dot to be the second position
-        allDots[column + (int)direction.x, row + (int)direction.y] = allDots[column, row];
-        //Set the first dot to be the second dot
-        allDots[column, row] = holder;
+        if (allDots[column + (int)direction.x, row + (int)direction.y] != null)
+        {
+            //Take the second piece and save it in a holder
+            GameObject holder = allDots[column + (int)direction.x, row + (int)direction.y] as GameObject;
+            //Switching the first dot to be the second position
+            allDots[column + (int)direction.x, row + (int)direction.y] = allDots[column, row];
+            //Set the first dot to be the second dot
+            allDots[column, row] = holder;
+        }
     }
 
     private bool CheckForMatches()
@@ -736,7 +777,7 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++)
             {
                 //If this spot shouldn't be blank
-                if (!blankSpaces[i, j])
+                if (!blankSpaces[i, j] && !concreteTiles[i, j])
                 {
                     //Pick a random number
                     int pieceToUse = Random.Range(0, newBoard.Count);
@@ -746,7 +787,6 @@ public class Board : MonoBehaviour
                     {
                         pieceToUse = Random.Range(0, newBoard.Count);
                         maxIterations ++;
-                        Debug.Log(maxIterations);
                     }
                     //Make a container for the piece
                     Dot piece = newBoard[pieceToUse].GetComponent<Dot>();

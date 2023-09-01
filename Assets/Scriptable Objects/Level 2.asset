@@ -38,11 +38,11 @@ MonoBehaviour:
     gameType: 1
     counterValue: 100
   levelGoals:
-  - numberNeeded: 2
+  - numberNeeded: 10
     numberCollected: 0
     goalSprite: {fileID: 21300000, guid: 713f3e913e83c514ca070a9571e2f5d5, type: 3}
     matchValue: Green Dot
-  - numberNeeded: 5
+  - numberNeeded: 4
     numberCollected: 0
-    goalSprite: {fileID: 21300000, guid: 507a8a8add805854e87f6460dc92a50d, type: 3}
-    matchValue: Orange Dot
+    goalSprite: {fileID: 21300000, guid: 2b324fad4285c2949955cf07bbe57f4d, type: 3}
+    matchValue: Concrete
