@@ -53,7 +53,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer 1
+  - name: Markers
     uniqueID: 645223371
     locked: 0
   - name: New Layer 2
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: New Layer 3
     uniqueID: 725287479
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 1778694393
     locked: 0

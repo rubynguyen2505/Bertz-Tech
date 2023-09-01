@@ -32,7 +32,7 @@ public class CameraScaler : MonoBehaviour
         }
         else
         {
-            Camera.main.orthographicSize = board.height / 2 + padding;
+            Camera.main.orthographicSize = (board.height / 2 + padding) + 2 * yOffset;
         }
         
     }
