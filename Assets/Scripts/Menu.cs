@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public void OnStartButton(){
-        SceneManager.LoadScene("Splash");
+        SceneManager.LoadScene("Level Select");
     }
 
     public void OnQuitButton(){
         Application.Quit();
     }
 
-    public void OnReturnButton(){
+    public void Home(){
         SceneManager.LoadScene("Title Screen");
     }
 }
