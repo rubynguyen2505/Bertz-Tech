@@ -6462,7 +6462,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1447280768}
+      - m_Target: {fileID: 1181747171}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: Home
         m_Mode: 1
@@ -13487,6 +13487,7 @@ GameObject:
   - component: {fileID: 1181747168}
   - component: {fileID: 1181747170}
   - component: {fileID: 1181747169}
+  - component: {fileID: 1181747171}
   m_Layer: 5
   m_Name: Level Select
   m_TagString: Untagged
@@ -13556,6 +13557,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181747167}
   m_CullTransparentMesh: 1
+--- !u!114 &1181747171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181747167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eadc366908f83e44a081de22ce8bba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1191209070
 GameObject:
   m_ObjectHideFlags: 0
@@ -17540,7 +17553,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1447280767}
   - component: {fileID: 1447280766}
-  - component: {fileID: 1447280768}
   m_Layer: 0
   m_Name: Game Data
   m_TagString: Untagged
@@ -17579,18 +17591,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1447280768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447280765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eadc366908f83e44a081de22ce8bba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1455137220
 GameObject:
   m_ObjectHideFlags: 0
