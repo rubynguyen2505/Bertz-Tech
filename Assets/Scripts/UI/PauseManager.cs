@@ -88,6 +88,6 @@ public class PauseManager : MonoBehaviour
 
     public void ExitGame()
     {
-        SceneManager.LoadScene("Splash");
+        SceneManager.LoadScene("Level Select");
     }
 }

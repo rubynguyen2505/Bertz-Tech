@@ -3,10 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum Roles{Archer, Fighter, Mage, Support, Defender}
-public enum Type{Range, Melee}
+public enum Roles
+{
+    Attacker, 
+    Defender, 
+    Healer, 
+    Buffer, 
+    Debuffer
+}
 
-[CreateAssetMenu(fileName ="New Card", menuName ="Character Card")]
+public enum Type
+{
+    Red,
+    Blue,
+    Green,
+    Yellow,
+    Purple
+}
+
+[CreateAssetMenu(fileName = "New Card", menuName = "Character Card")]
 public class Cards : ScriptableObject
 {
     public string charaName;
