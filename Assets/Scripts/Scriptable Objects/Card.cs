@@ -22,7 +22,7 @@ public enum Type
 }
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Character Card")]
-public class Cards : ScriptableObject
+public class Card : ScriptableObject
 {
     public string charaName;
     public Sprite image;
