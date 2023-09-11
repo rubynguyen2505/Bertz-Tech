@@ -730,8 +730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ddb5e78530047418901bbc230c9a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelAnim: {fileID: 1877224203}
-  gameInfoAnim: {fileID: 546339566}
 --- !u!1 &503954717
 GameObject:
   m_ObjectHideFlags: 0
@@ -8114,13 +8112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6af84c4bf6d8234cb3c2a5fc367fbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 849993416}
-  board: {fileID: 0}
-  paused: 0
-  soundButton: {fileID: 893034393}
-  musicOnSprite: {fileID: 21300000, guid: 1f7aac2bb3c6e9645b2e75e37a7f3618, type: 3}
-  musicOffSprite: {fileID: 21300000, guid: 8151ec9b87a31994f82fb3b2cb163272, type: 3}
-  sound: {fileID: 0}
 --- !u!1 &1470312891
 GameObject:
   m_ObjectHideFlags: 0
@@ -8651,25 +8642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f4ce75d72607446894b661405672d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelGoals:
-  - numberNeeded: 2
-    numberCollected: 0
-    goalSprite: {fileID: 21300000, guid: 44d06665265c76e498e717eaeb2013e2, type: 3}
-    matchValue: Breakable
-  - numberNeeded: 5
-    numberCollected: 0
-    goalSprite: {fileID: 21300000, guid: a75ef8acad7d00a4c9ac5906c28848cd, type: 3}
-    matchValue: Red Dot
-  - numberNeeded: 5
-    numberCollected: 0
-    goalSprite: {fileID: 21300000, guid: 713f3e913e83c514ca070a9571e2f5d5, type: 3}
-    matchValue: Green Dot
-  currentGoals: []
-  goalPrefab: {fileID: 2233122446198429634, guid: 87c994e6451863d478de7cb912e44505, type: 3}
-  goalIntroParent: {fileID: 397553818}
-  goalGameParent: {fileID: 503954717}
-  board: {fileID: 0}
-  endGame: {fileID: 0}
 --- !u!1 &1848662296
 GameObject:
   m_ObjectHideFlags: 0
@@ -9005,17 +8977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12de500da734f99428c4fa989c8405a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveLabel: {fileID: 619226910}
-  timeLabel: {fileID: 189382864}
-  youWinPanel: {fileID: 1344259720}
-  tryAgainPanel: {fileID: 1866554900}
-  counter: {fileID: 1435289984}
-  requirements:
-    gameType: 0
-    counterValue: 2
-  currentCounterValue: 0
-  board: {fileID: 0}
-  timerSeconds: 0
 --- !u!114 &1892664540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9028,9 +8989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6efd52f4766fb4d966002d946e7739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Level Select
-  gameData: {fileID: 0}
-  board: {fileID: 0}
 --- !u!1 &1973381543
 GameObject:
   m_ObjectHideFlags: 0
@@ -9968,12 +9926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c8a99e71fdb73458a2902fcc5cab5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: {fileID: 0}
-  scoreDisplay: {fileID: 738056988}
-  score: 0
-  scoreBar: {fileID: 1848662298}
-  gameData: {fileID: 0}
-  numberStars: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

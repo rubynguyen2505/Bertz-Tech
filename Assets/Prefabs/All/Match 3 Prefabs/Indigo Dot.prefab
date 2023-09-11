@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1964068895, guid: 8727119280bfce34bbe5c1613affc9e5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0228900115979ca4f8cae6338c1b75eb, type: 3}
+  m_Color: {r: 0.5647059, g: 0.18823531, b: 0.9960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,14 +144,6 @@ MonoBehaviour:
   otherDot: {fileID: 0}
   swipeAngle: 0
   swipeResist: 1
-  isColorBomb: 0
-  isColumnBomb: 0
-  isRowBomb: 0
-  isAdjacentBomb: 0
-  rowArrow: {fileID: 8787716105879084831, guid: eb41b9375d4136c40b114d4a8b13911e, type: 3}
-  columnArrow: {fileID: 7894683963757491362, guid: 732ecd08d361dc14e89503b2c017ed9d, type: 3}
-  colorBomb: {fileID: 2312222810241781233, guid: cf463070665b8d54b9e73db2f28bcd0c, type: 3}
-  adjacentMarker: {fileID: 96185259791925928, guid: 3e8383990f048de49beec6b5cacc475b, type: 3}
 --- !u!95 &4904128502618497805
 Animator:
   serializedVersion: 5
@@ -160,7 +152,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530666440189001784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 77bc5c111841057448d5c5f4b5282c72, type: 2}
   m_CullingMode: 0
