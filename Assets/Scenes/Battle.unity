@@ -702,7 +702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &495336500
 Transform:
   m_ObjectHideFlags: 0
@@ -1834,17 +1834,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ed62004ea523040962fc8ec609aaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: {fileID: 11400000, guid: ee4b5c522bddb8f49bcc65d240450f90, type: 2}
-  level: 2
-  currentState: 1
   width: 6
   height: 8
-  offSet: 10
   tilePrefab: {fileID: 5914918131645197852, guid: 95996e9aa954c6a498c25e2007d6a57e, type: 3}
-  breakableTilePrefab: {fileID: 6325814517477873033, guid: 771ad84e1c653574f8e610dff9de65c2, type: 3}
-  lockTilePrefab: {fileID: 3544349997890412536, guid: 98c5008d275bebf4cac9a8901dd94a2a, type: 3}
-  concreteTilePrefab: {fileID: 853145208822536682, guid: 31533f0f15c7965448c75a14263fb8e5, type: 3}
-  slimePiecePrefab: {fileID: 124103117619522697, guid: c84ea6396e959d148badfb51146fe570, type: 3}
   dots:
   - {fileID: 5145155175555517389, guid: 9a578da8687129e4d807c5468cdbe930, type: 3}
   - {fileID: 1780393611618516764, guid: a34ced14ed190974f843844c8d8a4dbb, type: 3}
@@ -1852,15 +1844,11 @@ MonoBehaviour:
   - {fileID: 8037622303665789753, guid: 41c995b4c05e9fb47820d47c5fa4cc25, type: 3}
   - {fileID: 6496350191541928849, guid: 90279b4465fdee44b9c309b64e94f7e4, type: 3}
   - {fileID: 1015204175331204409, guid: b47bea7f54533a54c838b7a107970e72, type: 3}
-  destroyEffect: {fileID: 3903839006392915690, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-  boardLayout: []
   matchType:
     type: 0
     color: 
   currentDot: {fileID: 0}
-  basePieceValue: 20
   refillDelay: 0.75
-  scoreGoals: d0070000a00f000088130000
 --- !u!114 &750384145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,7 +1869,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750384141}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0d8e8e19a21c3144be5f43c76315fec, type: 3}
   m_Name: 
@@ -1982,7 +1970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &786884343
 Transform:
   m_ObjectHideFlags: 0
@@ -8098,7 +8086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1469640567
 Transform:
   m_ObjectHideFlags: 0
@@ -8127,10 +8115,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 849993416}
+  board: {fileID: 0}
   paused: 0
   soundButton: {fileID: 893034393}
   musicOnSprite: {fileID: 21300000, guid: 1f7aac2bb3c6e9645b2e75e37a7f3618, type: 3}
   musicOffSprite: {fileID: 21300000, guid: 8151ec9b87a31994f82fb3b2cb163272, type: 3}
+  sound: {fileID: 0}
 --- !u!1 &1470312891
 GameObject:
   m_ObjectHideFlags: 0
@@ -8633,7 +8623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1598074663
 Transform:
   m_ObjectHideFlags: 0
@@ -8678,6 +8668,8 @@ MonoBehaviour:
   goalPrefab: {fileID: 2233122446198429634, guid: 87c994e6451863d478de7cb912e44505, type: 3}
   goalIntroParent: {fileID: 397553818}
   goalGameParent: {fileID: 503954717}
+  board: {fileID: 0}
+  endGame: {fileID: 0}
 --- !u!1 &1848662296
 GameObject:
   m_ObjectHideFlags: 0
@@ -8985,7 +8977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1892664538
 Transform:
   m_ObjectHideFlags: 0
@@ -9022,6 +9014,8 @@ MonoBehaviour:
     gameType: 0
     counterValue: 2
   currentCounterValue: 0
+  board: {fileID: 0}
+  timerSeconds: 0
 --- !u!114 &1892664540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9035,6 +9029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Level Select
+  gameData: {fileID: 0}
+  board: {fileID: 0}
 --- !u!1 &1973381543
 GameObject:
   m_ObjectHideFlags: 0
@@ -9448,7 +9444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2033122406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9944,7 +9940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2134190524
 Transform:
   m_ObjectHideFlags: 0
@@ -9972,9 +9968,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c8a99e71fdb73458a2902fcc5cab5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 0}
   scoreDisplay: {fileID: 738056988}
   score: 0
   scoreBar: {fileID: 1848662298}
+  gameData: {fileID: 0}
+  numberStars: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
