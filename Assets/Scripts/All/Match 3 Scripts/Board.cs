@@ -68,7 +68,7 @@ public class Board : MonoBehaviour
     //public GameObject lockTilePrefab;
     //public GameObject concreteTilePrefab;
     //public GameObject slimePiecePrefab;
-    //public GameObject[] dots;
+    public GameObject[] dots;
     //public GameObject destroyEffect;
     
     /*
@@ -82,7 +82,7 @@ public class Board : MonoBehaviour
     private BackgroundTile[,] allTiles;
     */
 
-    //public GameObject[,] allDots;
+    public GameObject[,] allDots;
 
     /*
     [Header("Match Stuff")]
@@ -144,7 +144,7 @@ public class Board : MonoBehaviour
 
         //findMatches = FindObjectOfType<FindMatches>();
         //blankSpaces = new bool[width, height];
-        //allDots = new GameObject[width, height];
+        allDots = new GameObject[width, height];
         SetUp();
         //currentState = gameState.pause;
     }
@@ -255,7 +255,7 @@ public class Board : MonoBehaviour
                     GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
                     backgroundTile.transform.parent = this.transform;
                     backgroundTile.name = "( " + i + ", " + j + " )";
-                    //int dotToUse = Random.Range(0, dots.Length);
+                    int dotToUse = Random.Range(0, dots.Length);
                     /*
                     int maxIterations = 0;
                     while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
@@ -264,14 +264,15 @@ public class Board : MonoBehaviour
                         maxIterations ++;
                     }
                     maxIterations = 0;
+                    */
 
                     GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
-                    dot.GetComponent<Dot>().row = j;
-                    dot.GetComponent<Dot>().column = i;
+                    //dot.GetComponent<Dot>().row = j;
+                    //dot.GetComponent<Dot>().column = i;
                     dot.transform.parent = this.transform;
                     dot.name = "( " + i + ", " + j + " )";
                     allDots[i, j] = dot;
-                    */
+                    
                 //}
             }
         }
