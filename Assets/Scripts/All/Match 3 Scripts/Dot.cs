@@ -13,6 +13,7 @@ public class Dot : MonoBehaviour
     public int targetX;
     public int targetY;
     public bool isMatched = false;
+    */
 
     
     //private Animator animator;
@@ -22,18 +23,18 @@ public class Dot : MonoBehaviour
     //private HintManager hintManager;
     
 
-    private FindMatches findMatches;
-    private Board board;
-    public GameObject otherDot;
+    //private FindMatches findMatches;
+    //private Board board;
+    //public GameObject otherDot;
     private Vector2 firstTouchPosition = Vector2.zero;
     private Vector2 finalTouchPosition = Vector2.zero;
-    private Vector2 tempPosition;
+    //private Vector2 tempPosition;
 
     [Header("Swipe Stuff")]
     public float swipeAngle = 0;
     public float swipeResist = 1f;
 
-    
+    /*
     [Header("Powerup Stuff")]
     public bool isColorBomb;
     public bool isColumnBomb;
@@ -43,12 +44,12 @@ public class Dot : MonoBehaviour
     public GameObject columnArrow;
     public GameObject colorBomb;
     public GameObject adjacentMarker;
-    
+    */
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        /*
         isColumnBomb = false;
         isRowBomb = false;
         isColorBomb = false;
@@ -59,10 +60,11 @@ public class Dot : MonoBehaviour
         animator = GetComponent<Animator>();
         endgameManager = FindObjectOfType<EndGameManager>();
         hintManager = FindObjectOfType<HintManager>();
-        
-        board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
+        */
+
+        //board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
         //board = FindObjectOfType<Board>();
-        findMatches = FindObjectOfType<FindMatches>();
+        //findMatches = FindObjectOfType<FindMatches>();
         //targetX = (int)transform.position.x;
         //targetY = (int)transform.position.y;
         //row = targetY;
@@ -71,7 +73,7 @@ public class Dot : MonoBehaviour
         //previousColumn = column;
     }
 
-    
+    /*
     //This is for testing and debug only
     private void OnMouseOver()
     {
@@ -82,8 +84,9 @@ public class Dot : MonoBehaviour
             marker.transform.parent = this.transform;
         }
     }
-    
+    */
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -142,8 +145,9 @@ public class Dot : MonoBehaviour
             transform.position = tempPosition;
         }
     }
+    */
     
-    
+    /*
     IEnumerator StartShineCo()
     {
         animator.SetBool("Shine", true);
@@ -157,8 +161,9 @@ public class Dot : MonoBehaviour
     {
         animator.SetBool("Popped", true);
     }
-    
+    */
 
+    /*
     public IEnumerator CheckMoveCo()
     {
         
@@ -206,11 +211,12 @@ public class Dot : MonoBehaviour
         }
         
     }
-
+    */
     
+
     private void OnMouseDown()
     {
-        
+        /*
         if (animator != null)
         {
             animator.SetBool("Touched", true);
@@ -220,7 +226,7 @@ public class Dot : MonoBehaviour
         {
             hintManager.DestroyHint();
         }
-        
+        */
 
 
         
@@ -250,8 +256,8 @@ public class Dot : MonoBehaviour
         {
             //board.currentState = gameState.wait;
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
-            MovePieces();
-            board.currentDot = this;
+            //MovePieces();
+            //board.currentDot = this;
         }
         else
         {
@@ -259,6 +265,7 @@ public class Dot : MonoBehaviour
         }        
     }
 
+    /*
     void MovePiecesActual(Vector2 direction)
     {
         otherDot = board.allDots[column + (int)direction.x, row + (int)direction.y];
@@ -286,7 +293,9 @@ public class Dot : MonoBehaviour
 
 
     }
+    */
 
+    /*
     void MovePieces()
     {
         if (swipeAngle > -45 && swipeAngle <= 45 && column < board.width - 1) 
@@ -348,7 +357,9 @@ public class Dot : MonoBehaviour
         
         
     }
+    */
 
+    /*
     void FindMatches()
     {
         if (column > 0 && column < board.width - 1)
@@ -382,8 +393,9 @@ public class Dot : MonoBehaviour
             }
         }
     }
+    */
 
-    
+    /*
     public void MakeRowBomb()
     {
         if (!isColumnBomb && !isColorBomb && !isAdjacentBomb)
@@ -394,9 +406,9 @@ public class Dot : MonoBehaviour
         }
         
     }
-    
+    */
 
-    
+    /*
     public void MakeColumnBomb()
     {
         if (!isRowBomb && !isColorBomb && !isAdjacentBomb)
@@ -407,9 +419,9 @@ public class Dot : MonoBehaviour
         }
         
     }
-    
+    */
 
-    
+    /*
     public void MakeColorBomb()
     {
         if (!isRowBomb && !isColumnBomb && !isAdjacentBomb)
@@ -421,9 +433,9 @@ public class Dot : MonoBehaviour
         }
         
     }
-    
+    */
 
-    
+    /*
     public void MakeAdjacentBomb()
     {
         if (!isColorBomb && !isColumnBomb && !isRowBomb)
@@ -434,7 +446,5 @@ public class Dot : MonoBehaviour
         }
         
     }
-    
-
     */
 }
