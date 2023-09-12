@@ -5,7 +5,7 @@ using System.Linq;
 
 public class FindMatches : MonoBehaviour
 {
-
+    /*
     private Board board;
     public List<GameObject> currentMatches = new List<GameObject>();
 
@@ -19,8 +19,7 @@ public class FindMatches : MonoBehaviour
     {
         StartCoroutine(FindAllMatchesCo());
     }
-
-    /*
+  
     private List<GameObject> isAdjacentBomb(Dot dot1, Dot dot2, Dot dot3)
     {
         List <GameObject> currentDots = new List<GameObject>();
@@ -40,9 +39,7 @@ public class FindMatches : MonoBehaviour
         }
         return currentDots;
     }
-    */
-
-    /*
+      
     private List<GameObject> isRowBomb(Dot dot1, Dot dot2, Dot dot3)
     {
         List <GameObject> currentDots = new List<GameObject>();
@@ -65,9 +62,7 @@ public class FindMatches : MonoBehaviour
         }
         return currentDots;
     }
-    */
 
-    /*
     private List<GameObject> isColumnBomb(Dot dot1, Dot dot2, Dot dot3)
     {
         List <GameObject> currentDots = new List<GameObject>();
@@ -90,9 +85,7 @@ public class FindMatches : MonoBehaviour
         }
         return currentDots;
     }
-    */
-
-
+    
     private void AddToListAndMatch(GameObject dot)
     {
         if (!currentMatches.Contains(dot))
@@ -135,13 +128,13 @@ public class FindMatches : MonoBehaviour
                             Dot leftDotDot = leftDot.GetComponent<Dot>();
                             if (leftDot.tag == currentDot.tag && rightDot.tag == currentDot.tag)
                             {
-                                /*
+                                
                                 currentMatches.Union(isRowBomb(leftDotDot, currentDotDot, rightDotDot));
 
                                 currentMatches.Union(isColumnBomb(leftDotDot, currentDotDot, rightDotDot));
 
                                 currentMatches.Union(isAdjacentBomb(leftDotDot, currentDotDot, rightDotDot));
-                                */
+                                
 
                                 GetNearbyPieces(leftDot, currentDot, rightDot);
                             }
@@ -159,13 +152,13 @@ public class FindMatches : MonoBehaviour
                             Dot upDotDot = upDot.GetComponent<Dot>();
                             if (upDot.tag == currentDot.tag && downDot.tag == currentDot.tag)
                             {
-                                /*
+                                
                                 currentMatches.Union(isColumnBomb(upDotDot, currentDotDot, downDotDot));
 
                                 currentMatches.Union(isRowBomb(upDotDot, currentDotDot, downDotDot));
 
                                 currentMatches.Union(isAdjacentBomb(upDotDot, currentDotDot, downDotDot));
-                                */
+                                
 
                                 GetNearbyPieces(upDot, currentDot, downDot);
                             }
@@ -226,12 +219,12 @@ public class FindMatches : MonoBehaviour
             if (board.allDots[column, i] != null)
             {
                 Dot dot = board.allDots[column, i].GetComponent<Dot>();
-                /*
+                
                 if (dot.isRowBomb)
                 {
                     dots.Union(GetRowPieces(i)).ToList();
                 }
-                */
+                
                 dots.Add(board.allDots[column, i]);
                 dot.isMatched = true;
             }
@@ -247,20 +240,19 @@ public class FindMatches : MonoBehaviour
             if (board.allDots[i, row] != null)
             {
                 Dot dot = board.allDots[i, row].GetComponent<Dot>();
-                /*
+                
                 if (dot.isColumnBomb)
                 {
                     dots.Union(GetColumnPieces(i)).ToList();
                 }
-                */
+                
                 dots.Add(board.allDots[i, row]);
                 dot.isMatched = true;
             }
         }
         return dots;
     }
-
-    /*
+    
     public void CheckBombs(MatchType matchType)
     {
         //Did the player move something?

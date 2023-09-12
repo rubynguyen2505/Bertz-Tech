@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HintManager : MonoBehaviour
 {
+    /*
     private Board board;
     public float hintDelay;
     private float hintDelaySeconds;
@@ -91,5 +92,5 @@ public class HintManager : MonoBehaviour
             hintDelaySeconds = hintDelay;
         }
     }
-
+    */
 }

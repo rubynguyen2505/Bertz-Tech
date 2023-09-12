@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dot : MonoBehaviour
 {
+    /*
     [Header("Board Variables")]
     public int column;
     public int row;
@@ -13,13 +14,13 @@ public class Dot : MonoBehaviour
     public int targetY;
     public bool isMatched = false;
 
-    /*
-    private Animator animator;
-    private float shineDelay;
-    private float shineDelaySecond;
-    private EndGameManager endgameManager;
-    private HintManager hintManager;
-    */
+    
+    //private Animator animator;
+    //private float shineDelay;
+    //private float shineDelaySecond;
+    //private EndGameManager endgameManager;
+    //private HintManager hintManager;
+    
 
     private FindMatches findMatches;
     private Board board;
@@ -32,7 +33,7 @@ public class Dot : MonoBehaviour
     public float swipeAngle = 0;
     public float swipeResist = 1f;
 
-    /*
+    
     [Header("Powerup Stuff")]
     public bool isColorBomb;
     public bool isColumnBomb;
@@ -42,12 +43,12 @@ public class Dot : MonoBehaviour
     public GameObject columnArrow;
     public GameObject colorBomb;
     public GameObject adjacentMarker;
-    */
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
+        
         isColumnBomb = false;
         isRowBomb = false;
         isColorBomb = false;
@@ -58,7 +59,7 @@ public class Dot : MonoBehaviour
         animator = GetComponent<Animator>();
         endgameManager = FindObjectOfType<EndGameManager>();
         hintManager = FindObjectOfType<HintManager>();
-        */
+        
         board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
         //board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
@@ -70,7 +71,7 @@ public class Dot : MonoBehaviour
         //previousColumn = column;
     }
 
-    /*
+    
     //This is for testing and debug only
     private void OnMouseOver()
     {
@@ -81,26 +82,26 @@ public class Dot : MonoBehaviour
             marker.transform.parent = this.transform;
         }
     }
-    */
+    
 
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         shineDelaySecond -= Time.deltaTime;
         if (shineDelaySecond <= 0)
         {
             shineDelaySecond = shineDelay;
             StartCoroutine(StartShineCo());
         }
-        */
+        
 
-        /*
+        
         if (isMatched)
         {
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
             mySprite.color = new Color(1f, 1f, 1f, .2f);
-        }*/
+        }
 
         targetX = column;
         targetY = row;
@@ -142,25 +143,25 @@ public class Dot : MonoBehaviour
         }
     }
     
-    /*
+    
     IEnumerator StartShineCo()
     {
         animator.SetBool("Shine", true);
         yield return null;
         animator.SetBool("Shine", false);
     }
-    */
+    
 
-    /*
+    
     public void PopAnimation()
     {
         animator.SetBool("Popped", true);
     }
-    */
+    
 
     public IEnumerator CheckMoveCo()
     {
-        /*
+        
         if (isColorBomb)
         {
             //This piece is a color bomb, and the other piece is the color to destroy
@@ -173,7 +174,7 @@ public class Dot : MonoBehaviour
             findMatches.MatchPiecesOfColor(this.gameObject.tag);
             otherDot.GetComponent<Dot>().isMatched = true;
         }
-        */
+        
 
         yield return new WaitForSeconds(.5f);
         if (otherDot != null)
@@ -190,7 +191,7 @@ public class Dot : MonoBehaviour
             }
             else
             {
-                /*
+                
                 if (endgameManager != null)
                 {
                     if (endgameManager.requirements.gameType == GameType.Moves)
@@ -198,7 +199,7 @@ public class Dot : MonoBehaviour
                         endgameManager.DecreaseCounterValue();
                     }
                 }
-                */
+                
                 board.DestroyMatches();
             }
             //otherDot = null;
@@ -209,7 +210,7 @@ public class Dot : MonoBehaviour
     
     private void OnMouseDown()
     {
-        /*
+        
         if (animator != null)
         {
             animator.SetBool("Touched", true);
@@ -219,7 +220,7 @@ public class Dot : MonoBehaviour
         {
             hintManager.DestroyHint();
         }
-        */
+        
 
 
         
@@ -291,53 +292,53 @@ public class Dot : MonoBehaviour
         if (swipeAngle > -45 && swipeAngle <= 45 && column < board.width - 1) 
         {
             //Right Swipe
-            /*
+            
             otherDot = board.allDots[column + 1, row];
             previousRow = row;
             previousColumn = column;
             otherDot.GetComponent<Dot>().column -= 1;
             column += 1;
             StartCoroutine(CheckMoveCo());
-            */
+            
             MovePiecesActual(Vector2.right);
         }
         else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.height - 1)
         {
             //Up Swipe
-            /*
+            
             otherDot = board.allDots[column, row + 1];
             previousRow = row;
             previousColumn = column;
             otherDot.GetComponent<Dot>().row -= 1;
             row += 1;
             StartCoroutine(CheckMoveCo());
-            */
+            
             MovePiecesActual(Vector2.up);
         }
         else if ((swipeAngle > 135 || swipeAngle <= -135 ) && column > 0)
         {
             //Left Swipe
-            /*
+            
             otherDot = board.allDots[column - 1, row];
             previousRow = row;
             previousColumn = column;
             otherDot.GetComponent<Dot>().column += 1;
             column -= 1;
             StartCoroutine(CheckMoveCo());
-            */
+            
             MovePiecesActual(Vector2.left);
         }
         else if (swipeAngle < -45 && swipeAngle >= -135 && row > 0)
         {
             //Down Swipe
-            /*
+            
             otherDot = board.allDots[column, row - 1];
             previousRow = row;
             previousColumn = column;
             otherDot.GetComponent<Dot>().row += 1;
             row -= 1;
             StartCoroutine(CheckMoveCo());
-            */
+            
             MovePiecesActual(Vector2.down);
         }
         else
@@ -382,7 +383,7 @@ public class Dot : MonoBehaviour
         }
     }
 
-    /*
+    
     public void MakeRowBomb()
     {
         if (!isColumnBomb && !isColorBomb && !isAdjacentBomb)
@@ -393,9 +394,9 @@ public class Dot : MonoBehaviour
         }
         
     }
-    */
+    
 
-    /*
+    
     public void MakeColumnBomb()
     {
         if (!isRowBomb && !isColorBomb && !isAdjacentBomb)
@@ -406,9 +407,9 @@ public class Dot : MonoBehaviour
         }
         
     }
-    */
+    
 
-    /*
+    
     public void MakeColorBomb()
     {
         if (!isRowBomb && !isColumnBomb && !isAdjacentBomb)
@@ -420,9 +421,9 @@ public class Dot : MonoBehaviour
         }
         
     }
-    */
+    
 
-    /*
+    
     public void MakeAdjacentBomb()
     {
         if (!isColorBomb && !isColumnBomb && !isRowBomb)
@@ -433,5 +434,7 @@ public class Dot : MonoBehaviour
         }
         
     }
+    
+
     */
 }
