@@ -23,7 +23,7 @@ public class Dot : MonoBehaviour
     //private HintManager hintManager;
     
 
-    //private FindMatches findMatches;
+    private FindMatches findMatches;
     private Board board;
     public GameObject otherDot;
     private Vector2 firstTouchPosition = Vector2.zero;
@@ -64,7 +64,7 @@ public class Dot : MonoBehaviour
 
         board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
         //board = FindObjectOfType<Board>();
-        //findMatches = FindObjectOfType<FindMatches>();
+        findMatches = FindObjectOfType<FindMatches>();
         targetX = (int)transform.position.x;
         targetY = (int)transform.position.y;
         row = targetY;
@@ -90,7 +90,6 @@ public class Dot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindMatches(); //Remove later - only for testing (ineffecient)
         /*
         shineDelaySecond -= Time.deltaTime;
         if (shineDelaySecond <= 0)
@@ -123,6 +122,7 @@ public class Dot : MonoBehaviour
                 findMatches.FindAllMatches();
             }
             */
+            findMatches.FindAllMatches(); //Adjust later
         }
         else
         {
@@ -144,6 +144,7 @@ public class Dot : MonoBehaviour
                 findMatches.FindAllMatches();
             }
             */
+            findMatches.FindAllMatches(); //Adjust later
         }
         else
         {

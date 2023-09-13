@@ -5,7 +5,6 @@ using System.Linq;
 
 public class FindMatches : MonoBehaviour
 {
-    /*
     private Board board;
     public List<GameObject> currentMatches = new List<GameObject>();
 
@@ -19,7 +18,7 @@ public class FindMatches : MonoBehaviour
     {
         StartCoroutine(FindAllMatchesCo());
     }
-  
+  /*
     private List<GameObject> isAdjacentBomb(Dot dot1, Dot dot2, Dot dot3)
     {
         List <GameObject> currentDots = new List<GameObject>();
@@ -94,7 +93,6 @@ public class FindMatches : MonoBehaviour
         }
         dot.GetComponent<Dot>().isMatched = true;
     }
-
     private void GetNearbyPieces(GameObject dot1, GameObject dot2, GameObject dot3)
     {
         AddToListAndMatch(dot1);
@@ -103,6 +101,7 @@ public class FindMatches : MonoBehaviour
 
         AddToListAndMatch(dot3);
     }
+  */
 
     private IEnumerator FindAllMatchesCo()
     {
@@ -128,7 +127,11 @@ public class FindMatches : MonoBehaviour
                             Dot leftDotDot = leftDot.GetComponent<Dot>();
                             if (leftDot.tag == currentDot.tag && rightDot.tag == currentDot.tag)
                             {
-                                
+                                //Replace later
+                                leftDot.GetComponent<Dot>().isMatched = true;
+                                rightDot.GetComponent<Dot>().isMatched = true;
+                                currentDot.GetComponent <Dot>().isMatched = true;
+                                /*
                                 currentMatches.Union(isRowBomb(leftDotDot, currentDotDot, rightDotDot));
 
                                 currentMatches.Union(isColumnBomb(leftDotDot, currentDotDot, rightDotDot));
@@ -137,6 +140,7 @@ public class FindMatches : MonoBehaviour
                                 
 
                                 GetNearbyPieces(leftDot, currentDot, rightDot);
+                                */
                             }
                         }                    
                     }
@@ -152,7 +156,11 @@ public class FindMatches : MonoBehaviour
                             Dot upDotDot = upDot.GetComponent<Dot>();
                             if (upDot.tag == currentDot.tag && downDot.tag == currentDot.tag)
                             {
-                                
+                                //Replace later
+                                upDot.GetComponent<Dot>().isMatched = true;
+                                downDot.GetComponent<Dot>().isMatched = true;
+                                currentDot.GetComponent<Dot>().isMatched = true;
+                                /*
                                 currentMatches.Union(isColumnBomb(upDotDot, currentDotDot, downDotDot));
 
                                 currentMatches.Union(isRowBomb(upDotDot, currentDotDot, downDotDot));
@@ -161,6 +169,7 @@ public class FindMatches : MonoBehaviour
                                 
 
                                 GetNearbyPieces(upDot, currentDot, downDot);
+                                */
                             }
                         }                      
                     }
@@ -168,7 +177,7 @@ public class FindMatches : MonoBehaviour
             }
         }
     }
-
+    /*
     public void MatchPiecesOfColor(string color)
     {
         for (int i = 0; i < board.width; i ++)
@@ -252,7 +261,7 @@ public class FindMatches : MonoBehaviour
         }
         return dots;
     }
-    
+    /*
     public void CheckBombs(MatchType matchType)
     {
         //Did the player move something?
