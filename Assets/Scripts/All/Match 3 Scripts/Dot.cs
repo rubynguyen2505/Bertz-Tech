@@ -98,14 +98,14 @@ public class Dot : MonoBehaviour
             StartCoroutine(StartShineCo());
         }
         
-
+        */
         
         if (isMatched)
         {
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
             mySprite.color = new Color(1f, 1f, 1f, .2f);
         }
-        */
+        
 
         targetX = column;
         targetY = row;
@@ -318,7 +318,7 @@ public class Dot : MonoBehaviour
             //previousColumn = column;
             otherDot.GetComponent<Dot>().column -= 1;
             column += 1;
-            //StartCoroutine(CheckMoveCo());
+            StartCoroutine(CheckMoveCo());
             
             //MovePiecesActual(Vector2.right);
         }
@@ -331,7 +331,7 @@ public class Dot : MonoBehaviour
             //previousColumn = column;
             otherDot.GetComponent<Dot>().row -= 1;
             row += 1;
-            //StartCoroutine(CheckMoveCo());
+            StartCoroutine(CheckMoveCo());
             
             //MovePiecesActual(Vector2.up);
         }
@@ -344,7 +344,7 @@ public class Dot : MonoBehaviour
             //previousColumn = column;
             otherDot.GetComponent<Dot>().column += 1;
             column -= 1;
-            //StartCoroutine(CheckMoveCo());
+            StartCoroutine(CheckMoveCo());
             
             //MovePiecesActual(Vector2.left);
         }
@@ -357,7 +357,7 @@ public class Dot : MonoBehaviour
             //previousColumn = column;
             otherDot.GetComponent<Dot>().row += 1;
             row -= 1;
-            //StartCoroutine(CheckMoveCo());
+            StartCoroutine(CheckMoveCo());
             
             //MovePiecesActual(Vector2.down);
         }
