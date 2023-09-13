@@ -8,11 +8,11 @@ public class Dot : MonoBehaviour
     [Header("Board Variables")]
     public int column;
     public int row;
-    //public int previousColumn;
-    //public int previousRow;
+    public int previousColumn;
+    public int previousRow;
     public int targetX;
     public int targetY;
-    //public bool isMatched = false;
+    public bool isMatched = false;
     
 
     
@@ -69,8 +69,8 @@ public class Dot : MonoBehaviour
         targetY = (int)transform.position.y;
         row = targetY;
         column = targetX;
-        //previousRow = row;
-        //previousColumn = column;
+        previousRow = row;
+        previousColumn = column;
     }
 
     /*
@@ -90,6 +90,7 @@ public class Dot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FindMatches(); //Remove later - only for testing (ineffecient)
         /*
         shineDelaySecond -= Time.deltaTime;
         if (shineDelaySecond <= 0)
@@ -171,10 +172,10 @@ public class Dot : MonoBehaviour
     }
     */
 
-    /*
+    
     public IEnumerator CheckMoveCo()
     {
-        
+        /*
         if (isColorBomb)
         {
             //This piece is a color bomb, and the other piece is the color to destroy
@@ -188,7 +189,7 @@ public class Dot : MonoBehaviour
             otherDot.GetComponent<Dot>().isMatched = true;
         }
         
-
+        */
         yield return new WaitForSeconds(.5f);
         if (otherDot != null)
         {
@@ -198,10 +199,11 @@ public class Dot : MonoBehaviour
                 otherDot.GetComponent<Dot>().column = column;
                 row = previousRow;
                 column = previousColumn;
-                yield return new WaitForSeconds(.5f);
-                board.currentDot = null;
+                //yield return new WaitForSeconds(.5f);
+                //board.currentDot = null;
                 //board.currentState = gameState.move;
             }
+            /*
             else
             {
                 
@@ -215,11 +217,11 @@ public class Dot : MonoBehaviour
                 
                 board.DestroyMatches();
             }
-            //otherDot = null;
+            */
+            otherDot = null;
         }
         
     }
-    */
     
 
     private void OnMouseDown()
@@ -362,12 +364,11 @@ public class Dot : MonoBehaviour
         {
             //board.currentState = gameState.move;
         }
-        
-        
+        StartCoroutine(CheckMoveCo());
     }
     
 
-    /*
+    
     void FindMatches()
     {
         if (column > 0 && column < board.width - 1)
@@ -401,7 +402,6 @@ public class Dot : MonoBehaviour
             }
         }
     }
-    */
 
     /*
     public void MakeRowBomb()
