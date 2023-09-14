@@ -728,7 +728,7 @@ public class Board : MonoBehaviour
             nullCount = 0;
         }
         yield return new WaitForSeconds(refillDelay * 0.5f);
-        //StartCoroutine(FillBoardCo());
+        StartCoroutine(FillBoardCo());
     }
     
 
@@ -757,18 +757,18 @@ public class Board : MonoBehaviour
                     
                     GameObject piece = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                     allDots[i, j] = piece;
-                    piece.GetComponent<Dot>().row = j;
-                    piece.GetComponent<Dot>().column = i;
+                    //piece.GetComponent<Dot>().row = j;
+                    //piece.GetComponent<Dot>().column = i;
                 }
             }
         }
     }
     
 
-    /*
+    
     private bool MatchesOnBoard()
     {
-        findMatches.FindAllMatches();
+        //findMatches.FindAllMatches();
         for (int i = 0; i < width; i ++)
         {
             for (int j = 0; j < height; j ++)
@@ -784,9 +784,9 @@ public class Board : MonoBehaviour
         }
         return false;
     }
-    */
+    
 
-    /*
+    
     private IEnumerator FillBoardCo()
     {
         
@@ -799,6 +799,7 @@ public class Board : MonoBehaviour
             DestroyMatches();
             yield break;
         }
+        /*
         currentDot = null;
         //CheckToMakeSlime();
 
@@ -816,9 +817,9 @@ public class Board : MonoBehaviour
             makeSlime = true;
             streakValue = 1;
         }
-        
+        */
     }
-    */
+    
 
     /*
     private void CheckToMakeSlime()
