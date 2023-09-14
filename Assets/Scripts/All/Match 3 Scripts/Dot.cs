@@ -204,21 +204,21 @@ public class Dot : MonoBehaviour
                 //board.currentDot = null;
                 //board.currentState = gameState.move;
             }
-            /*
+            
             else
             {
-                
+                /*
                 if (endgameManager != null)
                 {
                     if (endgameManager.requirements.gameType == GameType.Moves)
                     {
                         endgameManager.DecreaseCounterValue();
                     }
-                }
+                }*/
                 
                 board.DestroyMatches();
             }
-            */
+            
             otherDot = null;
         }
         
