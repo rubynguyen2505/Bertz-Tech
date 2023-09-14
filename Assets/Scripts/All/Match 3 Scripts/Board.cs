@@ -489,12 +489,12 @@ public class Board : MonoBehaviour
     }
     */
 
-    /*
+    
     private void DestroyMatchesAt(int column, int row)
     {
         if (allDots[column, row].GetComponent<Dot>().isMatched)
         {
-            
+            /*
             //Does a tile need to break?
             if (breakableTiles[column, row] != null)
             {
@@ -536,17 +536,18 @@ public class Board : MonoBehaviour
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, .5f);
             allDots[column, row].GetComponent<Dot>().PopAnimation();
-            
+            */
+
             Destroy(allDots[column, row], .5f);
             //scoreManager.IncreaseScore(basePieceValue * streakValue);
             allDots[column, row] = null;
         }
     }
-    */
+    
 
-    /*
+    
     public void DestroyMatches(){
-        
+        /*
         //How many elements are in the matched pieces list from findmatches
         if (findMatches.currentMatches.Count >= 4)
         {
@@ -555,6 +556,7 @@ public class Board : MonoBehaviour
         
 
         findMatches.currentMatches.Clear();
+        */
         for (int i = 0; i < width; i ++)
         {
             for (int j = 0; j < height; j ++)
@@ -565,9 +567,9 @@ public class Board : MonoBehaviour
                 }
             }
         }       
-        StartCoroutine(DecreaseRowCo2());
+        //StartCoroutine(DecreaseRowCo2());
     }
-    */
+    
 
     /*
     private void DamageConcrete(int column, int row)
