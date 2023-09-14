@@ -115,13 +115,13 @@ public class Dot : MonoBehaviour
             //move Towards the target
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
-            /*
+            
             if (board.allDots[column, row] != this.gameObject)
             {
                 board.allDots[column, row] = this.gameObject;
-                findMatches.FindAllMatches();
+                //findMatches.FindAllMatches();
             }
-            */
+            
             findMatches.FindAllMatches(); //Adjust later
         }
         else
@@ -137,13 +137,13 @@ public class Dot : MonoBehaviour
             //move Towards the target
             tempPosition = new Vector2(transform.position.x, targetY);
             transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
-            /*
+            
             if (board.allDots[column, row] != this.gameObject)
             {
                 board.allDots[column, row] = this.gameObject;
-                findMatches.FindAllMatches();
+                //findMatches.FindAllMatches();
             }
-            */
+            
             findMatches.FindAllMatches(); //Adjust later
         }
         else

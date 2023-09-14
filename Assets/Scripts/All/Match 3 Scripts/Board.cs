@@ -59,7 +59,7 @@ public class Board : MonoBehaviour
     [Header ("Board Dimensions")]
     public int width;
     public int height;
-    //public int offSet;
+    public int offSet;
 
     
     [Header ("Prefabs")]
@@ -98,7 +98,7 @@ public class Board : MonoBehaviour
     private SoundManager soundManager;
     private GoalManager goalManager;
     */
-    //public float refillDelay = 0.5f;
+    public float refillDelay = 0.5f;
     /*
     public int[] scoreGoals;
     private bool makeSlime = true;
@@ -567,7 +567,7 @@ public class Board : MonoBehaviour
                 }
             }
         }       
-        //StartCoroutine(DecreaseRowCo2());
+        StartCoroutine(DecreaseRowCo());
     }
     
 
@@ -707,8 +707,8 @@ public class Board : MonoBehaviour
     }
     */
 
-    /*
-    private IEnumerator DecreaseRowCol()
+    
+    private IEnumerator DecreaseRowCo()
     {
         int nullCount = 0;
         for (int i = 0; i < width; i ++)
@@ -728,21 +728,22 @@ public class Board : MonoBehaviour
             nullCount = 0;
         }
         yield return new WaitForSeconds(refillDelay * 0.5f);
-        StartCoroutine(FillBoardCo());
+        //StartCoroutine(FillBoardCo());
     }
-    */
+    
 
-    /*
+    
     private void RefillBoard()
     {
         for (int i = 0; i < width; i ++)
         {
             for (int j = 0; j < height; j ++)
             {
-                if (allDots[i, j] == null && !blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
+                if (allDots[i, j] == null)// && !blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
                 {
-                    Vector2 tempPosition = new Vector2(i, j + offSet);
+                    Vector2 tempPosition = new Vector2(i, j);// + offSet);
                     int dotToUse = Random.Range(0, dots.Length);
+                    /*
                     int maxIterations = 0;
                     while(MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
                     {
@@ -752,6 +753,8 @@ public class Board : MonoBehaviour
                     }
 
                     maxIterations = 0;
+                    */
+                    
                     GameObject piece = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                     allDots[i, j] = piece;
                     piece.GetComponent<Dot>().row = j;
@@ -760,7 +763,7 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
     /*
     private bool MatchesOnBoard()
