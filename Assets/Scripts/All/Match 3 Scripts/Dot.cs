@@ -62,15 +62,15 @@ public class Dot : MonoBehaviour
         hintManager = FindObjectOfType<HintManager>();
         */
 
-        board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
-        //board = FindObjectOfType<Board>();
+        //board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
+        board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
-        targetX = (int)transform.position.x;
-        targetY = (int)transform.position.y;
-        row = targetY;
-        column = targetX;
-        previousRow = row;
-        previousColumn = column;
+        //targetX = (int)transform.position.x;
+        //targetY = (int)transform.position.y;
+        //row = targetY;
+        //column = targetX;
+        //previousRow = row;
+        //previousColumn = column;
     }
 
     /*
@@ -314,8 +314,8 @@ public class Dot : MonoBehaviour
             //Right Swipe
             
             otherDot = board.allDots[column + 1, row];
-            //previousRow = row;
-            //previousColumn = column;
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().column -= 1;
             column += 1;
             StartCoroutine(CheckMoveCo());
@@ -327,8 +327,8 @@ public class Dot : MonoBehaviour
             //Up Swipe
             
             otherDot = board.allDots[column, row + 1];
-            //previousRow = row;
-            //previousColumn = column;
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().row -= 1;
             row += 1;
             StartCoroutine(CheckMoveCo());
@@ -340,8 +340,8 @@ public class Dot : MonoBehaviour
             //Left Swipe
             
             otherDot = board.allDots[column - 1, row];
-            //previousRow = row;
-            //previousColumn = column;
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().column += 1;
             column -= 1;
             StartCoroutine(CheckMoveCo());
@@ -353,8 +353,8 @@ public class Dot : MonoBehaviour
             //Down Swipe
             
             otherDot = board.allDots[column, row - 1];
-            //previousRow = row;
-            //previousColumn = column;
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().row += 1;
             row -= 1;
             StartCoroutine(CheckMoveCo());

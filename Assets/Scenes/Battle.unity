@@ -1834,6 +1834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 6
   height: 8
+  offSet: 20
   tilePrefab: {fileID: 5914918131645197852, guid: 95996e9aa954c6a498c25e2007d6a57e, type: 3}
   dots:
   - {fileID: 5145155175555517389, guid: 9a578da8687129e4d807c5468cdbe930, type: 3}
@@ -1842,6 +1843,7 @@ MonoBehaviour:
   - {fileID: 6496350191541928849, guid: 90279b4465fdee44b9c309b64e94f7e4, type: 3}
   - {fileID: 1015204175331204409, guid: b47bea7f54533a54c838b7a107970e72, type: 3}
   - {fileID: 1530666440189001784, guid: cc77239d5abd0944fbd2b6ddfb369476, type: 3}
+  refillDelay: 0.5
 --- !u!114 &750384145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,6 +1856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bd851f6157c564189f09dce17a27d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMatches: []
 --- !u!114 &750384146
 MonoBehaviour:
   m_ObjectHideFlags: 0
