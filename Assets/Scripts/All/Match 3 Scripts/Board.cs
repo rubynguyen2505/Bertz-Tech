@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
+
 public enum gameState
 {
     wait,
     move,
-    win,
-    lose,
-    pause
+    //win,
+    //lose,
+    //pause
 }
-*/
+
 
 /*
 public enum TileKind
@@ -52,9 +52,9 @@ public class Board : MonoBehaviour
     public int level;
     */
     
-    /*
+    
     public gameState currentState = gameState.move;
-    */
+    
 
     [Header ("Board Dimensions")]
     public int width;
@@ -809,9 +809,11 @@ public class Board : MonoBehaviour
         {
             StartCoroutine(ShuffleBoard());
             Debug.Log("Deadlocked!!!");
-        }
+        }*/
 
         yield return new WaitForSeconds(refillDelay);
+        currentState = gameState.move;
+        /*
         if (currentState != gameState.pause)
         {
             currentState = gameState.move;

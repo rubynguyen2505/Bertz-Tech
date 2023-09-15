@@ -200,9 +200,9 @@ public class Dot : MonoBehaviour
                 otherDot.GetComponent<Dot>().column = column;
                 row = previousRow;
                 column = previousColumn;
-                //yield return new WaitForSeconds(.5f);
+                yield return new WaitForSeconds(.5f);
                 //board.currentDot = null;
-                //board.currentState = gameState.move;
+                board.currentState = gameState.move;
             }
             
             else
@@ -241,10 +241,10 @@ public class Dot : MonoBehaviour
 
 
         
-        //if (board.currentState == gameState.move)
-        //{
+        if (board.currentState == gameState.move)
+        {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //}
+        }
         
     }
     
@@ -253,11 +253,11 @@ public class Dot : MonoBehaviour
     private void OnMouseUp()
     {
         //animator.SetBool("Touched", false);
-        //if (board.currentState == gameState.move)
-        //{
+        if (board.currentState == gameState.move)
+        {
             finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             CalculateAngle();
-        //}
+        }
     }
     
 
@@ -265,14 +265,14 @@ public class Dot : MonoBehaviour
     {
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipeResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipeResist)
         {
-            //board.currentState = gameState.wait;
+            board.currentState = gameState.wait;
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
             //board.currentDot = this;
         }
         else
         {
-            //board.currentState = gameState.move;            
+            board.currentState = gameState.move;            
         }        
     }
 
