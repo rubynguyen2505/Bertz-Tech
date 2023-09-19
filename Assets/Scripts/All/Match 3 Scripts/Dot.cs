@@ -249,7 +249,7 @@ public class Dot : MonoBehaviour
     }
     
 
-    
+
     private void OnMouseUp()
     {
         //animator.SetBool("Touched", false);
