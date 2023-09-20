@@ -100,12 +100,13 @@ public class Dot : MonoBehaviour
         
         */
         
+        /*
         if (isMatched)
         {
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
             mySprite.color = new Color(1f, 1f, 1f, .2f);
         }
-        
+        */
 
         targetX = column;
         targetY = row;
@@ -365,7 +366,7 @@ public class Dot : MonoBehaviour
         {
             //board.currentState = gameState.move;
         }
-        StartCoroutine(CheckMoveCo());
+        //StartCoroutine(CheckMoveCo());
     }
     
 

@@ -744,7 +744,7 @@ public class Board : MonoBehaviour
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
                     int dotToUse = Random.Range(0, dots.Length);
-                    /*
+                    
                     int maxIterations = 0;
                     while(MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
                     {
@@ -754,7 +754,7 @@ public class Board : MonoBehaviour
                     }
 
                     maxIterations = 0;
-                    */
+                    
                     
                     GameObject piece = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                     allDots[i, j] = piece;
