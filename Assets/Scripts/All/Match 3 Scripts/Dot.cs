@@ -365,7 +365,7 @@ public class Dot : MonoBehaviour
         {
             //board.currentState = gameState.move;
         }
-        StartCoroutine(CheckMoveCo());
+        //StartCoroutine(CheckMoveCo());
     }
     
 
