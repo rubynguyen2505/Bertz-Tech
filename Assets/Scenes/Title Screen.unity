@@ -1441,10 +1441,13 @@ CanvasRenderer:
   m_GameObject: {fileID: 254653441}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!1 &292252162
 >>>>>>> Stashed changes
+>>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
+=======
 >>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
 --- !u!1 &272608420
 GameObject:
@@ -1499,6 +1502,7 @@ MonoBehaviour:
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 292252162}
   m_Enabled: 1
@@ -1535,6 +1539,8 @@ CanvasRenderer:
 >>>>>>> Stashed changes
 =======
 >>>>>>> parent of be77aa9 (Firebase SDK Login Implementation)
+=======
+>>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
 --- !u!1 &299782304
 GameObject:
   m_ObjectHideFlags: 0
@@ -5336,8 +5342,12 @@ CanvasRenderer:
   m_GameObject: {fileID: 1406251212}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+--- !u!1 &1464742894
+>>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5513,6 +5523,7 @@ CanvasRenderer:
   m_GameObject: {fileID: 1464742894}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 1437160546}
   m_CullTransparentMesh: 1
@@ -5535,6 +5546,8 @@ MonoBehaviour:
 >>>>>>> Stashed changes
 =======
 >>>>>>> parent of be77aa9 (Firebase SDK Login Implementation)
+=======
+>>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
 =======
 >>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
 --- !u!1 &1499665832
@@ -6933,7 +6946,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1714081488}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
 --- !u!1 &1715961678
 GameObject:
   m_ObjectHideFlags: 0
@@ -7554,8 +7570,12 @@ CanvasRenderer:
   m_GameObject: {fileID: 1846670250}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+--- !u!1 &1867918763
+>>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9371,6 +9391,7 @@ SceneRoots:
   - {fileID: 1916767488}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   - {fileID: 2061031946}
   - {fileID: 1233910194}
@@ -9379,6 +9400,10 @@ SceneRoots:
 >>>>>>> Stashed changes
 =======
 >>>>>>> parent of be77aa9 (Firebase SDK Login Implementation)
+=======
+  - {fileID: 2061031946}
+  - {fileID: 1233910194}
+>>>>>>> parent of 40a3526 (Title Screen Adjustments 9/19)
 =======
   - {fileID: 2061031946}
   - {fileID: 1233910194}
