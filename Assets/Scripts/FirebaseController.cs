@@ -80,7 +80,7 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(false);
         profilePanel.SetActive(false);
         forgetPasswordPanel.SetActive(false);
-	titleScreen.SetActive(true);
+        titleScreen.SetActive(true);
     }
     
     public void LoginUser()
