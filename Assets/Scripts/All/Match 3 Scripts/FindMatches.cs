@@ -106,7 +106,7 @@ public class FindMatches : MonoBehaviour
     private IEnumerator FindAllMatchesCo()
     {
         //yield return new WaitForSeconds(.2f);
-        
+        yield return null;
         for (int i = 0; i < board.width; i ++)
         {
             for (int j = 0; j < board.height; j ++)
@@ -176,7 +176,6 @@ public class FindMatches : MonoBehaviour
                 }
             }
         }
-        yield return null;
     }
     /*
     public void MatchPiecesOfColor(string color)

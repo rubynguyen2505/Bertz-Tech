@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: 1265a09c7c5ccdf47bfef9b48d1ab208
-  - enabled: 1
-    path: Assets/Scenes/Home Screen.unity
-    guid: fd4425b89bc73a54785d35e94e36c202
   - enabled: 0
     path: Assets/Scenes/Character Selection.unity
     guid: 3bc49d10ce6437242a4ebdc53d18ca7b
