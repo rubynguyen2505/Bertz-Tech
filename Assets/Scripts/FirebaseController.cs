@@ -50,7 +50,7 @@ public class FirebaseController : MonoBehaviour
         loginPanel.SetActive(true);
         signupPanel.SetActive(false);
         profilePanel.SetActive(false);
-        //forgetPasswordPanel.SetActive(false);
+        forgetPasswordPanel.SetActive(false);
     }
     public void OpenSignUpPanel()
     {
@@ -73,6 +73,14 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(false);
         profilePanel.SetActive(false);
         forgetPasswordPanel.SetActive(true);
+    }
+    public void CloseLoginPanel()
+    {
+        loginPanel.SetActive(false);
+        signupPanel.SetActive(false);
+        profilePanel.SetActive(false);
+        forgetPasswordPanel.SetActive(false);
+	titleScreen.SetActive(true);
     }
     
     public void LoginUser()
