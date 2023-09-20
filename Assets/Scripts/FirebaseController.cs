@@ -10,7 +10,7 @@ using Firebase.Extensions;
 
 public class FirebaseController : MonoBehaviour
 {
-    public GameObject loginPanel, signupPanel, profilePanel, forgetPasswordPanel;
+    public GameObject titleScreen, loginPanel, signupPanel, profilePanel, forgetPasswordPanel;
     public TMPro.TMP_InputField loginEmail, loginPassword, signupEmail, signupPassword, signupCPassword, signupUserName, forgetPassEmail;
     public Toggle rememberMe;
     public TMPro.TMP_Text profileUserName_Text, profileUserEmail_Text;
@@ -46,6 +46,7 @@ public class FirebaseController : MonoBehaviour
 
     public void OpenLoginPanel()
     {
+        titleScreen.SetActive(false);
         loginPanel.SetActive(true);
         signupPanel.SetActive(false);
         profilePanel.SetActive(false);

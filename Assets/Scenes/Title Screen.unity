@@ -10586,6 +10586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fc811e218d4c24ad367d7b313778d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleScreen: {fileID: 1846346525}
   loginPanel: {fileID: 299782304}
   signupPanel: {fileID: 1620934237}
   profilePanel: {fileID: 148520251}
