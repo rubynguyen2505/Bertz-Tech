@@ -271,7 +271,7 @@ public class FirebaseController : MonoBehaviour
                 isSigned = true;
                 profileUserName_Text.text = "" + user.DisplayName;
                 profileUserEmail_Text.text = "" + user.Email;
-                OpenLoginPanel();
+                //OpenLoginPanel();
             }
         }
     }
