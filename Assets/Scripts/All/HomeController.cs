@@ -8,13 +8,14 @@ using UnityEngine.SceneManagement;
 public class HomeController : MonoBehaviour
 {
 
-    public GameObject battleButton, shopButton, unitsButton, teamsButton, enhanceButton, inventoryBUtton, recruitButton;
+    //public GameObject battleButton, shopButton, unitsButton, teamsButton, enhanceButton, inventoryBUtton, recruitButton;
 
     public void onBattleButton()
     {
         SceneManager.LoadScene("Level Select");
     }
 
+    
     public void onShopButton()
     {
         SceneManager.LoadScene("Shop Screen");
@@ -44,6 +45,6 @@ public class HomeController : MonoBehaviour
     {
         SceneManager.LoadScene("Recruit Screen");
     }
-
+    
 
 }

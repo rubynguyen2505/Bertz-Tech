@@ -2109,7 +2109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69071f7c22b73154799e537aea6a3c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 901640341}
 --- !u!4 &327425564
 Transform:
   m_ObjectHideFlags: 0
@@ -8954,7 +8953,6 @@ GameObject:
   - component: {fileID: 1846346529}
   - component: {fileID: 1846346528}
   - component: {fileID: 1846346527}
-  - component: {fileID: 1846346531}
   m_Layer: 5
   m_Name: Title Screen
   m_TagString: Untagged
@@ -9050,18 +9048,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1846346531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846346525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28351d11d9e128e479beb9bf59af4199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1846670250
 GameObject:
   m_ObjectHideFlags: 0
