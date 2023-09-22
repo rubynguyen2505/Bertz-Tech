@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour
+
+
+public class TitleController : MonoBehaviour
 {
     public void OnStartButton(){
-        SceneManager.LoadScene("Level Select");
+        SceneManager.LoadScene("Home Screen");
     }
 
     public void OnQuitButton(){
         Application.Quit();
     }
 
-    public void Home(){
+    public void onTitleButton(){
         SceneManager.LoadScene("Title Screen");
     }
+
+    public void onHomeButton()
+    {
+        SceneManager.LoadScene("Home Screen");
+    }
+
 }

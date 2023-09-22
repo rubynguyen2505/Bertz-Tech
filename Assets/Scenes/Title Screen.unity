@@ -2080,6 +2080,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314076542}
   m_CullTransparentMesh: 1
+--- !u!1 &327425562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327425564}
+  - component: {fileID: 327425563}
+  m_Layer: 0
+  m_Name: TitleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &327425563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327425562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69071f7c22b73154799e537aea6a3c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startButton: {fileID: 901640341}
+--- !u!4 &327425564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327425562}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &336264441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3763,8 +3808,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846346531}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+      - m_Target: {fileID: 327425563}
+        m_TargetAssemblyTypeName: TitleController, Assembly-CSharp
         m_MethodName: OnQuitButton
         m_Mode: 1
         m_Arguments:
@@ -4072,8 +4117,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846346531}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+      - m_Target: {fileID: 327425563}
+        m_TargetAssemblyTypeName: TitleController, Assembly-CSharp
         m_MethodName: OnStartButton
         m_Mode: 1
         m_Arguments:
@@ -9014,7 +9059,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1846346525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eadc366908f83e44a081de22ce8bba6, type: 3}
+  m_Script: {fileID: 11500000, guid: 28351d11d9e128e479beb9bf59af4199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1846670250
@@ -11396,5 +11441,6 @@ SceneRoots:
   - {fileID: 550951913}
   - {fileID: 1846346530}
   - {fileID: 1916767488}
+  - {fileID: 327425564}
   - {fileID: 2061031946}
   - {fileID: 1233910194}
