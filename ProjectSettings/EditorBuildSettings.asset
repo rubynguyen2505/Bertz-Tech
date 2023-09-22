@@ -18,6 +18,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Battle.unity
     guid: 1265a09c7c5ccdf47bfef9b48d1ab208
   - enabled: 0
-    path: Assets/Scenes/Team.unity
+    path: Assets/Scenes/Team Screen.unity
     guid: 3bc49d10ce6437242a4ebdc53d18ca7b
   m_configObjects: {}
