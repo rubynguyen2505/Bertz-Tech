@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Units Screen.unity
     guid: da11cca31b1ee194da7d9d3b58258557
   - enabled: 0
-    path: Assets/Scenes/Team Screen.unity
+    path: Assets/Scenes/Teams Screen.unity
     guid: 3bc49d10ce6437242a4ebdc53d18ca7b
   m_configObjects: {}
