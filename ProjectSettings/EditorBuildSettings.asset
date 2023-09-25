@@ -23,7 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Units Screen.unity
     guid: da11cca31b1ee194da7d9d3b58258557
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Teams Screen.unity
     guid: 3bc49d10ce6437242a4ebdc53d18ca7b
+  - enabled: 1
+    path: Assets/Scenes/Shop Screen.unity
+    guid: ed0ff70dd3c675f42bcfdd21c973a0d0
   m_configObjects: {}
