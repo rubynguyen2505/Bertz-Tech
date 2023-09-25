@@ -555,9 +555,9 @@ public class Board : MonoBehaviour
             CheckToMakeBombs();
         }
         
-
-        findMatches.currentMatches.Clear();
         */
+        findMatches.currentMatches.Clear();
+        
         for (int i = 0; i < width; i ++)
         {
             for (int j = 0; j < height; j ++)

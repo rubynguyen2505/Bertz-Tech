@@ -100,12 +100,13 @@ public class Dot : MonoBehaviour
         
         */
         
+        /*
         if (isMatched)
         {
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
             mySprite.color = new Color(1f, 1f, 1f, .2f);
         }
-        
+        */
 
         targetX = column;
         targetY = row;
@@ -119,17 +120,17 @@ public class Dot : MonoBehaviour
             if (board.allDots[column, row] != this.gameObject)
             {
                 board.allDots[column, row] = this.gameObject;
-                //findMatches.FindAllMatches();
+                findMatches.FindAllMatches();
             }
             
-            findMatches.FindAllMatches(); //Adjust later
+            //findMatches.FindAllMatches(); //Adjust later
         }
         else
         {
             //Directly set the position
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = tempPosition;
-            board.allDots[column, row] = this.gameObject;
+            //board.allDots[column, row] = this.gameObject;
         }
 
         if (Mathf.Abs(targetY - transform.position.y) > .1)
@@ -141,17 +142,17 @@ public class Dot : MonoBehaviour
             if (board.allDots[column, row] != this.gameObject)
             {
                 board.allDots[column, row] = this.gameObject;
-                //findMatches.FindAllMatches();
+                findMatches.FindAllMatches();
             }
             
-            findMatches.FindAllMatches(); //Adjust later
+            //findMatches.FindAllMatches(); //Adjust later
         }
         else
         {
             //Directly set the position
             tempPosition = new Vector2(transform.position.x, targetY);
             transform.position = tempPosition;
-            board.allDots[column, row] = this.gameObject;
+            //board.allDots[column, row] = this.gameObject;
         }
         
     }
@@ -219,7 +220,7 @@ public class Dot : MonoBehaviour
                 board.DestroyMatches();
             }
             
-            otherDot = null;
+            //otherDot = null;
         }
         
     }
