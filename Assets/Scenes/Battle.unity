@@ -667,7 +667,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397553818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
@@ -1844,7 +1844,7 @@ MonoBehaviour:
   - {fileID: 6496350191541928849, guid: 90279b4465fdee44b9c309b64e94f7e4, type: 3}
   - {fileID: 1015204175331204409, guid: b47bea7f54533a54c838b7a107970e72, type: 3}
   - {fileID: 1530666440189001784, guid: cc77239d5abd0944fbd2b6ddfb369476, type: 3}
-  destroyEffect: {fileID: 7818459985641179223, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
+  destroyEffect: {fileID: 7818459985641179223, guid: 3a9b61a82b425cf468e26fc335ae6a92, type: 3}
   refillDelay: 0.5
 --- !u!114 &750384145
 MonoBehaviour:
@@ -9398,7 +9398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2033122406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9922,67 +9922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c8a99e71fdb73458a2902fcc5cab5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &5337574413514570118
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899246289373717929, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818459985641179223, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_Name
-      value: Destroy Effect
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818459985641179223, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b4c51f6f57addc74186612d0f330c8eb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -9992,4 +9931,3 @@ SceneRoots:
   - {fileID: 1563311312}
   - {fileID: 1414620107}
   - {fileID: 2033122409}
-  - {fileID: 5337574413514570118}
