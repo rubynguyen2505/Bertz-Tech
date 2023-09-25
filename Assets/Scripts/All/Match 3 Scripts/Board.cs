@@ -69,7 +69,7 @@ public class Board : MonoBehaviour
     //public GameObject concreteTilePrefab;
     //public GameObject slimePiecePrefab;
     public GameObject[] dots;
-    //public GameObject destroyEffect;
+    public GameObject destroyEffect;
     
     /*
     [Header ("Layouts")]
@@ -531,13 +531,13 @@ public class Board : MonoBehaviour
             {
                 soundManager.PlayRandomDestroyNoise();
             }
-            
+            */
 
             
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, .5f);
-            allDots[column, row].GetComponent<Dot>().PopAnimation();
-            */
+            //allDots[column, row].GetComponent<Dot>().PopAnimation();
+
             findMatches.currentMatches.Remove(allDots[column, row]);
             Destroy(allDots[column, row], .5f);
             //scoreManager.IncreaseScore(basePieceValue * streakValue);
