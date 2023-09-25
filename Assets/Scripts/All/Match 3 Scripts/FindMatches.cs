@@ -105,8 +105,9 @@ public class FindMatches : MonoBehaviour
 
     private IEnumerator FindAllMatchesCo()
     {
-        //yield return new WaitForSeconds(.2f);
-        yield return null;
+        yield return new WaitForSeconds(.2f);
+        //yield return null;
+
         for (int i = 0; i < board.width; i ++)
         {
             for (int j = 0; j < board.height; j ++)
@@ -115,7 +116,7 @@ public class FindMatches : MonoBehaviour
                 
                 if (currentDot != null)
                 {
-                    Dot currentDotDot = currentDot.GetComponent<Dot>(); 
+                    //Dot currentDotDot = currentDot.GetComponent<Dot>(); 
                     if (i > 0 && i < board.width - 1)
                     {
                         GameObject leftDot = board.allDots[i - 1, j];
@@ -123,13 +124,25 @@ public class FindMatches : MonoBehaviour
 
                         if (leftDot != null && rightDot != null)
                         {
-                            Dot rightDotDot = rightDot.GetComponent<Dot>();
-                            Dot leftDotDot = leftDot.GetComponent<Dot>();
+                            //Dot rightDotDot = rightDot.GetComponent<Dot>();
+                            //Dot leftDotDot = leftDot.GetComponent<Dot>();
                             if (leftDot.tag == currentDot.tag && rightDot.tag == currentDot.tag)
                             {
-                                //Replace later
+                                if (!currentMatches.Contains(leftDot)) {
+                                    currentMatches.Add(leftDot);   
+                                }
                                 leftDot.GetComponent<Dot>().isMatched = true;
+
+                                if (!currentMatches.Contains(rightDot))
+                                {
+                                    currentMatches.Add(rightDot);
+                                }
                                 rightDot.GetComponent<Dot>().isMatched = true;
+
+                                if (!currentMatches.Contains(currentDot))
+                                {
+                                    currentMatches.Add(currentDot);
+                                }
                                 currentDot.GetComponent <Dot>().isMatched = true;
                                 /*
                                 currentMatches.Union(isRowBomb(leftDotDot, currentDotDot, rightDotDot));
@@ -156,9 +169,22 @@ public class FindMatches : MonoBehaviour
                             Dot upDotDot = upDot.GetComponent<Dot>();
                             if (upDot.tag == currentDot.tag && downDot.tag == currentDot.tag)
                             {
-                                //Replace later
+                                if (!currentMatches.Contains(upDot))
+                                {
+                                    currentMatches.Add(upDot);
+                                }
                                 upDot.GetComponent<Dot>().isMatched = true;
+
+                                if (!currentMatches.Contains(downDot))
+                                {
+                                    currentMatches.Add(downDot);
+                                }
                                 downDot.GetComponent<Dot>().isMatched = true;
+
+                                if (!currentMatches.Contains(currentDot))
+                                {
+                                    currentMatches.Add(currentDot);
+                                }
                                 currentDot.GetComponent<Dot>().isMatched = true;
                                 /*
                                 currentMatches.Union(isColumnBomb(upDotDot, currentDotDot, downDotDot));

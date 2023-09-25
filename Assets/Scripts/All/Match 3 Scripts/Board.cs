@@ -84,12 +84,12 @@ public class Board : MonoBehaviour
 
     public GameObject[,] allDots;
 
-    /*
+    
     [Header("Match Stuff")]
-    public MatchType matchType;
-    public Dot currentDot;
+    //public MatchType matchType;
+    //public Dot currentDot;
     private FindMatches findMatches;
-    */
+    
 
     /*
     public int basePieceValue = 20;
@@ -142,7 +142,7 @@ public class Board : MonoBehaviour
         slimeTiles = new BackgroundTile[width, height];
         */
 
-        //findMatches = FindObjectOfType<FindMatches>();
+        findMatches = FindObjectOfType<FindMatches>();
         //blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
         SetUp();
@@ -538,7 +538,7 @@ public class Board : MonoBehaviour
             Destroy(particle, .5f);
             allDots[column, row].GetComponent<Dot>().PopAnimation();
             */
-
+            findMatches.currentMatches.Remove(allDots[column, row]);
             Destroy(allDots[column, row], .5f);
             //scoreManager.IncreaseScore(basePieceValue * streakValue);
             allDots[column, row] = null;
