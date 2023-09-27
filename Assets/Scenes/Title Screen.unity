@@ -9368,9 +9368,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233910193}
-        m_TargetAssemblyTypeName: GoogleSigninManager, Assembly-CSharp
-        m_MethodName: GoogleSignInClick
+      - m_Target: {fileID: 2061031945}
+        m_TargetAssemblyTypeName: FirebaseController, Assembly-CSharp
+        m_MethodName: SignInAnon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
