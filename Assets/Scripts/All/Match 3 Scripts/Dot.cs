@@ -34,27 +34,27 @@ public class Dot : MonoBehaviour
     public float swipeAngle = 0;
     public float swipeResist = 1f;
 
-    /*
+    
     [Header("Powerup Stuff")]
-    public bool isColorBomb;
     public bool isColumnBomb;
     public bool isRowBomb;
-    public bool isAdjacentBomb;
+    //public bool isColorBomb;
+    //public bool isAdjacentBomb;
     public GameObject rowArrow;
     public GameObject columnArrow;
-    public GameObject colorBomb;
-    public GameObject adjacentMarker;
-    */
+    //public GameObject colorBomb;
+    //public GameObject adjacentMarker;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
+        
         isColumnBomb = false;
         isRowBomb = false;
-        isColorBomb = false;
-        isAdjacentBomb = false;
-        
+        //isColorBomb = false;
+        //isAdjacentBomb = false;
+        /*
         shineDelay = Random.Range(3f, 6f);
         shineDelaySecond = shineDelay;
         animator = GetComponent<Animator>();
@@ -71,6 +71,15 @@ public class Dot : MonoBehaviour
         //column = targetX;
         //previousRow = row;
         //previousColumn = column;
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1)) {
+            isRowBomb = true;
+            GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
+            arrow.transform.parent = this.transform;
+        }
     }
 
     /*
