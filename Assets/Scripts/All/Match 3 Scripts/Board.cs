@@ -71,23 +71,24 @@ public class Board : MonoBehaviour
     //public GameObject slimePiecePrefab;
     public GameObject[] dots;
     public GameObject destroyEffect;
-    
+
     /*
     [Header ("Layouts")]
     public TileType[] boardLayout;
     private bool[,] blankSpaces;
     private BackgroundTile[,] breakableTiles;
     public BackgroundTile[,] lockTiles;
-    private BackgroundTile[,] concreteTiles;
-    private BackgroundTile[,] slimeTiles;
-    private BackgroundTile[,] allTiles;
     */
+    private BackgroundTile[,] concreteTiles;
+    //private BackgroundTile[,] slimeTiles;
+    //private BackgroundTile[,] allTiles;
+    
 
     public GameObject[,] allDots;
 
     
     [Header("Match Stuff")]
-    //public MatchType matchType;
+    public MatchType matchType;
     public Dot currentDot;
     private FindMatches findMatches;
     
@@ -139,9 +140,10 @@ public class Board : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
         breakableTiles = new BackgroundTile[width, height];
         lockTiles = new BackgroundTile[width, height];
-        concreteTiles = new BackgroundTile[width, height];
-        slimeTiles = new BackgroundTile[width, height];
         */
+        concreteTiles = new BackgroundTile[width, height];
+        //slimeTiles = new BackgroundTile[width, height];
+        
 
         findMatches = FindObjectOfType<FindMatches>();
         //blankSpaces = new bool[width, height];
@@ -330,7 +332,7 @@ public class Board : MonoBehaviour
     }
     
 
-    /*
+    
     private MatchType ColumnOrRow()
     {
         //Make a copy of the current matches
@@ -397,9 +399,9 @@ public class Board : MonoBehaviour
         matchType.color = "";
         return matchType;
     }
-    */
+    
 
-    /*
+    
     private void CheckToMakeBombs()
     {
         //How many objects are in findMatches currentMatches?
@@ -455,9 +457,9 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
-    /*
+    
     public void BombRow(int row)
     {
         for (int i = 0; i < width; i ++)
@@ -472,9 +474,9 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
-    /*
+    
     public void BombColumn(int column)
     {
         for (int i = 0; i < width; i++)
@@ -489,20 +491,14 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
     
     private void DestroyMatchesAt(int column, int row)
     {
         if (allDots[column, row].GetComponent<Dot>().isMatched)
         {
-            Console.WriteLine("WhatMAtched");
-            //How many elements are in the matched pieces list from findmatches
-            if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7)
-            {
-                Console.WriteLine("Count 4 or 7");
-                findMatches.CheckBombs();
-            }
+
             /*
             //Does a tile need to break?
             if (breakableTiles[column, row] != null)
@@ -555,14 +551,14 @@ public class Board : MonoBehaviour
 
     
     public void DestroyMatches(){
-        /*
+        
         //How many elements are in the matched pieces list from findmatches
         if (findMatches.currentMatches.Count >= 4)
         {
             CheckToMakeBombs();
         }
         
-        */
+        
         findMatches.currentMatches.Clear();
         
         for (int i = 0; i < width; i ++)

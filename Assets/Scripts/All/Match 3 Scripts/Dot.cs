@@ -39,12 +39,12 @@ public class Dot : MonoBehaviour
     [Header("Powerup Stuff")]
     public bool isColumnBomb;
     public bool isRowBomb;
-    //public bool isColorBomb;
-    //public bool isAdjacentBomb;
+    public bool isColorBomb;
+    public bool isAdjacentBomb;
     public GameObject rowArrow;
     public GameObject columnArrow;
-    //public GameObject colorBomb;
-    //public GameObject adjacentMarker;
+    public GameObject colorBomb;
+    public GameObject adjacentMarker;
     
 
     // Start is called before the first frame update
@@ -53,8 +53,8 @@ public class Dot : MonoBehaviour
         
         isColumnBomb = false;
         isRowBomb = false;
-        //isColorBomb = false;
-        //isAdjacentBomb = false;
+        isColorBomb = false;
+        isAdjacentBomb = false;
         /*
         shineDelay = Random.Range(3f, 6f);
         shineDelaySecond = shineDelay;
@@ -187,7 +187,7 @@ public class Dot : MonoBehaviour
     
     public IEnumerator CheckMoveCo()
     {
-        /*
+        
         if (isColorBomb)
         {
             //This piece is a color bomb, and the other piece is the color to destroy
@@ -201,7 +201,7 @@ public class Dot : MonoBehaviour
             otherDot.GetComponent<Dot>().isMatched = true;
         }
         
-        */
+        
         yield return new WaitForSeconds(.5f);
         if (otherDot != null)
         {
@@ -418,14 +418,13 @@ public class Dot : MonoBehaviour
     
     public void MakeRowBomb()
     {
-        //if (!isColumnBomb && !isColorBomb && !isAdjacentBomb)
-        //{
-
-        Console.WriteLine("Row");
-        isRowBomb = true;
-        GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
-        arrow.transform.parent = this.transform;
-        //}
+        if (!isColumnBomb && !isColorBomb && !isAdjacentBomb)
+        {
+            Console.WriteLine("Row");
+            isRowBomb = true;
+            GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
+            arrow.transform.parent = this.transform;
+        }
         
     }
     
@@ -433,18 +432,19 @@ public class Dot : MonoBehaviour
     
     public void MakeColumnBomb()
     {
-        Console.WriteLine("Column");
-        //if (!isRowBomb && !isColorBomb && !isAdjacentBomb)
-        //{
-        isColumnBomb = true;
-        GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
-        arrow.transform.parent = this.transform;
-        //}
+        
+        if (!isRowBomb && !isColorBomb && !isAdjacentBomb)
+        {
+            Console.WriteLine("Column");
+            isColumnBomb = true;
+            GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
+            arrow.transform.parent = this.transform;
+        }
         
     }
     
 
-    /*
+    
     public void MakeColorBomb()
     {
         if (!isRowBomb && !isColumnBomb && !isAdjacentBomb)
@@ -456,9 +456,9 @@ public class Dot : MonoBehaviour
         }
         
     }
-    */
+    
 
-    /*
+    
     public void MakeAdjacentBomb()
     {
         if (!isColorBomb && !isColumnBomb && !isRowBomb)
@@ -469,5 +469,5 @@ public class Dot : MonoBehaviour
         }
         
     }
-    */
+    
 }
