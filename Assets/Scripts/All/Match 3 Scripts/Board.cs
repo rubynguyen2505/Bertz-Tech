@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 public enum gameState
 {
@@ -87,7 +88,7 @@ public class Board : MonoBehaviour
     
     [Header("Match Stuff")]
     //public MatchType matchType;
-    //public Dot currentDot;
+    public Dot currentDot;
     private FindMatches findMatches;
     
 
@@ -495,6 +496,13 @@ public class Board : MonoBehaviour
     {
         if (allDots[column, row].GetComponent<Dot>().isMatched)
         {
+            Console.WriteLine("WhatMAtched");
+            //How many elements are in the matched pieces list from findmatches
+            if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7)
+            {
+                Console.WriteLine("Count 4 or 7");
+                findMatches.CheckBombs();
+            }
             /*
             //Does a tile need to break?
             if (breakableTiles[column, row] != null)
@@ -533,13 +541,12 @@ public class Board : MonoBehaviour
             }
             */
 
-            
+            findMatches.currentMatches.Remove(allDots[column, row]);
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
+
             Destroy(particle, .5f);
             //allDots[column, row].GetComponent<Dot>().PopAnimation();
-
-            findMatches.currentMatches.Remove(allDots[column, row]);
-            Destroy(allDots[column, row], .5f);
+            Destroy(allDots[column, row]);
             //scoreManager.IncreaseScore(basePieceValue * streakValue);
             allDots[column, row] = null;
         }
@@ -791,12 +798,12 @@ public class Board : MonoBehaviour
     private IEnumerator FillBoardCo()
     {
         
-        yield return new WaitForSeconds(refillDelay);
         RefillBoard();
         yield return new WaitForSeconds(refillDelay);
         while (MatchesOnBoard())
         {
             //streakValue ++;
+            yield return new WaitForSeconds(refillDelay);
             DestroyMatches();
             yield break;
         }
@@ -810,7 +817,7 @@ public class Board : MonoBehaviour
             StartCoroutine(ShuffleBoard());
             Debug.Log("Deadlocked!!!");
         }*/
-
+        findMatches.currentMatches.Clear();
         yield return new WaitForSeconds(refillDelay);
         currentState = gameState.move;
         /*

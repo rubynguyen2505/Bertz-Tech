@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -211,7 +212,7 @@ public class Dot : MonoBehaviour
                 row = previousRow;
                 column = previousColumn;
                 yield return new WaitForSeconds(.5f);
-                //board.currentDot = null;
+                board.currentDot = null;
                 board.currentState = gameState.move;
             }
             
@@ -278,12 +279,12 @@ public class Dot : MonoBehaviour
             board.currentState = gameState.wait;
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
-            //board.currentDot = this;
+            board.currentDot = this;
         }
         else
         {
-            board.currentState = gameState.move;            
-        }        
+            board.currentState = gameState.move;
+        }
     }
 
     /*
@@ -414,31 +415,34 @@ public class Dot : MonoBehaviour
         }
     }
 
-    /*
+    
     public void MakeRowBomb()
     {
-        if (!isColumnBomb && !isColorBomb && !isAdjacentBomb)
-        {
-            isRowBomb = true;
-            GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
-            arrow.transform.parent = this.transform;
-        }
+        //if (!isColumnBomb && !isColorBomb && !isAdjacentBomb)
+        //{
+
+        Console.WriteLine("Row");
+        isRowBomb = true;
+        GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
+        arrow.transform.parent = this.transform;
+        //}
         
     }
-    */
+    
 
-    /*
+    
     public void MakeColumnBomb()
     {
-        if (!isRowBomb && !isColorBomb && !isAdjacentBomb)
-        {
-            isColumnBomb = true;
-            GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
-            arrow.transform.parent = this.transform;
-        }
+        Console.WriteLine("Column");
+        //if (!isRowBomb && !isColorBomb && !isAdjacentBomb)
+        //{
+        isColumnBomb = true;
+        GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
+        arrow.transform.parent = this.transform;
+        //}
         
     }
-    */
+    
 
     /*
     public void MakeColorBomb()

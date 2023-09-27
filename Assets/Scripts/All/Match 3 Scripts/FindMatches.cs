@@ -333,20 +333,30 @@ public class FindMatches : MonoBehaviour
         }
         return dots;
     }
-    /*
-    public void CheckBombs(MatchType matchType)
+    
+    public void CheckBombs()//MatchType matchType)
     {
         //Did the player move something?
         if (board.currentDot != null)
         {
             //Is the piece they moved matched?
-            if (board.currentDot.isMatched && board.currentDot.tag == matchType.color)
+            if (board.currentDot.isMatched)// && board.currentDot.tag == matchType.color)
             {
                 //make it unmatched
                 board.currentDot.isMatched = false;
                 //Decide what kind of bomb to make
+                int typeOfBomb = Random.Range(0, 100);
+                if (typeOfBomb < 50)
+                {
+                    //Make a row bomb
+                    board.currentDot.MakeRowBomb();
+                } else if (typeOfBomb >= 50)
+                {
+                    //Make a column bomb
+                    board.currentDot.MakeColumnBomb();
+                }
                 
-                if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45) 
+                /*if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45) 
                 || (board.currentDot.swipeAngle < -135 || board.currentDot.swipeAngle >= 135))
                 {
                     board.currentDot.MakeRowBomb();
@@ -354,11 +364,11 @@ public class FindMatches : MonoBehaviour
                 else
                 {
                     board.currentDot.MakeColumnBomb();
-                }
+                }*/
             }
             //Is the other piece matched?
             else if (board.currentDot.otherDot != null)
-            {
+            {/*
                 Dot otherDot = board.currentDot.otherDot.GetComponent<Dot>();
                 //Is the other dot matched?
                 if (otherDot.isMatched && otherDot.tag == matchType.color)
@@ -375,9 +385,9 @@ public class FindMatches : MonoBehaviour
                     {
                         otherDot.MakeColumnBomb();
                     }
-                }
+                }*/
             }
         }
     }
-    */
+    
 }
