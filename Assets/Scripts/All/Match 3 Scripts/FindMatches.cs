@@ -348,7 +348,10 @@ public class FindMatches : MonoBehaviour
             {
                 //make it unmatched
                 board.currentDot.isMatched = false;
+
                 //Decide what kind of bomb to make
+
+                /*
                 int typeOfBomb = Random.Range(0, 100);
                 if (typeOfBomb < 50)
                 {
@@ -359,8 +362,9 @@ public class FindMatches : MonoBehaviour
                     //Make a column bomb
                     board.currentDot.MakeColumnBomb();
                 }
+                */
                 
-                /*if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45) 
+                if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45) 
                 || (board.currentDot.swipeAngle < -135 || board.currentDot.swipeAngle >= 135))
                 {
                     board.currentDot.MakeRowBomb();
@@ -368,7 +372,7 @@ public class FindMatches : MonoBehaviour
                 else
                 {
                     board.currentDot.MakeColumnBomb();
-                }*/
+                }
             }
             //Is the other piece matched?
             else if (board.currentDot.otherDot != null)
@@ -380,6 +384,7 @@ public class FindMatches : MonoBehaviour
                     //Make it unmatched
                     otherDot.isMatched = false;
 
+                    /*
                     int typeOfBomb = Random.Range(0, 100);
                     if (typeOfBomb < 50)
                     {
@@ -391,7 +396,9 @@ public class FindMatches : MonoBehaviour
                         //Make a column bomb
                         otherDot.MakeColumnBomb();
                     }
-                    /*
+                    */
+                    
+
                     //Decide what kind of bomb to make
                     if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45) 
                     || (board.currentDot.swipeAngle < -135 || board.currentDot.swipeAngle >= 135))
@@ -402,7 +409,7 @@ public class FindMatches : MonoBehaviour
                     {
                         otherDot.MakeColumnBomb();
                     }
-                    */
+                    
                 }
             }
         }
