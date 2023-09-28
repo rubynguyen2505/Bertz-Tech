@@ -15,3 +15,5 @@ MonoBehaviour:
   title: EvolutionItem
   description: An item to evolve a unit
   baseCost: 20
+  itemImg: {fileID: 21300000, guid: 6c99d291183e59c47bc752417d5d703c, type: 3}
+  currencyImg: {fileID: 21300000, guid: 932305c743b15304b831ce9f1ebf5369, type: 3}

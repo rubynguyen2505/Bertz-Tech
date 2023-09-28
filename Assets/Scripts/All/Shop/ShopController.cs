@@ -56,7 +56,7 @@ public class ShopController : MonoBehaviour
         {
             shopPanels[i].titleTxt.text = shopItemsSO[i].title;
             shopPanels[i].descriptionTxt.text = shopItemsSO[i].description;
-            shopPanels[i].costTxt.text = "Cost: " + shopItemsSO[i].baseCost.ToString();
+            shopPanels[i].costTxt.text = shopItemsSO[i].baseCost.ToString();
         }
     }
     //Purchase an item
