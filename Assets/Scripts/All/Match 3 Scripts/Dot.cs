@@ -77,9 +77,9 @@ public class Dot : MonoBehaviour
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1)) {
-            isRowBomb = true;
-            GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
-            arrow.transform.parent = this.transform;
+            isColorBomb = true;
+            GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
+            color.transform.parent = this.transform;
         }
     }
 
