@@ -384,12 +384,12 @@ public class FindMatches : MonoBehaviour
                     if (typeOfBomb < 50)
                     {
                         //Make a row bomb
-                        board.currentDot.MakeRowBomb();
+                        otherDot.MakeRowBomb();
                     }
                     else if (typeOfBomb >= 50)
                     {
                         //Make a column bomb
-                        board.currentDot.MakeColumnBomb();
+                        otherDot.MakeColumnBomb();
                     }
                     /*
                     //Decide what kind of bomb to make

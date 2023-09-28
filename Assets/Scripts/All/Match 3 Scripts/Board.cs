@@ -814,6 +814,7 @@ public class Board : MonoBehaviour
             Debug.Log("Deadlocked!!!");
         }*/
         findMatches.currentMatches.Clear();
+        currentDot = null;
         yield return new WaitForSeconds(refillDelay);
         currentState = gameState.move;
         /*
