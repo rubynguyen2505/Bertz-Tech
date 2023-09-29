@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9dc34f64e2c9614e847f3c357a178cc, type: 3}
   m_Name: Upgrade
   m_EditorClassIdentifier: 
-  title: UpgradeItem
-  description: An item to upgrade a unit
+  title: Lv. Up
+  description: Material
   baseCost: 10
   itemImg: {fileID: 21300000, guid: 6c99d291183e59c47bc752417d5d703c, type: 3}
   currencyImg: {fileID: 21300000, guid: 3f02a8a3c5660104eaea94228f389370, type: 3}
