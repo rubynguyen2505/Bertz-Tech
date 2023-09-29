@@ -15,5 +15,7 @@ MonoBehaviour:
   title: Lv. Up
   description: Material
   baseCost: 10
+  amountAvailable: 10
+  amountOwned: 0
   itemImg: {fileID: 21300000, guid: 6c99d291183e59c47bc752417d5d703c, type: 3}
   currencyImg: {fileID: 21300000, guid: 3f02a8a3c5660104eaea94228f389370, type: 3}

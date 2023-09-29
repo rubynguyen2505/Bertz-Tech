@@ -12,6 +12,7 @@ public class ShopController : MonoBehaviour
     public ShopTemplate[] shopPanels;
     public GameObject[] shopPanelsGO;
     public Button[] purchaseButtons;
+    public TMP_Text[] amount;
 
     void Start()
     {
@@ -20,6 +21,10 @@ public class ShopController : MonoBehaviour
             shopPanelsGO[i].SetActive(true);
         }
         currencyUI.text = "Currency: " + currency.ToString();
+        for (int i = 0; i < shopItemsSO.Length; i++)
+        {
+            amount[i].text = "x" + shopItemsSO[i].getAmountAvailable() + " (" + shopItemsSO[i].getAmountOwned() + " Owned)";
+        }
         loadPanels();
         CheckPurchaseable();
     }
@@ -39,7 +44,7 @@ public class ShopController : MonoBehaviour
     {
         for (int i = 0; i < shopItemsSO.Length;i++)
         {
-            if (currency >= shopItemsSO[i].baseCost)
+            if (currency >= shopItemsSO[i].baseCost && shopItemsSO[i].amountAvailable > 0)
             {
                 purchaseButtons[i].interactable = true;
             }
@@ -62,10 +67,13 @@ public class ShopController : MonoBehaviour
     //Purchase an item
     public void purchaseItem(int btnNm)
     {
-        if (currency >= shopItemsSO[btnNm].baseCost)
+        if (currency >= shopItemsSO[btnNm].baseCost && shopItemsSO[btnNm].amountAvailable > 0)
         {
             currency = currency - shopItemsSO[btnNm].baseCost;
             currencyUI.text = "Currency: " + currency.ToString();
+            shopItemsSO[btnNm].amountAvailable -= 1;
+            shopItemsSO[btnNm].amountOwned += 1;
+            amount[btnNm].text = "x" + shopItemsSO[btnNm].getAmountAvailable() + " (" + shopItemsSO[btnNm].getAmountOwned() + " Owned)";
             CheckPurchaseable();
         }
     }

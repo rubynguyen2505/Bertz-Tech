@@ -9,6 +9,8 @@ public class ShopItemSO : ScriptableObject
     public string title;
     public string description;
     public int baseCost;
+    public int amountAvailable;
+    public int amountOwned;
     public Sprite itemImg;
     public Sprite currencyImg;
     public Sprite getItemImg()
@@ -18,5 +20,13 @@ public class ShopItemSO : ScriptableObject
     public Sprite getCurrencyImg()
     {
         return currencyImg;
+    }
+    public int getAmountAvailable()
+    {
+        return amountAvailable;
+    }
+    public int getAmountOwned()
+    {
+        return amountOwned;
     }
 }

@@ -11,6 +11,8 @@ public class ShopTemplate : MonoBehaviour
     public ShopItemSO shopItem;
     public TMP_Text titleTxt;
     public TMP_Text descriptionTxt;
+    public int amountAvailable;
+    public int amountOwned;
     public TMP_Text costTxt;
 
     void Awake()
