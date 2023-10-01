@@ -30,7 +30,7 @@ public class MTController : MonoBehaviour
     //Temporary function to test MT
     public void addCurrency()
     {
-        currency += .50 ;
+        currency += .50;
         currencyUI.text = "Currency: " + currency.ToString();
         CheckPurchaseable();
     }
