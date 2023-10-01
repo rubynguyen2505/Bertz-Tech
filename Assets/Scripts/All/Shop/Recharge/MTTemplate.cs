@@ -13,7 +13,7 @@ public class MTTemplate : MonoBehaviour
     public TMP_Text descriptionTxt;
     public TMP_Text costTxt;
 
-    void Update()
+    void Awake()
     {
         DisplayImg();
     }

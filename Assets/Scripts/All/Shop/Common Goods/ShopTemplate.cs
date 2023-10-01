@@ -15,7 +15,7 @@ public class ShopTemplate : MonoBehaviour
     public int amountOwned;
     public TMP_Text costTxt;
 
-    void Update()
+    void Awake()
     {
         DisplayImg();
     }
