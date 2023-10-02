@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 
+  - 507fd10a75dc518e55e7a8dd1ae886cc
   appIds:
-  - 697139438941800
+  - 13221193375337215
   appLabels:
   - Elementalists
   cookie: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   status: 1
   xfbml: 1
   frictionlessRequests: 1
-  androidKeystorePath: 
+  androidKeystorePath: user.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []
