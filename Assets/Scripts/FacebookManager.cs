@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Firebase.Auth;
 using UnityEngine.UI;
 using TMPro;
 using Facebook.Unity;
@@ -13,6 +13,7 @@ public class FacebookManager : MonoBehaviour
     public TextMeshProUGUI FB_userName;
     //public Image FB_profilePic;
     public RawImage rawImg;
+    Firebase.Auth.FirebaseAuth auth;
 
     #region Initialize
 
@@ -131,6 +132,8 @@ public class FacebookManager : MonoBehaviour
             SetInit();
             //AccessToken class will have session details
             var aToken = AccessToken.CurrentAccessToken;
+            Credential credential = FacebookAuthProvider.GetCredential(aToken.TokenString);
+            authwithfirebase(credential);
 
             print(aToken.UserId);
 
@@ -146,7 +149,20 @@ public class FacebookManager : MonoBehaviour
 
     }
 
-
+    public void authwithfirebase(Credential FBtoFirebase)
+    {
+        auth = FirebaseAuth.DefaultInstance;
+        //Firebase.Auth.Credential credential = Firebase.Auth.FacebookAuthProvider.GetCredential(accessToken);
+        auth.SignInWithCredentialAsync(FBtoFirebase).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("singin encountered error" + task.Exception);
+            }
+            Firebase.Auth.FirebaseUser newuser = task.Result;
+            Debug.Log(newuser.DisplayName);
+        });
+    }
 
 
     //logout
