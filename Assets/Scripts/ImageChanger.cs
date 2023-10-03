@@ -7,34 +7,42 @@ using UnityEngine;
 public class ImageChanger : MonoBehaviour
 {
     // Drag & Drop the gameobject in the inspector
-    public GameObject targetGameObject;
-    public GameObject targetGameObject2;
-    public GameObject targetGameObject3;
-    public GameObject targetGameObject4;
-    int temp = randomNum();
+    public GameObject[] targetGameObject;
 
-    public static int randomNum()
+
+    public int getLen()
+    {
+        int len = 0;
+        for (int i = 0; i < targetGameObject.Length; i++)
+        {
+            len = i;
+        }
+        return len;
+
+    }
+
+
+    public int randomNum(int len)
     {
         int randomNumber;
         System.Random RNG = new System.Random();
-        randomNumber = RNG.Next(1,5);
+        randomNumber = RNG.Next(0,len+1);
         return randomNumber;
     }
     public void DisableGameObject()
     {
-        if (temp == 1)
-            targetGameObject.SetActive(false);
-        else if (temp == 2)
-            targetGameObject2.SetActive(false);
-        else if (temp == 3)
-            targetGameObject3.SetActive(false);
-        else if (temp == 4)
-            targetGameObject4.SetActive(false);
-        else
-            targetGameObject.SetActive(false);
+        int temp = randomNum(getLen());
+        for (int i = 0; i < targetGameObject.Length; i++)
+            if (i == temp){
+                targetGameObject[i].SetActive(true);
+            } else
+            {
+                targetGameObject[i].SetActive(false);
+            }
+            
     }
 
-    public void EnableGameObject()
+    /*public void EnableGameObject()
     {
         if (temp == 1)
             targetGameObject.SetActive(true);
@@ -75,12 +83,12 @@ public class ImageChanger : MonoBehaviour
             DisableGameObject();
         else
             EnableGameObject();
-    }
+    }*/
     
     void OnEnable()
     {
-        
-        ToggleGameObject();
+
+        DisableGameObject();
     }
 
 }
