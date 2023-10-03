@@ -29,7 +29,7 @@ public class ImageChanger : MonoBehaviour
         randomNumber = RNG.Next(0,len+1);
         return randomNumber;
     }
-    public void DisableGameObject()
+    public void DisplayGO()
     {
         int temp = randomNum(getLen());
         for (int i = 0; i < targetGameObject.Length; i++)
@@ -42,53 +42,10 @@ public class ImageChanger : MonoBehaviour
             
     }
 
-    /*public void EnableGameObject()
-    {
-        if (temp == 1)
-            targetGameObject.SetActive(true);
-        else if (temp == 2)
-            targetGameObject2.SetActive(true);
-        else if (temp == 3)
-            targetGameObject3.SetActive(true);
-        else if (temp == 4)
-            targetGameObject4.SetActive(true);
-        else
-            targetGameObject.SetActive(true);
-    }
-
-    public void ToggleGameObject()
-    {
-        if (temp == 1)
-            if (targetGameObject.activeSelf)
-                DisableGameObject();
-            else
-                EnableGameObject();
-        else if (temp == 2)
-            if (targetGameObject2.activeSelf)
-            DisableGameObject();
-        else
-            EnableGameObject();
-        else if (temp == 3)
-            if (targetGameObject3.activeSelf)
-                DisableGameObject();
-            else
-                EnableGameObject();
-        else if (temp == 4)
-            if (targetGameObject4.activeSelf)
-                DisableGameObject();
-            else
-                EnableGameObject();
-        else
-             if (targetGameObject.activeSelf)
-            DisableGameObject();
-        else
-            EnableGameObject();
-    }*/
-    
     void OnEnable()
     {
 
-        DisableGameObject();
+        DisplayGO();
     }
 
 }

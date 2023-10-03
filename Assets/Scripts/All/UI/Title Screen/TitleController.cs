@@ -21,14 +21,7 @@ public class TitleController : MonoBehaviour
             start.interactable = true;
         }
     }
-/*
-    void Start()
-    {
-        if (start != null)
-        {
-            start.interactable = true;
-        }
-    }*/
+
     public void OnStartButton(){
         SceneManager.LoadScene("Home Screen");
     }
