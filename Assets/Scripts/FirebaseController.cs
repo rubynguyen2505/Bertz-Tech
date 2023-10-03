@@ -10,10 +10,10 @@ using Firebase.Extensions;
 
 public class FirebaseController : MonoBehaviour
 {
-    public GameObject titleScreen, loginPanel, signupPanel, profilePanel, forgetPasswordPanel;
+    public GameObject titleScreen, loginPanel, signupPanel, profilePanel, forgetPasswordPanel, notificationPanel;
     public TMPro.TMP_InputField loginEmail, loginPassword, signupEmail, signupPassword, signupCPassword, signupUserName, forgetPassEmail;
     public Toggle rememberMe;
-    public TMPro.TMP_Text profileUserName_Text, profileUserEmail_Text;
+    public TMPro.TMP_Text profileUserName_Text, profileUserEmail_Text, notifTitle_Text, notifMessage_Text;
 
 
 
@@ -87,6 +87,7 @@ public class FirebaseController : MonoBehaviour
     {
         if(string.IsNullOrEmpty(loginEmail.text)&&string.IsNullOrEmpty(loginPassword.text))
         {
+            showNotifcationMessage("Error", "Field Empty!");
             return;
         }
         // Do Login
@@ -96,6 +97,7 @@ public class FirebaseController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(signupEmail.text) && string.IsNullOrEmpty(signupPassword.text) && string.IsNullOrEmpty(signupCPassword.text) && string.IsNullOrEmpty(signupUserName.text))
         {
+            showNotifcationMessage("Error", "Field Empty!");
             return;
         }
         // Do Signup
@@ -106,7 +108,7 @@ public class FirebaseController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(forgetPassEmail.text))
         {
-            //showNotifcationMessage("Error", "Field Empty!");
+            showNotifcationMessage("Error", "Field Empty!");
             return;
         }
         ForgetPasswordSubmit(forgetPassEmail.text);
@@ -142,7 +144,7 @@ public class FirebaseController : MonoBehaviour
                     {
                         var errorCode = (AuthError)firebaseEx.ErrorCode;
                         //return GetErrorMessage(errorCode);
-                        //showNotifcationMessage("Error", GetErrorMessage(errorCode));
+                        showNotifcationMessage("Error", GetErrorMessage(errorCode));
                     }
                 }
 
@@ -177,7 +179,7 @@ public class FirebaseController : MonoBehaviour
                     {
                         var errorCode = (AuthError)firebaseEx.ErrorCode;
                         //return GetErrorMessage(errorCode);
-                        //showNotifcationMessage("Error", GetErrorMessage(errorCode));
+                        showNotifcationMessage("Error", GetErrorMessage(errorCode));
                     }
                 }
 
@@ -231,6 +233,7 @@ public class FirebaseController : MonoBehaviour
         auth.StateChanged -= AuthStateChanged;
         auth = null;
     }
+
     void UpdateUserProfile(string UserName)
     {
         Firebase.Auth.FirebaseUser user = auth.CurrentUser;
@@ -303,7 +306,7 @@ public class FirebaseController : MonoBehaviour
                 message = "Missing Email";
                 break;
             default:
-                message = "Error Has Occured";
+                message = "Invalid Email Or Password";
                 break;
         }
         return message;
@@ -325,11 +328,11 @@ public class FirebaseController : MonoBehaviour
                     {
                         var errorCode = (AuthError)firebaseEx.ErrorCode;
                         //return GetErrorMessage(errorCode);
-                        //showNotifcationMessage("Error", GetErrorMessage(errorCode));
+                        showNotifcationMessage("Error", GetErrorMessage(errorCode));
                     }
                 }
             }
-            //showNotifcationMessage("Alert","Success Send Email for Reset Password");
+            showNotifcationMessage("Alert","Success Send Email for Reset Password");
         });
     }
 
@@ -344,6 +347,17 @@ public class FirebaseController : MonoBehaviour
             if (task.IsFaulted)
             {
                 Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+
+                foreach (Exception exception in task.Exception.Flatten().InnerExceptions)
+                {
+                    Firebase.FirebaseException firebaseEx = exception as Firebase.FirebaseException;
+                    if (firebaseEx != null)
+                    {
+                        var errorCode = (AuthError)firebaseEx.ErrorCode;
+                        //return GetErrorMessage(errorCode);
+                        showNotifcationMessage("Error", GetErrorMessage(errorCode));
+                    }
+                }
                 return;
             }
 
@@ -353,5 +367,20 @@ public class FirebaseController : MonoBehaviour
 
             CloseLoginPanel();
         });
+    }
+
+    private void showNotifcationMessage(string title, string messege)
+    {
+        notifTitle_Text.text = "" + title;
+        notifMessage_Text.text = "" + messege;
+
+        notificationPanel.SetActive(true);
+    }
+    public void closeNotifPanel()
+    {
+        notifTitle_Text.text = "";
+        notifMessage_Text.text = "";
+        notificationPanel.SetActive(false);
+
     }
 }
