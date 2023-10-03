@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22ba99fda7643fc4693e54f99f2d245b, type: 3}
-  m_Name: New Card 5
+  m_Name: Oxalis
   m_EditorClassIdentifier: 
-  charaName: Freyja
-  image: {fileID: 21300000, guid: 6d555054ec7e51d4d8b95b9349a09474, type: 3}
+  charaName: Oxalis
+  image: {fileID: 21300000, guid: eecd043bc148f6e4db1e9a34c4a2218b, type: 3}
   atk: 1000
   hp: 200
   def: 10000
-  role: 0
+  role: 2
   type: 0
   character: {fileID: 0}
-  unlocked: 0
+  unlocked: 1
   inTeam: 0

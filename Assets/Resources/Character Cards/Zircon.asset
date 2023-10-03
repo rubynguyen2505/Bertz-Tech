@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22ba99fda7643fc4693e54f99f2d245b, type: 3}
-  m_Name: New Card 2
+  m_Name: Zircon
   m_EditorClassIdentifier: 
-  charaName: Athena
-  image: {fileID: 21300000, guid: 8a1b15b13f290944aac6de4740729d9b, type: 3}
+  charaName: Zircon
+  image: {fileID: 21300000, guid: 89c7cc30d00d56a4da56d5489095973b, type: 3}
   atk: 1000
   hp: 200
   def: 10000
-  role: 3
-  type: 3
+  role: 1
+  type: 0
   character: {fileID: 0}
-  unlocked: 0
+  unlocked: 1
   inTeam: 0

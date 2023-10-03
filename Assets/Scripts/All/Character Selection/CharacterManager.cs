@@ -24,7 +24,7 @@ public class CharacterManager : MonoBehaviour
         cardList.Clear();
 
         SelectionCanvas.SetActive(true);
-        cards = Resources.LoadAll<Card>("Card");
+        cards = Resources.LoadAll<Card>("Character Cards");
         for (int i = 0; i < cards.Length; i++)
         {
             if (cards[i].unlocked)

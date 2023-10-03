@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22ba99fda7643fc4693e54f99f2d245b, type: 3}
-  m_Name: New Card 6
+  m_Name: Hecate
   m_EditorClassIdentifier: 
   charaName: Hecate
   image: {fileID: 21300000, guid: 86afa2ce5704f6f47beeeef5593f3f4c, type: 3}
@@ -20,5 +20,5 @@ MonoBehaviour:
   role: 4
   type: 0
   character: {fileID: 0}
-  unlocked: 0
+  unlocked: 1
   inTeam: 0

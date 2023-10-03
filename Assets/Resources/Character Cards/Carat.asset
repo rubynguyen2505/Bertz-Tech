@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22ba99fda7643fc4693e54f99f2d245b, type: 3}
-  m_Name: New Card 13
+  m_Name: Carat
   m_EditorClassIdentifier: 
-  charaName: Uranus
-  image: {fileID: 21300000, guid: f0fd136128a4fa54a981492ff2ef00ba, type: 3}
+  charaName: Carat
+  image: {fileID: 21300000, guid: 862b6787b69000e4fbe2dcd065cce953, type: 3}
   atk: 1000
   hp: 200
   def: 10000
-  role: 2
+  role: 1
   type: 0
   character: {fileID: 0}
-  unlocked: 0
+  unlocked: 1
   inTeam: 0
