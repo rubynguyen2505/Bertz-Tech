@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards: []
-  cardUIPrefab: {fileID: 8752044084866359212, guid: 93f1733cd139e154990f65d8631fd4f5, type: 3}
+  cardUIPrefab: {fileID: 3371007128553304426, guid: fc00001a03b8f0d49b880fc744812028, type: 3}
   parent: {fileID: 1708898633}
   SelectionCanvas: {fileID: 1868456912}
   cardGO: []
@@ -5572,17 +5572,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 20
-    m_Bottom: 20
+    m_Left: 30
+    m_Right: 30
+    m_Top: 30
+    m_Bottom: 30
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 190, y: 294}
-  m_Spacing: {x: 20, y: 20}
+  m_CellSize: {x: 235, y: 240}
+  m_Spacing: {x: 25, y: 20}
   m_Constraint: 1
-  m_ConstraintCount: 5
+  m_ConstraintCount: 4
 --- !u!1 &1727591311
 GameObject:
   m_ObjectHideFlags: 0
