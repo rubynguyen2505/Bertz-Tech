@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 
@@ -11,6 +12,7 @@ public class CharaDetail : MonoBehaviour
 
     [Header("Character Details")]
     [SerializeField] private GameObject detailUI;
+    [SerializeField] private Image charFull;
     [SerializeField] private TextMeshProUGUI charaName, atk, hp, def, role, type;
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class CharaDetail : MonoBehaviour
         }
         noInfoText.SetActive(false);
         detailUI.SetActive(true);
-
+        charFull.sprite = cardDetail.charFull;
         charaName.text = "NAME : " + cardDetail.name;
         atk.text = "ATK : " + cardDetail.atk;
         hp.text = "HP : " + cardDetail.hp;

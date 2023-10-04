@@ -153,11 +153,11 @@ RectTransform:
   m_LocalScale: {x: 1.2652, y: 1.2652, z: 1.2652}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 767130451}
+  m_Father: {fileID: 1818828102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1284}
+  m_AnchoredPosition: {x: 0, y: 377.625}
   m_SizeDelta: {x: 691.3816, y: 1128.2772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82463290
@@ -1396,7 +1396,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1435864898}
-  - {fileID: 82463289}
   - {fileID: 1818828102}
   - {fileID: 2026561776}
   - {fileID: 1815018674}
@@ -3367,6 +3366,7 @@ GameObject:
   - component: {fileID: 1818828102}
   - component: {fileID: 1818828104}
   - component: {fileID: 1818828103}
+  - component: {fileID: 1818828105}
   m_Layer: 5
   m_Name: Unit Info Panel
   m_TagString: Untagged
@@ -3386,6 +3386,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 82463289}
   - {fileID: 1899041698}
   m_Father: {fileID: 767130451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3432,6 +3433,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818828101}
   m_CullTransparentMesh: 1
+--- !u!114 &1818828105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818828101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13d1cee0b0e9b6488a91fb2209234e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noInfoText: {fileID: 1540886417}
+  detailUI: {fileID: 463700620}
+  charFull: {fileID: 82463290}
+  charaName: {fileID: 1884242821}
+  atk: {fileID: 1451825173}
+  hp: {fileID: 726396755}
+  def: {fileID: 1111832656}
+  role: {fileID: 2137727330}
+  type: {fileID: 2060516840}
 --- !u!1 &1884242819
 GameObject:
   m_ObjectHideFlags: 0
@@ -3711,7 +3733,6 @@ GameObject:
   - component: {fileID: 1899041698}
   - component: {fileID: 1899041701}
   - component: {fileID: 1899041700}
-  - component: {fileID: 1899041699}
   m_Layer: 5
   m_Name: Unit Details
   m_TagString: Untagged
@@ -3740,26 +3761,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035156, y: 97.882996}
   m_SizeDelta: {x: -0.00012207, y: 202.7563}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1899041699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899041697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c13d1cee0b0e9b6488a91fb2209234e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noInfoText: {fileID: 1540886417}
-  detailUI: {fileID: 463700620}
-  charaName: {fileID: 1884242821}
-  atk: {fileID: 1451825173}
-  hp: {fileID: 726396755}
-  def: {fileID: 1111832656}
-  role: {fileID: 2137727330}
-  type: {fileID: 2060516840}
 --- !u!114 &1899041700
 MonoBehaviour:
   m_ObjectHideFlags: 0

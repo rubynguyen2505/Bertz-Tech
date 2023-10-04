@@ -10,6 +10,8 @@ public class UnitCardManager : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private GameObject SelectedUI;
+    [SerializeField] private Image frame;
+    [SerializeField] private Image stars;
     Toggle toggle;
     TeamManager teamManager;
     int idx;
@@ -25,6 +27,8 @@ public class UnitCardManager : MonoBehaviour
         //set image and name for the UI
         image.sprite = card.image;
         nameText.text = card.charaName;
+        frame.sprite = card.itemFrame;
+        stars.sprite = card.stars;
 
         toggle.onValueChanged.AddListener(Selected);
 

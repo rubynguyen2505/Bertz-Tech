@@ -34,4 +34,8 @@ public class Card : ScriptableObject
     public GameObject character;
     public bool unlocked;
     public bool inTeam;
+    public Sprite charFull;
+    public Sprite itemFrame;
+    public Sprite stars;
 }
+

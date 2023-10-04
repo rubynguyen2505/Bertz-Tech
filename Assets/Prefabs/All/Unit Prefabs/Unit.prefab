@@ -445,6 +445,8 @@ MonoBehaviour:
   image: {fileID: 4677189053051734567}
   nameText: {fileID: 2225266948370339941}
   SelectedUI: {fileID: 3813715985899108856}
+  frame: {fileID: 3610729477224304444}
+  stars: {fileID: 8280647677470020310}
 --- !u!1 &3615168477994621645
 GameObject:
   m_ObjectHideFlags: 0
