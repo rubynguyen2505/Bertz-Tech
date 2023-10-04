@@ -12,7 +12,7 @@ public class HomeController : MonoBehaviour
 
     public void onBattleButton()
     {
-        SceneManager.LoadScene("Level Select");
+        SceneManager.LoadScene("Battle");
     }
 
     
