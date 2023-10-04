@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: A Large Amount of Gems
   description: 
-  baseCost: 0
+  baseCost: 99.99
   itemImg: {fileID: 21300000, guid: 834351e4c461f084cbc640e2d50b6cbc, type: 3}
   currencyImg: {fileID: 21300000, guid: cbcc722df932ab044ac5abf2b1f25d92, type: 3}

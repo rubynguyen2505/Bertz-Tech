@@ -21,21 +21,21 @@ public class MTController : MonoBehaviour
         }
         currencyUI.text = "Currency: " + currency.ToString();
         loadPanels();
-        CheckPurchaseable();
+/*        CheckPurchaseable();*/
     }
     void Update()
     {
         
     }
     //Temporary function to test MT
-    public void addCurrency()
+/*    public void addCurrency()
     {
         currency += .50;
         currencyUI.text = "Currency: " + currency.ToString();
         CheckPurchaseable();
-    }
+    }*/
     //Only allow purchases that user has currency to make
-    public void CheckPurchaseable()
+    /*public void CheckPurchaseable()
     {
         for (int i = 0; i < MTItemsSO.Length;i++)
         {
@@ -48,7 +48,7 @@ public class MTController : MonoBehaviour
                 purchaseButtons[i].interactable= false;
             }
         }
-    }
+    }*/
     //Initialize MT panels
     public void loadPanels()
     {
@@ -59,7 +59,7 @@ public class MTController : MonoBehaviour
             MTPanels[i].costTxt.text = MTItemsSO[i].baseCost.ToString();
         }
     }
-    //Purchase an item
+/*    //Purchase an item
     public void purchaseItem(int btnNm)
     {
         if (currency >= MTItemsSO[btnNm].baseCost)
@@ -68,5 +68,5 @@ public class MTController : MonoBehaviour
             currencyUI.text = "Currency: " + currency.ToString();
             CheckPurchaseable();
         }
-    }
+    }*/
 }
