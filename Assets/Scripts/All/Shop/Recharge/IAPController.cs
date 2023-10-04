@@ -12,8 +12,8 @@ using UnityEngine.Purchasing.Extension;
  */
 public class IAPController : MonoBehaviour
 {
-    private string upgradeItem = "com.BERTZTech.Elementalists.UpgradeItem";
-    private string evolveItem = "com.BERTZTech.Elementalists.EvolveItem";
+    private string upgradeItem = "com.bertztech.elementalists.upgradeitem";
+    private string evolveItem = "com.bertztech.elementalists.evolveitem";
     [SerializeField]
     TMP_Text title;
     [SerializeField]
