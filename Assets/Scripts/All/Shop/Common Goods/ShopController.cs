@@ -25,7 +25,7 @@ public class ShopController : MonoBehaviour
         {
             amount[i].text = "x" + shopItemsSO[i].getAmountAvailable() + " (" + shopItemsSO[i].getAmountOwned() + " Owned)";
         }
-        loadPanels();
+        LoadPanels();
         CheckPurchaseable();
     }
     void Update()
@@ -55,7 +55,7 @@ public class ShopController : MonoBehaviour
         }
     }
     //Initialize shop panels
-    public void loadPanels()
+    public void LoadPanels()
     {
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
@@ -65,7 +65,7 @@ public class ShopController : MonoBehaviour
         }
     }
     //Purchase an item
-    public void purchaseItem(int btnNm)
+    public void PurchaseItem(int btnNm)
     {
         if (currency >= shopItemsSO[btnNm].baseCost && shopItemsSO[btnNm].amountAvailable > 0)
         {
