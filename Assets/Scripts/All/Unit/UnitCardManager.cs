@@ -30,7 +30,7 @@ public class UnitCardManager : MonoBehaviour
 
         if (TeamManager.selectionMode == SelectionMode.Single)
         {
-            toggle.group = CharacterList._toggleGroup;
+            toggle.group = UnitList._toggleGroup;
         }
         //unset the toggle group
         else
@@ -71,7 +71,7 @@ public class UnitCardManager : MonoBehaviour
             //set the toggle group
             if (TeamManager.selectionMode == SelectionMode.Single)
             {
-                toggle.group = CharacterList._toggleGroup;
+                toggle.group = UnitList._toggleGroup;
             }
             //unset the toggle group
             else
@@ -98,7 +98,7 @@ public class UnitCardManager : MonoBehaviour
                 else
                 {
                     //just set isOn true if the idx is the same with the card we click in TeamCanvas UI
-                    if (idx == SlotManager.index)
+                    if (idx == UnitSlotManager.index)
                     {
                         toggle.SetIsOnWithoutNotify(true);
                         return;
@@ -121,35 +121,17 @@ public class UnitCardManager : MonoBehaviour
     {
         if (on)
         {
-            if (TeamManager.selectionMode == SelectionMode.Multiple)
-            {
-                
-                CharaDetail.cardDetail = card;
-                SelectedUI.SetActive(true);
-                return;       
-            }
-            //
-            else
-            {
-                CharaDetail.cardDetail = card;
-                SelectedUI.SetActive(true);
-                return;
-            }
-            toggle.isOn = false;
+            CharaDetail.cardDetail = card;
+            SelectedUI.SetActive(true);
+
+            return;
         }
         else
         {
-            if (TeamManager.selectionMode == SelectionMode.Multiple)
-            {
-                CharaDetail.cardDetail = null;
-                SelectedUI.SetActive(false);
-            }
-            //
-            else
-            {
-                CharaDetail.cardDetail = null;
-                SelectedUI.SetActive(false);
-            }
+
+            CharaDetail.cardDetail = null;
+            SelectedUI.SetActive(false);
+        
         }
     }
 }
