@@ -1845,6 +1845,10 @@ MonoBehaviour:
   - {fileID: 1015204175331204409, guid: b47bea7f54533a54c838b7a107970e72, type: 3}
   - {fileID: 1530666440189001784, guid: cc77239d5abd0944fbd2b6ddfb369476, type: 3}
   destroyEffect: {fileID: 7818459985641179223, guid: 3a9b61a82b425cf468e26fc335ae6a92, type: 3}
+  matchType:
+    type: 0
+    color: 
+  currentDot: {fileID: 0}
   refillDelay: 0.5
 --- !u!114 &750384145
 MonoBehaviour:

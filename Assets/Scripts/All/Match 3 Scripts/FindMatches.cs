@@ -19,7 +19,7 @@ public class FindMatches : MonoBehaviour
         StartCoroutine(FindAllMatchesCo());
     }
   
-    /*
+    
     private List<GameObject> isAdjacentBomb(Dot dot1, Dot dot2, Dot dot3)
     {
         List <GameObject> currentDots = new List<GameObject>();
@@ -39,7 +39,7 @@ public class FindMatches : MonoBehaviour
         }
         return currentDots;
     }
-    */
+    
       
     private List<GameObject> isRowBomb(Dot dot1, Dot dot2, Dot dot3)
     {
@@ -135,7 +135,7 @@ public class FindMatches : MonoBehaviour
 
                                 currentMatches.Union(isColumnBomb(leftDotDot, currentDotDot, rightDotDot));
 
-                                //currentMatches.Union(isAdjacentBomb(leftDotDot, currentDotDot, rightDotDot));
+                                currentMatches.Union(isAdjacentBomb(leftDotDot, currentDotDot, rightDotDot));
                                 
 
                                 GetNearbyPieces(leftDot, currentDot, rightDot);
@@ -160,7 +160,7 @@ public class FindMatches : MonoBehaviour
 
                                 currentMatches.Union(isRowBomb(upDotDot, currentDotDot, downDotDot));
 
-                                //currentMatches.Union(isAdjacentBomb(upDotDot, currentDotDot, downDotDot));
+                                currentMatches.Union(isAdjacentBomb(upDotDot, currentDotDot, downDotDot));
                                 
 
                                 GetNearbyPieces(upDot, currentDot, downDot);
