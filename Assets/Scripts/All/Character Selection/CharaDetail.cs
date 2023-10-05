@@ -9,6 +9,7 @@ public class CharaDetail : MonoBehaviour
 {
     public static Card cardDetail;
     [SerializeField] private GameObject noInfoText;
+    [SerializeField] private GameObject charaImg;
 
     [Header("Character Details")]
     [SerializeField] private GameObject detailUI;
@@ -20,10 +21,12 @@ public class CharaDetail : MonoBehaviour
     {
         if (cardDetail == null)
         {
+            charaImg.SetActive(false);
             noInfoText.SetActive(true);
             detailUI.SetActive(false);
             return;
         }
+        charaImg.SetActive(true);
         noInfoText.SetActive(false);
         detailUI.SetActive(true);
         charFull.sprite = cardDetail.charFull;

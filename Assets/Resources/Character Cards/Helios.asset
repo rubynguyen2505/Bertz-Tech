@@ -22,6 +22,6 @@ MonoBehaviour:
   character: {fileID: 0}
   unlocked: 1
   inTeam: 0
-  charFull: {fileID: 21300000, guid: 0f8159f6346184a40be9492e6f364721, type: 3}
+  charFull: {fileID: 21300000, guid: 78382104495ed484eb1184372afd9ab5, type: 3}
   itemFrame: {fileID: 21300000, guid: 20ab66ff3d04cb6498a6c4c090a0ecda, type: 3}
   stars: {fileID: 21300000, guid: 41be4ea3b06f74f40a1424c5e80a790f, type: 3}
