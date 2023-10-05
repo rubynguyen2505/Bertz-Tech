@@ -553,7 +553,7 @@ public class Board : MonoBehaviour
     public void DestroyMatches(){
         
         //How many elements are in the matched pieces list from findmatches
-        if (findMatches.currentMatches.Count >= 4)
+        if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7)
         {
             CheckToMakeBombs();
         }

@@ -151,7 +151,7 @@ MonoBehaviour:
   rowArrow: {fileID: 8787716105879084831, guid: eb41b9375d4136c40b114d4a8b13911e, type: 3}
   columnArrow: {fileID: 7894683963757491362, guid: 732ecd08d361dc14e89503b2c017ed9d, type: 3}
   colorBomb: {fileID: 2312222810241781233, guid: cf463070665b8d54b9e73db2f28bcd0c, type: 3}
-  adjacentMarker: {fileID: 0}
+  adjacentMarker: {fileID: 96185259791925928, guid: 3e8383990f048de49beec6b5cacc475b, type: 3}
 --- !u!95 &4349730835133987100
 Animator:
   serializedVersion: 5
