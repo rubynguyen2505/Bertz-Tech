@@ -1833,8 +1833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 1
-  width: 6
-  height: 8
+  width: 7
+  height: 10
   offSet: 20
   tilePrefab: {fileID: 5914918131645197852, guid: 95996e9aa954c6a498c25e2007d6a57e, type: 3}
   dots:
@@ -1845,6 +1845,25 @@ MonoBehaviour:
   - {fileID: 1015204175331204409, guid: b47bea7f54533a54c838b7a107970e72, type: 3}
   - {fileID: 1530666440189001784, guid: cc77239d5abd0944fbd2b6ddfb369476, type: 3}
   destroyEffect: {fileID: 7818459985641179223, guid: 3a9b61a82b425cf468e26fc335ae6a92, type: 3}
+  boardLayout:
+  - x: 0
+    y: 0
+    tileKind: 1
+  - x: 6
+    y: 9
+    tileKind: 1
+  - x: 6
+    y: 0
+    tileKind: 1
+  - x: 0
+    y: 9
+    tileKind: 1
+  - x: 4
+    y: 4
+    tileKind: 1
+  - x: 5
+    y: 4
+    tileKind: 1
   matchType:
     type: 0
     color: 

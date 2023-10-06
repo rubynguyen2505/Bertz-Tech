@@ -14,17 +14,17 @@ public enum gameState
 }
 
 
-/*
+
 public enum TileKind
 {
     Breakable,
     Blank,
-    Lock,
-    Concrete,
-    Slime,
+    //Lock,
+    //Concrete,
+    //Slime,
     Normal
 }
-*/
+
 
 
 [System.Serializable]
@@ -35,7 +35,7 @@ public class MatchType
 }
 
 
-/*
+
 [System.Serializable]
 public class TileType
 {
@@ -43,7 +43,7 @@ public class TileType
     public int y;
     public TileKind tileKind;
 }
-*/
+
 
 public class Board : MonoBehaviour
 {
@@ -72,13 +72,13 @@ public class Board : MonoBehaviour
     public GameObject[] dots;
     public GameObject destroyEffect;
 
-    /*
+    
     [Header ("Layouts")]
     public TileType[] boardLayout;
     private bool[,] blankSpaces;
-    private BackgroundTile[,] breakableTiles;
-    public BackgroundTile[,] lockTiles;
-    */
+    //private BackgroundTile[,] breakableTiles;
+    //public BackgroundTile[,] lockTiles;
+    
     private BackgroundTile[,] concreteTiles;
     //private BackgroundTile[,] slimeTiles;
     //private BackgroundTile[,] allTiles;
@@ -146,13 +146,13 @@ public class Board : MonoBehaviour
 
 
         findMatches = FindObjectOfType<FindMatches>();
-        //blankSpaces = new bool[width, height];
+        blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
         SetUp();
         //currentState = gameState.pause;
     }
 
-    /*
+    
     public void GenerateBlankSpace()
     {
         for (int i = 0; i < boardLayout.Length; i ++)
@@ -163,7 +163,7 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
     /*
     public void GenerateBreakableTiles()
@@ -239,8 +239,9 @@ public class Board : MonoBehaviour
 
     private void SetUp()
     {
-        /*
+        
         GenerateBlankSpace();
+        /*
         GenerateBreakableTiles();
         GenerateLockTiles();
         GenerateConcreteTiles();
@@ -251,33 +252,33 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                //if (!blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
-                //{
-                Vector2 tempPosition = new Vector2(i, j + offSet);
-                Vector2 tilePosition = new Vector2(i, j);
-                GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
-                backgroundTile.transform.parent = this.transform;
-                backgroundTile.name = "( " + i + ", " + j + " )";
-                int dotToUse = Random.Range(0, dots.Length);
-
-                int maxIterations = 0;
-                while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
+                if (!blankSpaces[i, j]) //&& !concreteTiles[i, j] && !slimeTiles[i, j])
                 {
-                    dotToUse = Random.Range(0, dots.Length);
-                    maxIterations++;
+                    Vector2 tempPosition = new Vector2(i, j + offSet);
+                    Vector2 tilePosition = new Vector2(i, j);
+                    GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                    backgroundTile.transform.parent = this.transform;
+                    backgroundTile.name = "( " + i + ", " + j + " )";
+                    int dotToUse = Random.Range(0, dots.Length);
+
+                    int maxIterations = 0;
+                    while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
+                    {
+                        dotToUse = Random.Range(0, dots.Length);
+                        maxIterations++;
+                    }
+                    maxIterations = 0;
+
+
+                    GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
+                    dot.GetComponent<Dot>().row = j;
+                    dot.GetComponent<Dot>().column = i;
+
+                    dot.transform.parent = this.transform;
+                    dot.name = "( " + i + ", " + j + " )";
+                    allDots[i, j] = dot;
+
                 }
-                maxIterations = 0;
-
-
-                GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
-                dot.GetComponent<Dot>().row = j;
-                dot.GetComponent<Dot>().column = i;
-
-                dot.transform.parent = this.transform;
-                dot.name = "( " + i + ", " + j + " )";
-                allDots[i, j] = dot;
-
-                //}
             }
         }
     }
