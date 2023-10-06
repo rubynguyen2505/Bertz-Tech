@@ -52,18 +52,18 @@ public class Board : MonoBehaviour
     public World world;
     public int level;
     */
-    
-    
-    public gameState currentState = gameState.move;
-    
 
-    [Header ("Board Dimensions")]
+
+    public gameState currentState = gameState.move;
+
+
+    [Header("Board Dimensions")]
     public int width;
     public int height;
     public int offSet;
 
-    
-    [Header ("Prefabs")]
+
+    [Header("Prefabs")]
     public GameObject tilePrefab;
     //public GameObject breakableTilePrefab;
     //public GameObject lockTilePrefab;
@@ -82,16 +82,16 @@ public class Board : MonoBehaviour
     private BackgroundTile[,] concreteTiles;
     //private BackgroundTile[,] slimeTiles;
     //private BackgroundTile[,] allTiles;
-    
+
 
     public GameObject[,] allDots;
 
-    
+
     [Header("Match Stuff")]
     public MatchType matchType;
     public Dot currentDot;
     private FindMatches findMatches;
-    
+
 
     /*
     public int basePieceValue = 20;
@@ -143,7 +143,7 @@ public class Board : MonoBehaviour
         */
         concreteTiles = new BackgroundTile[width, height];
         //slimeTiles = new BackgroundTile[width, height];
-        
+
 
         findMatches = FindObjectOfType<FindMatches>();
         //blankSpaces = new bool[width, height];
@@ -247,42 +247,42 @@ public class Board : MonoBehaviour
         GenerateSlimeTiles();
         */
 
-        for (int i = 0; i < width; i ++)
+        for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < height; j ++)
+            for (int j = 0; j < height; j++)
             {
                 //if (!blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
                 //{
-                    Vector2 tempPosition = new Vector2(i, j + offSet);
-                    Vector2 tilePosition = new Vector2(i, j);
-                    GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
-                    backgroundTile.transform.parent = this.transform;
-                    backgroundTile.name = "( " + i + ", " + j + " )";
-                    int dotToUse = Random.Range(0, dots.Length);
-                    
-                    int maxIterations = 0;
-                    while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
-                    {
-                        dotToUse = Random.Range(0, dots.Length);
-                        maxIterations ++;
-                    }
-                    maxIterations = 0;
-                    
+                Vector2 tempPosition = new Vector2(i, j + offSet);
+                Vector2 tilePosition = new Vector2(i, j);
+                GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
+                backgroundTile.transform.parent = this.transform;
+                backgroundTile.name = "( " + i + ", " + j + " )";
+                int dotToUse = Random.Range(0, dots.Length);
 
-                    GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
-                    dot.GetComponent<Dot>().row = j;
-                    dot.GetComponent<Dot>().column = i;
+                int maxIterations = 0;
+                while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
+                {
+                    dotToUse = Random.Range(0, dots.Length);
+                    maxIterations++;
+                }
+                maxIterations = 0;
 
-                    dot.transform.parent = this.transform;
-                    dot.name = "( " + i + ", " + j + " )";
-                    allDots[i, j] = dot;
-                    
+
+                GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
+                dot.GetComponent<Dot>().row = j;
+                dot.GetComponent<Dot>().column = i;
+
+                dot.transform.parent = this.transform;
+                dot.name = "( " + i + ", " + j + " )";
+                allDots[i, j] = dot;
+
                 //}
             }
         }
     }
 
-    
+
     private bool MatchesAt(int column, int row, GameObject piece)
     {
         if (column > 1 && row > 1)
@@ -294,7 +294,7 @@ public class Board : MonoBehaviour
                     return true;
                 }
             }
-            
+
             if (allDots[column, row - 1] != null && allDots[column, row - 2] != null)
             {
                 if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
@@ -314,7 +314,7 @@ public class Board : MonoBehaviour
                         return true;
                     }
                 }
-                
+
             }
 
             if (column > 1)
@@ -330,9 +330,9 @@ public class Board : MonoBehaviour
         }
         return false;
     }
-    
 
-    
+
+
     private MatchType ColumnOrRow()
     {
         //Make a copy of the current matches
@@ -342,17 +342,17 @@ public class Board : MonoBehaviour
         matchType.color = "";
 
         //Cycle through all of match Copy and decide if a bomb needs to be made
-        for (int i = 0; i < matchCopy.Count; i ++)
+        for (int i = 0; i < matchCopy.Count; i++)
         {
             //Store this dot
             Dot thisDot = matchCopy[i].GetComponent<Dot>();
             string color = matchCopy[i].tag;
             int column = thisDot.column;
-            int row = thisDot.row;            
+            int row = thisDot.row;
             int columnMatch = 0;
             int rowMatch = 0;
             //Cycle through the rest of the pieces and compare
-            for (int j = 0; j < matchCopy.Count; j ++)
+            for (int j = 0; j < matchCopy.Count; j++)
             {
                 //Store the next dot
                 Dot nextDot = matchCopy[j].GetComponent<Dot>();
@@ -363,12 +363,12 @@ public class Board : MonoBehaviour
 
                 if (nextDot.column == thisDot.column && nextDot.tag == color)
                 {
-                    columnMatch ++;
+                    columnMatch++;
                 }
 
                 if (nextDot.row == thisDot.row && nextDot.tag == color)
                 {
-                    rowMatch ++;
+                    rowMatch++;
                 }
             }
             //Return 3 if column or row match
@@ -399,11 +399,15 @@ public class Board : MonoBehaviour
         matchType.color = "";
         return matchType;
     }
-    
 
-    
+
+
     private void CheckToMakeBombs()
     {
+        if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7)
+        {
+            
+        }
         //How many objects are in findMatches currentMatches?
         if (findMatches.currentMatches.Count > 3)
         {
@@ -553,7 +557,7 @@ public class Board : MonoBehaviour
     public void DestroyMatches(){
         
         //How many elements are in the matched pieces list from findmatches
-        if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7)
+        if (findMatches.currentMatches.Count >= 4)
         {
             CheckToMakeBombs();
         }
