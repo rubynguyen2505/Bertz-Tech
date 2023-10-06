@@ -1861,8 +1861,8 @@ MonoBehaviour:
   - x: 4
     y: 4
     tileKind: 1
-  - x: 5
-    y: 4
+  - x: 4
+    y: 5
     tileKind: 1
   matchType:
     type: 0

@@ -576,7 +576,7 @@ public class Board : MonoBehaviour
                 }
             }
         }       
-        StartCoroutine(DecreaseRowCo());
+        StartCoroutine(DecreaseRowCo2());
     }
     
 
@@ -684,7 +684,7 @@ public class Board : MonoBehaviour
     }
     */
 
-    /*
+    
     private IEnumerator DecreaseRowCo2()
     {
         for (int i = 0; i < width; i ++)
@@ -692,8 +692,8 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++)
             {
                 //IIf the current spot isn't blank and is empty
-                //if (!blankSpaces[i, j] && allDots[i, j] == null && !concreteTiles[i, j] && !slimeTiles[i, j])
-                //{
+                if (!blankSpaces[i, j] && allDots[i, j] == null)// && !concreteTiles[i, j] && !slimeTiles[i, j])
+                {
                     //Loop from the space above tot he top of the column
                     for (int k = j + 1; k < height; k ++)
                     {
@@ -708,13 +708,13 @@ public class Board : MonoBehaviour
                             break;
                         }
                     }
-                //}
+                }
             }
         }
         yield return new WaitForSeconds(refillDelay * 0.5f);
         StartCoroutine(FillBoardCo());
     }
-    */
+    
 
     
     private IEnumerator DecreaseRowCo()
@@ -748,7 +748,7 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j ++)
             {
-                if (allDots[i, j] == null)// && !blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
+                if (allDots[i, j] == null && !blankSpaces[i, j])// && !concreteTiles[i, j] && !slimeTiles[i, j])
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
                     int dotToUse = Random.Range(0, dots.Length);

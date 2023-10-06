@@ -305,7 +305,7 @@ public class Dot : MonoBehaviour
             }
             else
             {
-                //board.currentState = gameState.move;
+                board.currentState = gameState.move;
             }
         //}
         //else
