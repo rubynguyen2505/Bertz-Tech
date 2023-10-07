@@ -1837,6 +1837,7 @@ MonoBehaviour:
   height: 10
   offSet: 20
   tilePrefab: {fileID: 5914918131645197852, guid: 95996e9aa954c6a498c25e2007d6a57e, type: 3}
+  breakableTilePrefab: {fileID: 6325814517477873033, guid: 771ad84e1c653574f8e610dff9de65c2, type: 3}
   dots:
   - {fileID: 5145155175555517389, guid: 9a578da8687129e4d807c5468cdbe930, type: 3}
   - {fileID: 1780393611618516764, guid: a34ced14ed190974f843844c8d8a4dbb, type: 3}
@@ -1864,6 +1865,15 @@ MonoBehaviour:
   - x: 4
     y: 5
     tileKind: 1
+  - x: 1
+    y: 5
+    tileKind: 0
+  - x: 1
+    y: 6
+    tileKind: 0
+  - x: 4
+    y: 5
+    tileKind: 0
   matchType:
     type: 0
     color: 

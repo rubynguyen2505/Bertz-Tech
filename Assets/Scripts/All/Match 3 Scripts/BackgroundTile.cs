@@ -15,20 +15,22 @@ public class BackgroundTile : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    /*
+    
     private void Update()
     {
         if (hitPoints <= 0)
         {
+            /*
             if (goalManager != null)
             {
                 goalManager.CompareGoal(this.gameObject.tag);
                 goalManager.UpdateGoals();
             }
+            */
             Destroy(this.gameObject);
         }
     }
-    */
+    
 
     
     public void TakeDamage(int damage)
