@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UnitManager : MonoBehaviour
+public class UpgradeCharManager : MonoBehaviour
 {
     public Card[] cards;
     [SerializeField] private GameObject cardUIPrefab;
@@ -12,15 +12,15 @@ public class UnitManager : MonoBehaviour
     public GameObject SelectionCanvas;
 
     public List<GameObject> cardGO = new List<GameObject>();
-    public List<UnitCardManager> unitCardListManager = new List<UnitCardManager>();
+    public List<UpgradeCardManager> upgradeCardListManager = new List<UpgradeCardManager>();
     public List<Card> cardList = new List<Card>();
     GameObject cardUI;
-    UnitCardManager unitCardManager;
+    UpgradeCardManager upgradeCardManager;
 
     void Awake()
     {
         cardGO.Clear();
-        unitCardListManager.Clear();
+        upgradeCardListManager.Clear();
         cardList.Clear();
 
         SelectionCanvas.SetActive(true);
@@ -32,16 +32,16 @@ public class UnitManager : MonoBehaviour
                 cardUI = Instantiate(cardUIPrefab, parent.position, Quaternion.identity) as GameObject;
                 cardUI.transform.localScale = new Vector3(1, 1, 1);
                 cardUI.transform.SetParent(parent);
-                unitCardManager = cardUI.GetComponent<UnitCardManager>();
-                unitCardManager.card = cards[i];
+                upgradeCardManager = cardUI.GetComponent<UpgradeCardManager>();
+                upgradeCardManager.card = cards[i];
 
                 cardGO.Add(cardUI);
-                unitCardListManager.Add(unitCardManager);
+                upgradeCardListManager.Add(upgradeCardManager);
                 cardList.Add(cards[i]);
             }
         }
 
-        SelectionCanvas.SetActive(true);
-            
+        SelectionCanvas.SetActive(false);
+
     }
 }

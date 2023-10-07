@@ -1865,8 +1865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards: []
   cardUIPrefab: {fileID: 3371007128553304426, guid: 08798d48ab0e3714f9147b3b88acce76, type: 3}
-  parent1: {fileID: 836189306}
-  parent2: {fileID: 836189306}
+  parent: {fileID: 836189306}
   SelectionCanvas: {fileID: 1331504343}
   cardGO: []
   unitCardListManager: []
