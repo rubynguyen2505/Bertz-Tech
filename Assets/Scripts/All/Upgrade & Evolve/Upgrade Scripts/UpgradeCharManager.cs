@@ -29,7 +29,7 @@ public class UpgradeCharManager : MonoBehaviour
         {
             if (cards[i].unlocked)
             {
-                cards[i].lv = 1;
+                //cards[i].lv = 1;
                 cards[i]._hp = cards[i].hp * cards[i].lv;
                 cards[i]._atk = cards[i].atk * cards[i].lv;
                 cards[i]._def = cards[i].def * cards[i].lv;

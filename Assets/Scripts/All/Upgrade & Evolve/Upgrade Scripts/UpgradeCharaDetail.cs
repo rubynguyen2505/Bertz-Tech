@@ -13,7 +13,7 @@ public class UpgradeCharaDetail : MonoBehaviour
     [Header("Character Details")]
     [SerializeField] private GameObject detailUI;
     [SerializeField] private Image charFull;
-    [SerializeField] private TextMeshProUGUI charaName, atk, hp, def, role, type;
+    [SerializeField] private TextMeshProUGUI charaName, lvl, atk, hp, def, role, type;
 
     // Update is called once per frame
     void Update()
@@ -29,11 +29,12 @@ public class UpgradeCharaDetail : MonoBehaviour
         noInfoText.SetActive(false);
         detailUI.SetActive(true);
         charFull.sprite = cardDetail.charFull;
-        charaName.text = "NAME : " + cardDetail.name;
-        atk.text = "ATK : " + cardDetail.atk;
-        hp.text = "HP : " + cardDetail.hp;
-        def.text = "DEF : " + cardDetail.def;
-        role.text = "ROLE : " + cardDetail.role.ToString();
-        type.text = "TYPE : " + cardDetail.type.ToString();
+        charaName.text = "NAME: " + cardDetail.name;
+        lvl.text = "LVL:\t\t " + cardDetail.lv;
+        atk.text = "ATK: " + cardDetail._atk;
+        hp.text = "HP: " + cardDetail._hp;
+        def.text = "DEF: " + cardDetail._def;
+        role.text = "ROLE: " + cardDetail.role.ToString();
+        type.text = "TYPE: " + cardDetail.type.ToString();
     }
 }

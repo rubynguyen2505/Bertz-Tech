@@ -8,7 +8,7 @@ public class UpgradeManager : MonoBehaviour
     public static UpgradeManager instance;
 
     [HideInInspector]
-    public Card card;
+    public static Card card;
 
     public GameObject character;
     public int coins;
@@ -70,7 +70,7 @@ public class UpgradeManager : MonoBehaviour
         // sprite.sprite = info.image;
         // animator.runtimeAnimatorController = info.animation;
         #endregion
-
+        /*
         #region Instantiate GameObject
         if (_character == null)
         {
@@ -88,13 +88,13 @@ public class UpgradeManager : MonoBehaviour
             }
         }
         #endregion
-
-        charaName.text = "Name \t : " + card.charaName.ToString();
-        lv.text = "Level \t\t : " + card.lv.ToString();
-        maxHp.text = "Hp \t\t : " + card._hp.ToString();
-        atk.text = "Atk \t\t : " + card._atk.ToString();
-        def.text = "Def \t\t : " + card._def.ToString();
-        coinsUI.text = "Coins : " + coins.ToString();
+        */
+        charaName.text = card.charaName.ToString();
+        lv.text = "Lvl: " + card.lv.ToString();
+        maxHp.text = "Hp: " + card._hp.ToString();
+        atk.text = "Atk: " + card._atk.ToString();
+        def.text = "Def: " + card._def.ToString();
+        coinsUI.text = "Coins: " + coins.ToString();
 
         cost = card.lv * 20;
         if (card.lv < card.maxLv)

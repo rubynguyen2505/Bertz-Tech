@@ -104,7 +104,7 @@ public class UpgradeCardManager : MonoBehaviour
             UpgradeCharaDetail.cardDetail = card;
             SelectedUI.SetActive(true);
             upgradeTManager.tempTeamList.Add(card);
-            upgradeManager.card = card;
+            UpgradeManager.card = card;
             upgradeManager.SetUI();
             return;
         }
@@ -114,8 +114,7 @@ public class UpgradeCardManager : MonoBehaviour
             UpgradeCharaDetail.cardDetail = null;
             SelectedUI.SetActive(false);
             upgradeTManager.tempTeamList.Remove(card);
-            upgradeManager.card = null;
-            upgradeManager.SetUI();
+            UpgradeManager.card = null;
         }
     }
 }
