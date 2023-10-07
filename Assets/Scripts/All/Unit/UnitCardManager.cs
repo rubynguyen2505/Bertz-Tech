@@ -32,15 +32,9 @@ public class UnitCardManager : MonoBehaviour
 
         toggle.onValueChanged.AddListener(Selected);
 
-        if (TeamManager.selectionMode == SelectionMode.Single)
-        {
-            toggle.group = UnitList._toggleGroup;
-        }
-        //unset the toggle group
-        else
-        {
-            toggle.group = null;
-        }
+
+        toggle.group = UnitList._toggleGroup;
+
     }
 
     /*
@@ -73,15 +67,8 @@ public class UnitCardManager : MonoBehaviour
         {
             //
             //set the toggle group
-            if (TeamManager.selectionMode == SelectionMode.Single)
-            {
-                toggle.group = UnitList._toggleGroup;
-            }
-            //unset the toggle group
-            else
-            {
-                toggle.group = null;
-            }
+
+            toggle.group = UnitList._toggleGroup;
 
             //check if the card is in real team list
             //SetIsOnWithoutNotify is for Set isOn without invoking onValueChanged code
@@ -92,22 +79,10 @@ public class UnitCardManager : MonoBehaviour
                 //set selected ui to true
                 SelectedUI.SetActive(true);
 
-                if (TeamManager.selectionMode == SelectionMode.Multiple)
-                {
-                    //set the toggle to true if the card already in real team list
-                    //and also add it to temp list team
-                    toggle.SetIsOnWithoutNotify(true);
-                    return;
-                }
-                else
-                {
-                    //just set isOn true if the idx is the same with the card we click in TeamCanvas UI
-                    if (idx == UnitSlotManager.index)
-                    {
-                        toggle.SetIsOnWithoutNotify(true);
-                        return;
-                    }
-                }
+
+                toggle.SetIsOnWithoutNotify(true);
+                return;
+
             }
             //set the toggle to off if the card is not in real team list
             toggle.SetIsOnWithoutNotify(false);
@@ -127,7 +102,7 @@ public class UnitCardManager : MonoBehaviour
         {
             CharaDetail.cardDetail = card;
             SelectedUI.SetActive(true);
-
+            teamManager.tempTeamList.Add(card);
             return;
         }
         else
@@ -135,7 +110,7 @@ public class UnitCardManager : MonoBehaviour
 
             CharaDetail.cardDetail = null;
             SelectedUI.SetActive(false);
-        
+            teamManager.tempTeamList.Remove(card);
         }
     }
 }

@@ -7,8 +7,7 @@ using TMPro;
 public class UnitSlot : MonoBehaviour
 {
     public Card card;
-    public GameObject nameBG, cardImage;
-    public TextMeshProUGUI nameText;
+    public GameObject cardImage;
 
     [HideInInspector]
     public int cardIdx;
@@ -35,14 +34,11 @@ public class UnitSlot : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         if (card != null)
         {
-            nameBG.SetActive(true);
             cardImage.SetActive(true);
             _cardImage.sprite = card.image;
-            nameText.text = card.charaName;
         }
         else
         {
-            nameBG.SetActive(false);
             cardImage.SetActive(false);
             _cardImage.sprite = null;
         }

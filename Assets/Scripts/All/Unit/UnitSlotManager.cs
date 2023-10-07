@@ -90,7 +90,7 @@ public class UnitSlotManager : MonoBehaviour
         }
 
         SelectionCanvas.SetActive(true);
-        //TeamCanvas.SetActive(false);
+        TeamCanvas.SetActive(false);
     }
 
     public void MultiSelectButton()

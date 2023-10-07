@@ -8,14 +8,15 @@ public class UnitManager : MonoBehaviour
 {
     public Card[] cards;
     [SerializeField] private GameObject cardUIPrefab;
-    [SerializeField] private Transform parent;
+    [SerializeField] private Transform parent1;
+    [SerializeField] private Transform parent2;
     public GameObject SelectionCanvas;
 
     public List<GameObject> cardGO = new List<GameObject>();
     public List<UnitCardManager> unitCardListManager = new List<UnitCardManager>();
     public List<Card> cardList = new List<Card>();
-    GameObject cardUI;
-    UnitCardManager unitCardManager;
+    GameObject cardUI1, cardUI2;
+    UnitCardManager unitCardManager1, unitCardManager2;
 
     void Awake()
     {
@@ -25,21 +26,56 @@ public class UnitManager : MonoBehaviour
 
         SelectionCanvas.SetActive(true);
         cards = Resources.LoadAll<Card>("Character Cards");
-        for (int i = 0; i < cards.Length; i++)
+        if (parent1 == parent2)
         {
-            if (cards[i].unlocked)
+            for (int i = 0; i < cards.Length; i++)
             {
-                cardUI = Instantiate(cardUIPrefab, parent.position, Quaternion.identity) as GameObject;
-                cardUI.transform.localScale = new Vector3(1, 1, 1);
-                cardUI.transform.SetParent(parent);
-                unitCardManager = cardUI.GetComponent<UnitCardManager>();
-                unitCardManager.card = cards[i];
+                if (cards[i].unlocked)
+                {
+                    cardUI1 = Instantiate(cardUIPrefab, parent1.position, Quaternion.identity) as GameObject;
+                    cardUI1.transform.localScale = new Vector3(1, 1, 1);
+                    cardUI1.transform.SetParent(parent1);
+                    unitCardManager1 = cardUI1.GetComponent<UnitCardManager>();
+                    unitCardManager1.card = cards[i];
 
-                cardGO.Add(cardUI);
-                unitCardListManager.Add(unitCardManager);
-                cardList.Add(cards[i]);
+                    cardGO.Add(cardUI1);
+                    unitCardListManager.Add(unitCardManager1);
+                    cardList.Add(cards[i]);
+                }
             }
         }
-        SelectionCanvas.SetActive(true);
+        else
+        {
+            for (int i = 0; i < cards.Length; i++)
+            {
+                if (cards[i].unlocked)
+                {
+                    cardUI1 = Instantiate(cardUIPrefab, parent1.position, Quaternion.identity) as GameObject;
+                    cardUI2 = Instantiate(cardUIPrefab, parent2.position, Quaternion.identity) as GameObject;
+                    cardUI1.transform.localScale = new Vector3(1, 1, 1);
+                    cardUI2.transform.localScale = new Vector3(1, 1, 1);
+                    cardUI1.transform.SetParent(parent1);
+                    cardUI2.transform.SetParent(parent2);
+                    unitCardManager1 = cardUI1.GetComponent<UnitCardManager>();
+                    unitCardManager2 = cardUI2.GetComponent<UnitCardManager>();
+                    unitCardManager1.card = cards[i];
+                    unitCardManager2.card = cards[i];
+
+                    cardGO.Add(cardUI1);
+                    unitCardListManager.Add(unitCardManager1);
+                    cardList.Add(cards[i]);
+                }
+            }
+        }
+
+        if (parent1 == parent2)
+        {
+            SelectionCanvas.SetActive(true);
+        }
+        else
+        {
+            SelectionCanvas.SetActive(false);
+        }
+            
     }
 }
