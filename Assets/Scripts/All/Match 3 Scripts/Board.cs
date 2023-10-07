@@ -65,7 +65,7 @@ public class Board : MonoBehaviour
 
     [Header("Prefabs")]
     public GameObject tilePrefab;
-    //public GameObject breakableTilePrefab;
+    public GameObject breakableTilePrefab;
     //public GameObject lockTilePrefab;
     //public GameObject concreteTilePrefab;
     //public GameObject slimePiecePrefab;
@@ -76,7 +76,7 @@ public class Board : MonoBehaviour
     [Header ("Layouts")]
     public TileType[] boardLayout;
     private bool[,] blankSpaces;
-    //private BackgroundTile[,] breakableTiles;
+    private BackgroundTile[,] breakableTiles;
     //public BackgroundTile[,] lockTiles;
     
     private BackgroundTile[,] concreteTiles;
@@ -134,13 +134,13 @@ public class Board : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        goalManager = FindObjectOfType<GoalManager>();
-        scoreManager = FindObjectOfType<ScoreManager>();
-        soundManager = FindObjectOfType<SoundManager>();
+        
+        //goalManager = FindObjectOfType<GoalManager>();
+        //scoreManager = FindObjectOfType<ScoreManager>();
+        //soundManager = FindObjectOfType<SoundManager>();
         breakableTiles = new BackgroundTile[width, height];
-        lockTiles = new BackgroundTile[width, height];
-        */
+        //lockTiles = new BackgroundTile[width, height];
+        
         concreteTiles = new BackgroundTile[width, height];
         //slimeTiles = new BackgroundTile[width, height];
 
@@ -165,7 +165,7 @@ public class Board : MonoBehaviour
     }
     
 
-    /*
+    
     public void GenerateBreakableTiles()
     {
         //Look at all the tiles in the layout
@@ -181,7 +181,7 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
     /*
     private void GenerateLockTiles()
@@ -241,8 +241,8 @@ public class Board : MonoBehaviour
     {
         
         GenerateBlankSpace();
-        /*
         GenerateBreakableTiles();
+        /*
         GenerateLockTiles();
         GenerateConcreteTiles();
         GenerateSlimeTiles();
@@ -504,7 +504,6 @@ public class Board : MonoBehaviour
         if (allDots[column, row].GetComponent<Dot>().isMatched)
         {
 
-            /*
             //Does a tile need to break?
             if (breakableTiles[column, row] != null)
             {
@@ -515,7 +514,7 @@ public class Board : MonoBehaviour
                     breakableTiles[column, row] = null;
                 }
             }
-
+            /*
             if (lockTiles[column, row] != null)
             {
                 //If it does, give one damage
@@ -535,6 +534,7 @@ public class Board : MonoBehaviour
                 goalManager.UpdateGoals();
             }
 
+            
             //Does the sound manager exist
             if (soundManager != null)
             {
@@ -542,7 +542,7 @@ public class Board : MonoBehaviour
             }
             */
 
-            findMatches.currentMatches.Remove(allDots[column, row]);
+            //findMatches.currentMatches.Remove(allDots[column, row]);
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
 
             Destroy(particle, .5f);
