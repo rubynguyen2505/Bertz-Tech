@@ -14,6 +14,7 @@ public class UpgradeCardManager : MonoBehaviour
     [SerializeField] private Image stars;
     Toggle toggle;
     UpgradeTManager upgradeTManager;
+    UpgradeManager upgradeManager;
     int idx;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class UpgradeCardManager : MonoBehaviour
         toggle = GetComponent<Toggle>();
 
         upgradeTManager = FindObjectOfType<UpgradeTManager>();
-
+        upgradeManager = FindObjectOfType<UpgradeManager>();
         //set image and name for the UI
         image.sprite = card.image;
         nameText.text = card.charaName;
@@ -103,6 +104,8 @@ public class UpgradeCardManager : MonoBehaviour
             UpgradeCharaDetail.cardDetail = card;
             SelectedUI.SetActive(true);
             upgradeTManager.tempTeamList.Add(card);
+            upgradeManager.card = card;
+            upgradeManager.SetUI();
             return;
         }
         else
@@ -111,6 +114,8 @@ public class UpgradeCardManager : MonoBehaviour
             UpgradeCharaDetail.cardDetail = null;
             SelectedUI.SetActive(false);
             upgradeTManager.tempTeamList.Remove(card);
+            upgradeManager.card = null;
+            upgradeManager.SetUI();
         }
     }
 }

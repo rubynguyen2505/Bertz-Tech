@@ -14,14 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charaName: Athena
   image: {fileID: 21300000, guid: 8a1b15b13f290944aac6de4740729d9b, type: 3}
-  atk: 1000
-  hp: 200
-  def: 10000
-  role: 3
-  type: 3
-  character: {fileID: 0}
-  unlocked: 1
-  inTeam: 0
   charFull: {fileID: 21300000, guid: 979eceee56a28ca42ba8a4c9751efc8b, type: 3}
   itemFrame: {fileID: 21300000, guid: b9f7eb3e7a711bb4f943863771280906, type: 3}
   stars: {fileID: 21300000, guid: 41be4ea3b06f74f40a1424c5e80a790f, type: 3}
+  character: {fileID: 0}
+  maxLv: 20
+  lv: 1
+  role: 3
+  type: 3
+  unlocked: 1
+  inTeam: 0
+  hp: 12500
+  atk: 1300
+  def: 700
+  _hp: 0
+  _atk: 0
+  _def: 0

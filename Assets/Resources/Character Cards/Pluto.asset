@@ -14,14 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charaName: Pluto
   image: {fileID: 21300000, guid: 20171d372e2ba6a4585874f2ac09b15b, type: 3}
-  atk: 1000
-  hp: 200
-  def: 10000
-  role: 4
-  type: 4
-  character: {fileID: 0}
-  unlocked: 1
-  inTeam: 0
   charFull: {fileID: 21300000, guid: 3cb727ca98f3fd64ca5a125fe34d01d4, type: 3}
   itemFrame: {fileID: 21300000, guid: 00b28cf53c9dd8d4380212727367e8d8, type: 3}
   stars: {fileID: 21300000, guid: 41be4ea3b06f74f40a1424c5e80a790f, type: 3}
+  character: {fileID: 0}
+  maxLv: 20
+  lv: 1
+  role: 4
+  type: 4
+  unlocked: 1
+  inTeam: 0
+  hp: 13000
+  atk: 1250
+  def: 650
+  _hp: 0
+  _atk: 0
+  _def: 0

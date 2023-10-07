@@ -14,14 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charaName: Zeus
   image: {fileID: 21300000, guid: b7e10f3663295814dabc6680066a7586, type: 3}
-  atk: 1000
-  hp: 200
-  def: 10000
-  role: 0
-  type: 3
-  character: {fileID: 0}
-  unlocked: 1
-  inTeam: 0
   charFull: {fileID: 21300000, guid: 4f3104df1d2c69b4a9dc4764346a98da, type: 3}
   itemFrame: {fileID: 21300000, guid: b9f7eb3e7a711bb4f943863771280906, type: 3}
   stars: {fileID: 21300000, guid: 41be4ea3b06f74f40a1424c5e80a790f, type: 3}
+  character: {fileID: 0}
+  maxLv: 20
+  lv: 1
+  role: 0
+  type: 3
+  unlocked: 1
+  inTeam: 0
+  hp: 13000
+  atk: 1600
+  def: 900
+  _hp: 0
+  _atk: 0
+  _def: 0

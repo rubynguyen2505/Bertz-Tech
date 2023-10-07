@@ -14,14 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charaName: Arthur
   image: {fileID: 21300000, guid: da161e031a078b445bb3bff2321fa01d, type: 3}
-  atk: 1000
-  hp: 200
-  def: 10000
-  role: 0
-  type: 0
-  character: {fileID: 0}
-  unlocked: 1
-  inTeam: 0
   charFull: {fileID: 21300000, guid: 2a321e8bda1e03348b1708406b565145, type: 3}
   itemFrame: {fileID: 21300000, guid: 20ab66ff3d04cb6498a6c4c090a0ecda, type: 3}
   stars: {fileID: 21300000, guid: d7430fbe53965f842b9653761ac5601c, type: 3}
+  character: {fileID: 0}
+  maxLv: 20
+  lv: 1
+  role: 0
+  type: 0
+  unlocked: 1
+  inTeam: 0
+  hp: 12000
+  atk: 1200
+  def: 600
+  _hp: 0
+  _atk: 0
+  _def: 0

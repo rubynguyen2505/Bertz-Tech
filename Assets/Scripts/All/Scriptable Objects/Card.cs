@@ -26,16 +26,29 @@ public class Card : ScriptableObject
 {
     public string charaName;
     public Sprite image;
-    public int atk;
-    public int hp;
-    public int def;
-    public Roles role;
-    public Type type;
-    public GameObject character;
-    public bool unlocked;
-    public bool inTeam;
     public Sprite charFull;
     public Sprite itemFrame;
     public Sprite stars;
+    public GameObject character;
+    public int maxLv = 20, lv = 1;
+    public Roles role;
+    public Type type;
+    
+    public bool unlocked;
+    public bool inTeam;
+    
+
+    [Header("Base Stats")]
+    public int hp;
+    public int atk;
+    public int def;
+    
+    
+
+    [Header("Battle Stats")]
+    public int _hp;
+    public int _atk;
+    public int _def;
+
 }
 
