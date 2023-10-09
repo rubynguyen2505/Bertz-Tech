@@ -806,21 +806,23 @@ public class Board : MonoBehaviour
             //streakValue ++;
             yield return new WaitForSeconds(refillDelay);
             DestroyMatches();
-            yield break;
+            //yield break;
         }
         /*
         currentDot = null;
         //CheckToMakeSlime();
-
+        */
         
-        if (IsDeadlocked())
-        {
-            StartCoroutine(ShuffleBoard());
-            Debug.Log("Deadlocked!!!");
-        }*/
         findMatches.currentMatches.Clear();
         currentDot = null;
         yield return new WaitForSeconds(refillDelay);
+
+        if (IsDeadlocked())
+        {
+            //StartCoroutine(ShuffleBoard());
+            Debug.Log("Deadlocked!!!");
+        }
+
         currentState = gameState.move;
         /*
         if (currentState != gameState.pause)
@@ -900,7 +902,7 @@ public class Board : MonoBehaviour
     }
     */
 
-    /*
+    
     private void SwitchPieces(int column, int row, Vector2 direction)
     {
         if (allDots[column + (int)direction.x, row + (int)direction.y] != null)
@@ -913,9 +915,9 @@ public class Board : MonoBehaviour
             allDots[column, row] = holder;
         }
     }
-    */
+    
 
-    /*
+    
     private bool CheckForMatches()
     {
         for (int i = 0; i < width; i ++)
@@ -927,7 +929,7 @@ public class Board : MonoBehaviour
                     //Make sure that one and two to the right are in the board
                     if (i < width - 2)
                     {
-                        //Check if the dots to the right and tweo to the right exist
+                        //Check if the dots to the right and two to the right exist
                         if (allDots[i + 1, j] != null && allDots[i + 2, j] != null)
                         {
                             if (allDots[i + 1, j].tag == allDots[i, j].tag && allDots[i + 2, j].tag == allDots[i, j].tag)
@@ -953,9 +955,9 @@ public class Board : MonoBehaviour
         }
         return false;
     }
-    */
+    
 
-    /*
+    
     public bool SwitchAndCheck(int column, int row, Vector2 direction)
     {
         SwitchPieces(column, row, direction);
@@ -967,9 +969,9 @@ public class Board : MonoBehaviour
         SwitchPieces(column, row, direction);
         return false;
     }
-    */
+    
 
-    /*
+    
     private bool IsDeadlocked()
     {
         for (int i = 0; i < width; i ++)
@@ -998,7 +1000,7 @@ public class Board : MonoBehaviour
         }
         return true;
     }
-    */
+    
 
     /*
     private IEnumerator ShuffleBoard()
