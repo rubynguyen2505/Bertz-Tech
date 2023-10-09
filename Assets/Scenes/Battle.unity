@@ -1835,7 +1835,7 @@ MonoBehaviour:
   currentState: 1
   width: 5
   height: 5
-  offSet: 20
+  offSet: 10
   tilePrefab: {fileID: 5914918131645197852, guid: 95996e9aa954c6a498c25e2007d6a57e, type: 3}
   breakableTilePrefab: {fileID: 6325814517477873033, guid: 771ad84e1c653574f8e610dff9de65c2, type: 3}
   dots:
@@ -1845,6 +1845,8 @@ MonoBehaviour:
   - {fileID: 6496350191541928849, guid: 90279b4465fdee44b9c309b64e94f7e4, type: 3}
   - {fileID: 1015204175331204409, guid: b47bea7f54533a54c838b7a107970e72, type: 3}
   - {fileID: 1530666440189001784, guid: cc77239d5abd0944fbd2b6ddfb369476, type: 3}
+  - {fileID: 5776798902746207463, guid: 934cbe7417b7b334d83dca4180277c4b, type: 3}
+  - {fileID: 5024903885498996077, guid: 645611d5eb2323241bf87fed7c02964c, type: 3}
   destroyEffect: {fileID: 7818459985641179223, guid: 3a9b61a82b425cf468e26fc335ae6a92, type: 3}
   boardLayout: []
   matchType:
