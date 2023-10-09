@@ -5,37 +5,27 @@ using UnityEngine.UI;
 
 public class UpgradeTabController : MonoBehaviour
 {
+    public GameObject upgradeCanvas, buttonCanvas;
+    public GameObject SelectionCanvas;
     public GameObject upgradeTab, evolveTab;
-    public GameObject upgradeUnit, evolveUnit;
-    public GameObject upgradeMaterial, evolveMaterial;
-    public Button upgradeTabButton, evolveTabButton;
 
     void Awake()
     {
-        OnUpgradeTab();
+        upgradeCanvas.SetActive(false);
     }
-
     public void OnUpgradeTab()
     {
-        upgradeUnit.SetActive(true);
-        evolveUnit.SetActive(false);
+        buttonCanvas.SetActive(false);
+        SelectionCanvas.SetActive(true);
         upgradeTab.SetActive(true);
         evolveTab.SetActive(false);
-        upgradeMaterial.SetActive(true);
-        evolveMaterial.SetActive(false);
-        upgradeTabButton.interactable = false; 
-        evolveTabButton.interactable = true;
     }
 
     public void OnEvolveTab()
     {
-        evolveUnit.SetActive(true);
-        upgradeUnit.SetActive(false);
+        buttonCanvas.SetActive(false);
+        SelectionCanvas.SetActive(true);
         evolveTab.SetActive(true);
         upgradeTab.SetActive(false);
-        evolveMaterial.SetActive(true);
-        upgradeMaterial.SetActive(false);
-        evolveTabButton.interactable = false;
-        upgradeTabButton.interactable = true;
     }
 }
