@@ -14,6 +14,7 @@ public class EvolveCardManager : MonoBehaviour
     [SerializeField] private Image stars;
     Toggle toggle;
     EvolveTManager evolveTManager;
+    EvolveManager evolveManager; 
     int idx;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class EvolveCardManager : MonoBehaviour
         toggle = GetComponent<Toggle>();
 
         evolveTManager = FindObjectOfType<EvolveTManager>();
-
+        evolveManager = FindObjectOfType<EvolveManager>();
         //set image and name for the UI
         image.sprite = card.image;
         nameText.text = card.charaName;
@@ -103,6 +104,8 @@ public class EvolveCardManager : MonoBehaviour
             EvolveCharaDetail.cardDetail = card;
             SelectedUI.SetActive(true);
             evolveTManager.tempTeamList.Add(card);
+            EvolveManager.card = card;
+            evolveManager.SetUI();
             return;
         }
         else
@@ -111,6 +114,7 @@ public class EvolveCardManager : MonoBehaviour
             EvolveCharaDetail.cardDetail = null;
             SelectedUI.SetActive(false);
             evolveTManager.tempTeamList.Remove(card);
+            EvolveManager.card = null;
         }
     }
 }

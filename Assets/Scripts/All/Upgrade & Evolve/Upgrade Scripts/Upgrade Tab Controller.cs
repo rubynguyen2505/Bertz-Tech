@@ -9,6 +9,7 @@ public class UpgradeTabController : MonoBehaviour
     public GameObject upgradeUnit, evolveUnit;
     public GameObject upgradeMaterial, evolveMaterial;
     public Button upgradeTabButton, evolveTabButton;
+    public GameObject upgradeCoinsUI, evolveCoinsUI;
 
     void Awake()
     {
@@ -25,6 +26,8 @@ public class UpgradeTabController : MonoBehaviour
         evolveMaterial.SetActive(false);
         upgradeTabButton.interactable = false; 
         evolveTabButton.interactable = true;
+        upgradeCoinsUI.SetActive(true);
+        evolveCoinsUI.SetActive(false);
     }
 
     public void OnEvolveTab()
@@ -37,5 +40,7 @@ public class UpgradeTabController : MonoBehaviour
         upgradeMaterial.SetActive(false);
         evolveTabButton.interactable = false;
         upgradeTabButton.interactable = true;
+        upgradeCoinsUI.SetActive(false);
+        evolveCoinsUI.SetActive(true);
     }
 }

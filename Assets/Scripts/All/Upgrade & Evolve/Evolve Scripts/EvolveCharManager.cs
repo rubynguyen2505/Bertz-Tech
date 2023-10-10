@@ -29,6 +29,10 @@ public class EvolveCharManager : MonoBehaviour
         {
             if (cards[i].unlocked)
             {
+                //cards[i].lv = 1;
+                cards[i]._hp = cards[i].hp * cards[i].lv;
+                cards[i]._atk = cards[i].atk * cards[i].lv;
+                cards[i]._def = cards[i].def * cards[i].lv;
                 cardUI = Instantiate(cardUIPrefab, parent.position, Quaternion.identity) as GameObject;
                 cardUI.transform.localScale = new Vector3(1, 1, 1);
                 cardUI.transform.SetParent(parent);
