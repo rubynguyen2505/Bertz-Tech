@@ -10,7 +10,7 @@ using Firebase.Extensions;
 
 public class FirebaseController : MonoBehaviour
 {
-    public GameObject titleScreen, loginPanel, signupPanel, profilePanel, forgetPasswordPanel, notificationPanel;
+    public GameObject titleScreen, loginPanel, signupPanel, profilePanel, forgetPasswordPanel, notificationPanel, dbTestPanel;
     public TMPro.TMP_InputField loginEmail, loginPassword, signupEmail, signupPassword, signupCPassword, signupUserName, forgetPassEmail;
     public Toggle rememberMe;
     public TMPro.TMP_Text profileUserName_Text, profileUserEmail_Text, notifTitle_Text, notifMessage_Text;
@@ -81,6 +81,10 @@ public class FirebaseController : MonoBehaviour
         profilePanel.SetActive(false);
         forgetPasswordPanel.SetActive(false);
         titleScreen.SetActive(true);
+    }
+    public void OpendbTestPanel()
+    {
+        dbTestPanel.SetActive(true);
     }
     
     public void LoginUser()
@@ -366,6 +370,7 @@ public class FirebaseController : MonoBehaviour
                 result.User.DisplayName, result.User.UserId);
 
             CloseLoginPanel();
+            OpendbTestPanel();
         });
     }
 
