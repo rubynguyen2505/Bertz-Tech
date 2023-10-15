@@ -6,8 +6,10 @@ using TMPro;
 
 public class ShopController : MonoBehaviour
 {
-    public int currency;
-    public TMP_Text currencyUI;
+    public int coins;
+    public int gems;
+    public TMP_Text coinsUI;
+    public TMP_Text gemsUI;
     public ShopItemSO[] shopItemsSO;
     public ShopTemplate[] shopPanels;
     public GameObject[] shopPanelsGO;
@@ -20,7 +22,8 @@ public class ShopController : MonoBehaviour
         {
             shopPanelsGO[i].SetActive(true);
         }
-        currencyUI.text = "Currency: " + currency.ToString();
+        coinsUI.text = coins.ToString("D9");
+        gemsUI.text = gems.ToString("D9");
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
             amount[i].text = "x" + shopItemsSO[i].getAmountAvailable() + " (" + shopItemsSO[i].getAmountOwned() + " Owned)";
@@ -35,22 +38,38 @@ public class ShopController : MonoBehaviour
     //Temporary function to test shop
     public void addCurrency()
     {
-        currency++;
-        currencyUI.text = "Currency: " + currency.ToString();
+        coins++;
+        gems++;
+        coinsUI.text = coins.ToString("D9");
+        gemsUI.text = gems.ToString("D9");
         CheckPurchaseable();
     }
     //Only allow purchases that user has currency to make
     public void CheckPurchaseable()
     {
-        for (int i = 0; i < shopItemsSO.Length;i++)
+        for (int i = 0; i < shopItemsSO.Length; i++)
         {
-            if (currency >= shopItemsSO[i].baseCost && shopItemsSO[i].amountAvailable > 0)
-            {
-                purchaseButtons[i].interactable = true;
+            if (shopItemsSO[i].currencyType == 0) 
+            { 
+                if (coins >= shopItemsSO[i].baseCost && shopItemsSO[i].amountAvailable > 0)
+                {
+                    purchaseButtons[i].interactable = true;
+                }
+                else
+                {
+                    purchaseButtons[i].interactable = false;
+                }
             }
-            else
+            else if (shopItemsSO[i].currencyType == 1)
             {
-                purchaseButtons[i].interactable= false;
+                if (gems >= shopItemsSO[i].baseCost && shopItemsSO[i].amountAvailable > 0)
+                {
+                    purchaseButtons[i].interactable = true;
+                }
+                else
+                {
+                    purchaseButtons[i].interactable = false;
+                }
             }
         }
     }
@@ -67,14 +86,31 @@ public class ShopController : MonoBehaviour
     //Purchase an item
     public void PurchaseItem(int btnNm)
     {
-        if (currency >= shopItemsSO[btnNm].baseCost && shopItemsSO[btnNm].amountAvailable > 0)
+        if (shopItemsSO[btnNm].currencyType == 0)
         {
-            currency = currency - shopItemsSO[btnNm].baseCost;
-            currencyUI.text = "Currency: " + currency.ToString();
-            shopItemsSO[btnNm].amountAvailable -= 1;
-            shopItemsSO[btnNm].amountOwned += 1;
-            amount[btnNm].text = "x" + shopItemsSO[btnNm].getAmountAvailable() + " (" + shopItemsSO[btnNm].getAmountOwned() + " Owned)";
-            CheckPurchaseable();
+
+        
+            if (coins >= shopItemsSO[btnNm].baseCost && shopItemsSO[btnNm].amountAvailable > 0)
+            {
+                coins = coins - shopItemsSO[btnNm].baseCost;
+                coinsUI.text = coins.ToString("D9");
+                shopItemsSO[btnNm].amountAvailable -= 1;
+                shopItemsSO[btnNm].amountOwned += 1;
+                amount[btnNm].text = "x" + shopItemsSO[btnNm].getAmountAvailable() + " (" + shopItemsSO[btnNm].getAmountOwned() + " Owned)";
+                CheckPurchaseable();
+            }
+        }
+        else if (shopItemsSO[btnNm].currencyType == 1)
+        {
+            if (gems >= shopItemsSO[btnNm].baseCost && shopItemsSO[btnNm].amountAvailable > 0)
+            {
+                gems = gems - shopItemsSO[btnNm].baseCost;
+                gemsUI.text = gems.ToString("D9");
+                shopItemsSO[btnNm].amountAvailable -= 1;
+                shopItemsSO[btnNm].amountOwned += 1;
+                amount[btnNm].text = "x" + shopItemsSO[btnNm].getAmountAvailable() + " (" + shopItemsSO[btnNm].getAmountOwned() + " Owned)";
+                CheckPurchaseable();
+            }
         }
     }
 }
