@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d8e8e19a21c3144be5f43c76315fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintDelay: 0
+  hintDelay: 3
   hintParticle: {fileID: 6388832073738422372, guid: 6686f7d608b35484c8157f4e12dad9f2, type: 3}
   currentHint: {fileID: 0}
 --- !u!1 &767497136
