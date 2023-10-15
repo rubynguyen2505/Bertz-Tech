@@ -21,7 +21,7 @@ public class Dot : MonoBehaviour
     //private float shineDelay;
     //private float shineDelaySecond;
     //private EndGameManager endgameManager;
-    //private HintManager hintManager;
+    private HintManager hintManager;
     
 
     private FindMatches findMatches;
@@ -60,8 +60,9 @@ public class Dot : MonoBehaviour
         shineDelaySecond = shineDelay;
         animator = GetComponent<Animator>();
         endgameManager = FindObjectOfType<EndGameManager>();
-        hintManager = FindObjectOfType<HintManager>();
         */
+        hintManager = FindObjectOfType<HintManager>();
+        
 
         //board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
         board = FindObjectOfType<Board>();
@@ -243,12 +244,12 @@ public class Dot : MonoBehaviour
         {
             animator.SetBool("Touched", true);
         }
+        */
         //Destroy the hint
         if (hintManager != null)
         {
             hintManager.DestroyHint();
-        }
-        */
+        }        
 
 
         
