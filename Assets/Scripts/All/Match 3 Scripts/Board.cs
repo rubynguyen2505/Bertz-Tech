@@ -819,7 +819,7 @@ public class Board : MonoBehaviour
 
         if (IsDeadlocked())
         {
-            //StartCoroutine(ShuffleBoard());
+            StartCoroutine(ShuffleBoard());
             Debug.Log("Deadlocked!!!");
         }
 
@@ -1002,10 +1002,10 @@ public class Board : MonoBehaviour
     }
     
 
-    /*
+    
     private IEnumerator ShuffleBoard()
     {
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.5f);
         List<GameObject> newBoard = new List<GameObject>();
         //Add every piece to this list
         for (int i = 0; i < width; i ++)
@@ -1027,7 +1027,7 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++)
             {
                 //If this spot shouldn't be blank
-                if (!blankSpaces[i, j] && !concreteTiles[i, j] && !slimeTiles[i, j])
+                if (!blankSpaces[i, j])// && !concreteTiles[i, j] && !slimeTiles[i, j])
                 {
                     //Pick a random number
                     int pieceToUse = Random.Range(0, newBoard.Count);
@@ -1038,9 +1038,11 @@ public class Board : MonoBehaviour
                         pieceToUse = Random.Range(0, newBoard.Count);
                         maxIterations ++;
                     }
+                    
                     //Make a container for the piece
                     Dot piece = newBoard[pieceToUse].GetComponent<Dot>();
                     maxIterations = 0;
+
                     //Assign the column to the piece
                     piece.column = i;
                     //Assign the row to the piece
@@ -1058,5 +1060,5 @@ public class Board : MonoBehaviour
             StartCoroutine(ShuffleBoard());
         }
     }
-    */
+    
 }
