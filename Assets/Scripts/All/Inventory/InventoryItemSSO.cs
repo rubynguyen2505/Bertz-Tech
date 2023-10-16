@@ -11,4 +11,5 @@ public class InventoryItemSSO : ScriptableObject
     public int price;
     public Sprite icon;
     public bool usableInInventory;
+    public string description;
 }
