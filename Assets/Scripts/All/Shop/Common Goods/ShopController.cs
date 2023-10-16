@@ -49,7 +49,7 @@ public class ShopController : MonoBehaviour
     {
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
-            if (shopItemsSO[i].currencyType == 0) 
+            if (shopItemsSO[i].currency == ShopItemSO.currencyType.coins) 
             { 
                 if (coins >= shopItemsSO[i].baseCost && shopItemsSO[i].amountAvailable > 0)
                 {
@@ -60,7 +60,7 @@ public class ShopController : MonoBehaviour
                     purchaseButtons[i].interactable = false;
                 }
             }
-            else if (shopItemsSO[i].currencyType == 1)
+            else if (shopItemsSO[i].currency == ShopItemSO.currencyType.gems)
             {
                 if (gems >= shopItemsSO[i].baseCost && shopItemsSO[i].amountAvailable > 0)
                 {
@@ -86,7 +86,7 @@ public class ShopController : MonoBehaviour
     //Purchase an item
     public void PurchaseItem(int btnNm)
     {
-        if (shopItemsSO[btnNm].currencyType == 0)
+        if (shopItemsSO[btnNm].currency == ShopItemSO.currencyType.coins)
         {
 
         
@@ -100,11 +100,11 @@ public class ShopController : MonoBehaviour
                 CheckPurchaseable();
             }
         }
-        else if (shopItemsSO[btnNm].currencyType == 1)
+        else if (shopItemsSO[btnNm].currency == ShopItemSO.currencyType.gems)
         {
             if (gems >= shopItemsSO[btnNm].baseCost && shopItemsSO[btnNm].amountAvailable > 0)
             {
-                gems = gems - shopItemsSO[btnNm].baseCost;
+                gems -= shopItemsSO[btnNm].baseCost;
                 gemsUI.text = gems.ToString("D9");
                 shopItemsSO[btnNm].amountAvailable -= 1;
                 shopItemsSO[btnNm].amountOwned += 1;
