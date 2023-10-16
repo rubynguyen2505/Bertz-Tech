@@ -50,5 +50,19 @@ public class Card : ScriptableObject
     public int _atk;
     public int _def;
 
+    //name: str
+    //role: str
+    //type: str
+    //stars: int
+    //current lv: int
+    //max lv: int
+    //base hp: int
+    //base atk: int
+    //base def: int
+    //updated hp: int
+    //updated atk: int
+    //updated def: int
+    //unlocked: bool
+    //in team: bool
 }
 

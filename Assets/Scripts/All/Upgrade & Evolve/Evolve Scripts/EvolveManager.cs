@@ -100,7 +100,7 @@ public class EvolveManager : MonoBehaviour
         if (card.lv == card.maxLv)
             btnText.text = "Evolve  (Cost : <color=yellow>" + cost + "</color>)";
         else
-            btnText.text = "<color=red>Not enough LVL</color>";
+            btnText.text = "<color=red>Not Max LVL</color>";
     }
 
     public void Evolve()
