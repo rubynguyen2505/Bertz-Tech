@@ -6,8 +6,10 @@ using TMPro;
 
 public class MTController : MonoBehaviour
 {
-    public double currency;
-    public TMP_Text currencyUI;
+    public double coins;
+    public double gems;
+    public TMP_Text coinsUI;
+    public TMP_Text gemsUI;
     public MTItemSO[] MTItemsSO;
     public MTTemplate[] MTPanels;
     public GameObject[] MTPanelsGO;
@@ -19,7 +21,8 @@ public class MTController : MonoBehaviour
         {
             MTPanelsGO[i].SetActive(true);
         }
-        currencyUI.text = "Currency: " + currency.ToString();
+        coinsUI.text = coins.ToString("D9");
+        gemsUI.text = gems.ToString("D9");
         loadPanels();
 /*        CheckPurchaseable();*/
     }

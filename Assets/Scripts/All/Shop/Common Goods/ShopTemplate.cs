@@ -13,6 +13,7 @@ public class ShopTemplate : MonoBehaviour
     public TMP_Text descriptionTxt;
     public int amountAvailable;
     public int amountOwned;
+    public int currencyType; // 0 for coins, 1 for gems
     public TMP_Text costTxt;
 
     void Awake()
