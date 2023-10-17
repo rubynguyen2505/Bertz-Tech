@@ -22,6 +22,7 @@ MonoBehaviour:
   lv: 1
   role: 0
   type: 0
+  rarity: 1
   unlocked: 1
   inTeam: 0
   hp: 12000

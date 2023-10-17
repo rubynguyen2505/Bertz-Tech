@@ -16,12 +16,13 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 862b6787b69000e4fbe2dcd065cce953, type: 3}
   charFull: {fileID: 21300000, guid: a44517dd035b2724584893c7fadcc9fe, type: 3}
   itemFrame: {fileID: 21300000, guid: 00b28cf53c9dd8d4380212727367e8d8, type: 3}
-  stars: {fileID: 21300000, guid: 41be4ea3b06f74f40a1424c5e80a790f, type: 3}
+  stars: {fileID: 21300000, guid: d7430fbe53965f842b9653761ac5601c, type: 3}
   character: {fileID: 0}
   maxLv: 20
   lv: 1
   role: 1
   type: 4
+  rarity: 1
   unlocked: 1
   inTeam: 0
   hp: 16000

@@ -21,6 +21,12 @@ public enum Type
     Purple
 }
 
+public enum Rarity
+{
+    Legendary,
+    Epic,
+    Rare
+}
 [CreateAssetMenu(fileName = "New Card", menuName = "Character Card")]
 public class Card : ScriptableObject
 {
@@ -33,7 +39,7 @@ public class Card : ScriptableObject
     public int maxLv = 20, lv = 1;
     public Roles role;
     public Type type;
-    
+    public Rarity rarity;
     public bool unlocked;
     public bool inTeam;
     
