@@ -4085,8 +4085,13 @@ MonoBehaviour:
   def: {fileID: 744040536}
   btnText: {fileID: 1243389727}
   coinsUI: {fileID: 1200876584}
+  _lv: {fileID: 1745400435}
+  _maxHp: {fileID: 2136328382}
+  _atk: {fileID: 1027373567}
+  _def: {fileID: 1837289958}
   notEnoughCoin: {fileID: 1076250560}
   detail: {fileID: 1580325252}
+  newDetail: {fileID: 1305686902}
 --- !u!114 &557274639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4108,8 +4113,13 @@ MonoBehaviour:
   def: {fileID: 1193644277}
   btnText: {fileID: 2119211068}
   coinsUI: {fileID: 1311989344}
+  _lv: {fileID: 1648135131}
+  _maxHp: {fileID: 529706497}
+  _atk: {fileID: 504868390}
+  _def: {fileID: 734329971}
   notEnoughCoin: {fileID: 1740296180}
   detail: {fileID: 1781236626}
+  newDetail: {fileID: 1297232371}
 --- !u!1 &567564354
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,8 +16,9 @@ public class UpgradeManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI charaName;
     public TextMeshProUGUI lv, maxHp, atk, def, btnText, coinsUI;
+    public TextMeshProUGUI _lv, _maxHp, _atk, _def;
     public GameObject notEnoughCoin;
-    public GameObject detail;
+    public GameObject detail, newDetail;
 
     #region change sprite and animator
     // SpriteRenderer sprite;
@@ -53,6 +54,7 @@ public class UpgradeManager : MonoBehaviour
             #endregion
 
             detail.SetActive(false);
+            newDetail.SetActive(false);
         }
         notEnoughCoin.SetActive(false);
         coinsUI.text = "Coins : " + coins.ToString();
@@ -61,9 +63,10 @@ public class UpgradeManager : MonoBehaviour
     public void SetUI()
     {
         //check if detail is already active or not
-        if (!detail.activeSelf)
+        if (!detail.activeSelf && !newDetail.activeSelf)
         {
             detail.SetActive(true);
+            newDetail.SetActive(true);
         }
 
         #region change sprite and animator
@@ -98,9 +101,20 @@ public class UpgradeManager : MonoBehaviour
 
         cost = card.lv * 20;
         if (card.lv < card.maxLv)
+        {
             btnText.text = "Upgrade  (Cost : <color=yellow>" + cost + "</color>)";
+            newDetail.SetActive(true); 
+            _lv.text = "Lvl: " + (card.lv + 1).ToString();
+            _maxHp.text = "Hp: " + (card.hp * (card.lv + 1)).ToString();
+            _atk.text = "Atk: " + (card.atk * (card.lv + 1)).ToString();
+            _def.text = "Def: " + (card.def * (card.lv + 1)).ToString();
+        } 
         else
+        {
             btnText.text = "<color=red>MAX LV</color>";
+            newDetail.SetActive(false);
+        }
+            
     }
 
     public void Upgrade()
