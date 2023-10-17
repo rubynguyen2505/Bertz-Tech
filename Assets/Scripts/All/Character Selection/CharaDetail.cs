@@ -30,7 +30,7 @@ public class CharaDetail : MonoBehaviour
         noInfoText.SetActive(false);
         detailUI.SetActive(true);
         charFull.sprite = cardDetail.charFull;
-        charaName.text = "NAME : " + cardDetail.name;
+        charaName.text = "NAME : " + cardDetail.name.Replace("(Clone)", "");
         lvl.text = "LVL:\t\t " + cardDetail.lv;
         atk.text = "ATK : " + cardDetail.atk;
         hp.text = "HP : " + cardDetail.hp;

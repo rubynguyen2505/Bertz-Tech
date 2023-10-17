@@ -21,12 +21,15 @@ public class UnitManager : MonoBehaviour
     GameObject cardUI;
     UnitCardManager unitCardManager;
     private string userID;
+    private DatabaseReference dbReference;
 
     void Awake()
     {
         cardGO.Clear();
         unitCardListManager.Clear();
         cardList.Clear();
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+
         userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
         FirebaseDatabase.DefaultInstance.GetReference("user").Child(userID).Child("units").GetValueAsync().ContinueWithOnMainThread(task =>
         {
