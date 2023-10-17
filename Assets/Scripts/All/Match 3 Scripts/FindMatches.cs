@@ -196,19 +196,31 @@ public class FindMatches : MonoBehaviour
     List<GameObject> GetAdjacentPieces(int column, int row)
     {
         List<GameObject> dots = new List<GameObject>();
-        for (int i = column - 1; i <= column + 1; i ++)
+        for (int i = column - 1; i <= column + 1; i++)
         {
-            for (int j = row - 1; j <= row + 1; j ++)
+            for(int j = row - 1; j <= row + 1; j++)
             {
-                //Check if the piece is inside the board
-                if (i >= 0 && i < board.width && j >= 0 && j < board.height)
+                if(i >= 0 && i < board.width && j >= 0 && j < board.height)
                 {
                     if (board.allDots[i, j] != null)
                     {
-                        dots.Add(board.allDots[i, j]);
-                        board.allDots[i, j].GetComponent<Dot>().isMatched = true;
+                        Dot dot = board.allDots[i, j].GetComponent<Dot>();
+                        if (dot.isColumnBomb)
+                        {
+                            //circles.Union(GetColumnPieces(i)).ToList();
+                            dots.Union(GetColumnPieces(i)).ToList();
+                        }
+                        else if (dot.isRowBomb)
+                        {
+                            //circles.Union(GetRowPieces(j)).ToList();
+                            dots.Union(GetRowPieces(j)).ToList();
+                        }
+                        else
+                        {
+                            dots.Add(board.allDots[i, j]);
+                            board.allDots[i, j].GetComponent<Dot>().isMatched = true;
+                        }
                     }
-                    
                 }
             }
         }
@@ -224,14 +236,22 @@ public class FindMatches : MonoBehaviour
             if (board.allDots[column, i] != null)
             {
                 Dot dot = board.allDots[column, i].GetComponent<Dot>();
-                
-                if (dot.isRowBomb)
+                if (dot != null)
                 {
-                    dots.Union(GetRowPieces(i)).ToList();
+                    if (dot.isRowBomb)
+                    {
+                        dots.Union(GetRowPieces(i)).ToList();
+                    }
+                    else if (dot.isAdjacentBomb)
+                    {
+                        dots.Union(GetAdjacentPieces(column, i)).ToList();
+                    }
+                    else
+                    {
+                        dots.Add(board.allDots[column, i]);
+                        dot.isMatched = true;
+                    }
                 }
-                
-                dots.Add(board.allDots[column, i]);
-                dot.isMatched = true;
             }
         }
         return dots;
@@ -245,14 +265,22 @@ public class FindMatches : MonoBehaviour
             if (board.allDots[i, row] != null)
             {
                 Dot dot = board.allDots[i, row].GetComponent<Dot>();
-                
-                if (dot.isColumnBomb)
+                if (dot != null)
                 {
-                    dots.Union(GetColumnPieces(i)).ToList();
+                    if (dot.isColumnBomb)
+                    {
+                        dots.Union(GetColumnPieces(i)).ToList();
+                    }
+                    else if (dot.isAdjacentBomb)
+                    {
+                        dots.Union(GetAdjacentPieces(i, row)).ToList();
+                    }
+                    else
+                    {
+                        dots.Add(board.allDots[i, row]);
+                        dot.isMatched = true;
+                    }
                 }
-                
-                dots.Add(board.allDots[i, row]);
-                dot.isMatched = true;
             }
         }
         return dots;
