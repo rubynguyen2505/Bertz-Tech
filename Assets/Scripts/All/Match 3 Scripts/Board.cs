@@ -754,7 +754,7 @@ public class Board : MonoBehaviour
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
                     int dotToUse = Random.Range(0, dots.Length);
-                    /*
+                    
                     int maxIterations = 0;
                     while(MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
                     {
@@ -762,9 +762,8 @@ public class Board : MonoBehaviour
                         dotToUse = Random.Range(0, dots.Length);
 
                     }
-
                     maxIterations = 0;
-                    */
+                    
                     
                     GameObject piece = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                     allDots[i, j] = piece;
@@ -806,8 +805,8 @@ public class Board : MonoBehaviour
         while (MatchesOnBoard())
         {
             streakValue ++;
-            yield return new WaitForSeconds(refillDelay);
             DestroyMatches();
+            yield return new WaitForSeconds(2 * refillDelay);
             //yield break;
         }
         /*
@@ -817,7 +816,6 @@ public class Board : MonoBehaviour
         
         findMatches.currentMatches.Clear();
         currentDot = null;
-        yield return new WaitForSeconds(refillDelay);
 
         if (IsDeadlocked())
         {
@@ -825,6 +823,7 @@ public class Board : MonoBehaviour
             Debug.Log("Deadlocked!!!");
         }
 
+        yield return new WaitForSeconds(refillDelay);
         currentState = gameState.move;
         streakValue = 1;
         /*
