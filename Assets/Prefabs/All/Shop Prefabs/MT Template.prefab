@@ -493,7 +493,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4786732890319254138}
         m_TargetAssemblyTypeName: IAPController, Assembly-CSharp
-        m_MethodName: OnProductFetched
+        m_MethodName: OnPurchaseComplete
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -523,7 +523,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4786732890319254138}
         m_TargetAssemblyTypeName: IAPController, Assembly-CSharp
-        m_MethodName: OnPurchaseComplete
+        m_MethodName: OnProductFetched
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -8,7 +8,7 @@ public class InventoryController : MonoBehaviour
     public static InventoryController Instance;
     public List<InventoryItemSSO> Items = new List<InventoryItemSSO>();
     public Transform ItemContent;
-    public GameObject InventoryItem;
+    public GameObject InventoryItem, ItemDescription;
 
     private void Awake()
     {
@@ -41,10 +41,16 @@ public class InventoryController : MonoBehaviour
             itemIcon.sprite = item.icon;
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void ShowDescription(InventoryItemSSO item)
     {
-        
+        if (item.usableInInventory == false)
+        {
+            ItemDescription.SetActive(true);
+        }
+    }
+
+    public void CloseDescription()
+    {
+        ItemDescription.SetActive(false);
     }
 }

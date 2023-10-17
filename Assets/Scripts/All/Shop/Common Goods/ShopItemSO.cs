@@ -9,11 +9,17 @@ public class ShopItemSO : ScriptableObject
     public string title;
     public string description;
     public int baseCost;
-    public int currencyType; // 0 = coins, 1 = gems
+    //public int currencyType; // 0 = coins, 1 = gems
     public int amountAvailable;
     public int amountOwned;
     public Sprite itemImg;
     public Sprite currencyImg;
+    public enum currencyType
+    {
+        coins,
+        gems
+    };
+    public currencyType currency;
     public Sprite getItemImg()
     {
         return itemImg;
@@ -29,5 +35,9 @@ public class ShopItemSO : ScriptableObject
     public int getAmountOwned()
     {
         return amountOwned;
+    }
+    public currencyType GetCurrencyType()
+    {
+        return currency;
     }
 }
