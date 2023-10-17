@@ -14,7 +14,7 @@ public class CharaDetail : MonoBehaviour
     [Header("Character Details")]
     [SerializeField] private GameObject detailUI;
     [SerializeField] private Image charFull;
-    [SerializeField] private TextMeshProUGUI charaName, atk, hp, def, role, type;
+    [SerializeField] private TextMeshProUGUI charaName, lvl, atk, hp, def, role, type;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +31,7 @@ public class CharaDetail : MonoBehaviour
         detailUI.SetActive(true);
         charFull.sprite = cardDetail.charFull;
         charaName.text = "NAME : " + cardDetail.name;
+        lvl.text = "LVL:\t\t " + cardDetail.lv;
         atk.text = "ATK : " + cardDetail.atk;
         hp.text = "HP : " + cardDetail.hp;
         def.text = "DEF : " + cardDetail.def;

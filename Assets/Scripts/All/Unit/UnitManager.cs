@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Firebase;
+using Firebase.Database;
+using System;
+using Firebase.Extensions;
 
 public class UnitManager : MonoBehaviour
 {
@@ -16,32 +20,68 @@ public class UnitManager : MonoBehaviour
     public List<Card> cardList = new List<Card>();
     GameObject cardUI;
     UnitCardManager unitCardManager;
+    private string userID;
 
     void Awake()
     {
         cardGO.Clear();
         unitCardListManager.Clear();
         cardList.Clear();
-
-        SelectionCanvas.SetActive(true);
-        cards = Resources.LoadAll<Card>("Character Cards");
-        for (int i = 0; i < cards.Length; i++)
+        userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        FirebaseDatabase.DefaultInstance.GetReference("user").Child(userID).Child("units").GetValueAsync().ContinueWithOnMainThread(task =>
         {
-            if (cards[i].unlocked)
+            if (task.IsFaulted)
             {
-                cardUI = Instantiate(cardUIPrefab, parent.position, Quaternion.identity) as GameObject;
-                cardUI.transform.localScale = new Vector3(1, 1, 1);
-                cardUI.transform.SetParent(parent);
-                unitCardManager = cardUI.GetComponent<UnitCardManager>();
-                unitCardManager.card = cards[i];
+                // Handle the error...
+                Debug.LogError("Get Units Faulted: " + task.Exception);
 
-                cardGO.Add(cardUI);
-                unitCardListManager.Add(unitCardManager);
-                cardList.Add(cards[i]);
             }
-        }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("Get Units Success: " + task.Exception);
+                DataSnapshot snapshot = task.Result;
 
-        SelectionCanvas.SetActive(true);
+                SelectionCanvas.SetActive(true);
+                cards = Resources.LoadAll<Card>("Character Cards");
+                for (int i = 0; i < cards.Length; i++)
+                {
+                    if (cards[i].unlocked)
+                    {
+                        foreach (DataSnapshot eachUnit in snapshot.Child(cards[i].charaName).Children)
+                        {
+                            var clone = Instantiate(cards[i]);
+                            clone.lv = Int32.Parse(eachUnit.Child("lvl").Value.ToString());
+                            clone._hp = Int32.Parse(eachUnit.Child("hp").Value.ToString());
+                            clone._atk = Int32.Parse(eachUnit.Child("atk").Value.ToString());
+                            clone._def = Int32.Parse(eachUnit.Child("def").Value.ToString());
+
+                            cardUI = Instantiate(cardUIPrefab, parent.position, Quaternion.identity) as GameObject;
+                            cardUI.transform.localScale = new Vector3(1, 1, 1);
+                            cardUI.transform.SetParent(parent);
+                            unitCardManager = cardUI.GetComponent<UnitCardManager>();
+                            unitCardManager.card = clone;
+
+                            cardGO.Add(cardUI);
+                            unitCardListManager.Add(unitCardManager);
+                            cardList.Add(clone);
+                        }
+                        
+                    }
+                }
+
+                SelectionCanvas.SetActive(true);
+                // Do something with snapshot...
+                foreach (DataSnapshot unitName in snapshot.Children)
+                {
+                    foreach (DataSnapshot eachUnit in unitName.Children)
+                    {
+                        Debug.Log(unitName.Key + " " + "Level: " + eachUnit.Child("lvl").Value.ToString());
+                    }
+                }
+
+            }
+        });
+        
             
     }
 }

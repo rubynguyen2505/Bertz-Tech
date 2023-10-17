@@ -3482,6 +3482,7 @@ MonoBehaviour:
   detailUI: {fileID: 463700620}
   charFull: {fileID: 82463290}
   charaName: {fileID: 1884242821}
+  lvl: {fileID: 1949554676}
   atk: {fileID: 1451825173}
   hp: {fileID: 726396755}
   def: {fileID: 1111832656}
