@@ -320,7 +320,7 @@ RectTransform:
   m_GameObject: {fileID: 136183003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 738056987}
@@ -333,7 +333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2, y: -20}
+  m_AnchoredPosition: {x: 2, y: -48}
   m_SizeDelta: {x: 500, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &136183005
@@ -1360,7 +1360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33200002, y: 0.69241667}
   m_AnchorMax: {x: 0.66800004, y: 0.9162084}
-  m_AnchoredPosition: {x: 0.0000076293945, y: -0.024993896}
+  m_AnchoredPosition: {x: 171, y: -0.024993896}
   m_SizeDelta: {x: -0.40620422, y: -0.048999786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &682718198
@@ -1850,6 +1850,7 @@ MonoBehaviour:
     type: 0
     color: 
   currentDot: {fileID: 0}
+  basePieceValue: 20
   refillDelay: 0.5
 --- !u!114 &750384145
 MonoBehaviour:
@@ -1876,7 +1877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d8e8e19a21c3144be5f43c76315fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintDelay: 3
+  hintDelay: 4
   hintParticle: {fileID: 6388832073738422372, guid: 6686f7d608b35484c8157f4e12dad9f2, type: 3}
   currentHint: {fileID: 0}
 --- !u!1 &767497136
@@ -9902,7 +9903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2134190524
 Transform:
   m_ObjectHideFlags: 0
@@ -9930,6 +9931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c8a99e71fdb73458a2902fcc5cab5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreDisplay: {fileID: 738056988}
+  score: 0
+  scoreBar: {fileID: 1848662298}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
