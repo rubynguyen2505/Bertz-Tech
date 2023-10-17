@@ -7,7 +7,7 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    /*
+    
     private Board board;
     public TextMeshProUGUI scoreDisplay;
     public int score;
@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
     {
         board = FindObjectOfType<Board>();
         gameData = FindObjectOfType<GameData>();
-        UpdateBar();
+        //UpdateBar();
     }
 
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseScore(int amountToIncrease)
     {
         score += amountToIncrease;
+        /*
         for (int i = 0; i < board.scoreGoals.Length; i ++)
         {
             if (score > board.scoreGoals[i] && numberStars < i + 1)
@@ -55,15 +56,16 @@ public class ScoreManager : MonoBehaviour
             gameData.Save();
         }
         UpdateBar();
+        */
     }
 
-    private void UpdateBar()
+    /*private void UpdateBar()
     {
         if (board != null && scoreBar != null)
         {
             int length = board.scoreGoals.Length;
             scoreBar.fillAmount = (float)score / (float)board.scoreGoals[length - 1];
         }
-    }
-    */
+    }*/
+    
 }
