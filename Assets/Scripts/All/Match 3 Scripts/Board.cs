@@ -102,10 +102,10 @@ public class Board : MonoBehaviour
     private GoalManager goalManager;
     */
     public float refillDelay = 0.5f;
-    /*
+    
     public int[] scoreGoals;
-    private bool makeSlime = true;
-    */
+    //private bool makeSlime = true;
+    
 
     /*
     private void Awake()

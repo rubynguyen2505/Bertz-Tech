@@ -55,17 +55,18 @@ public class ScoreManager : MonoBehaviour
             }
             gameData.Save();
         }
-        UpdateBar();
         */
+        UpdateBar();
+        
     }
 
-    /*private void UpdateBar()
+    private void UpdateBar()
     {
         if (board != null && scoreBar != null)
         {
             int length = board.scoreGoals.Length;
             scoreBar.fillAmount = (float)score / (float)board.scoreGoals[length - 1];
         }
-    }*/
+    }
     
 }
