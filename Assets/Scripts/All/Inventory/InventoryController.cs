@@ -50,6 +50,7 @@ public class InventoryController : MonoBehaviour
     }
     public void ShowDescription(InventoryItemSSO item)
     {
+        Debug.Log("ShowDescription called");
         if (item.usableInInventory == false)
         {
             ItemDescription.SetActive(true);
