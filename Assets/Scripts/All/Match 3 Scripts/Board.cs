@@ -97,10 +97,10 @@ public class Board : MonoBehaviour
     public int basePieceValue = 20;
     private int streakValue = 1;
     private ScoreManager scoreManager;
-    /*
+    
     private SoundManager soundManager;
-    private GoalManager goalManager;
-    */
+    //private GoalManager goalManager;
+    
     public float refillDelay = 0.5f;
     
     public int[] scoreGoals;
@@ -138,7 +138,7 @@ public class Board : MonoBehaviour
         
         //goalManager = FindObjectOfType<GoalManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
-        //soundManager = FindObjectOfType<SoundManager>();
+        soundManager = FindObjectOfType<SoundManager>();
         breakableTiles = new BackgroundTile[width, height];
         //lockTiles = new BackgroundTile[width, height];
         
@@ -534,14 +534,14 @@ public class Board : MonoBehaviour
                 goalManager.CompareGoal(allDots[column, row].tag.ToString());
                 goalManager.UpdateGoals();
             }
-
+            */
             
             //Does the sound manager exist
             if (soundManager != null)
             {
                 soundManager.PlayRandomDestroyNoise();
             }
-            */
+            
 
             //findMatches.currentMatches.Remove(allDots[column, row]);
 

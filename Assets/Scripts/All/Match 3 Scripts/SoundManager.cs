@@ -19,13 +19,13 @@ public class SoundManager : MonoBehaviour
             else
             {
                 backgroundMusic.Play();
-                backgroundMusic.volume = 1;
+                backgroundMusic.volume = 0.7f;
             }
         }
         else
         {
             backgroundMusic.Play();
-            backgroundMusic.volume = 1;
+            backgroundMusic.volume = 0.7f;
         }
     }
 
@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour
             }
             else
             {
-                backgroundMusic.volume = 1;
+                backgroundMusic.volume = 0.7f;
             }
         }
     }
