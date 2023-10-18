@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +10,12 @@ public class InventoryController : MonoBehaviour
     public static InventoryController Instance;
     public List<InventoryItemSSO> Items = new List<InventoryItemSSO>();
     public Transform ItemContent;
+    public InventoryItemSSO[] inventoryItemsSO;
+    public InventoryTemplate[] inventoryItems;
+    public TMP_Text ItemDescriptionText;
     public GameObject InventoryItem, ItemDescription;
+    public GameObject[] inventoryItemsGO;
+    public Button[] inventoryButtons;
 
     private void Awake()
     {
@@ -46,11 +53,34 @@ public class InventoryController : MonoBehaviour
         if (item.usableInInventory == false)
         {
             ItemDescription.SetActive(true);
+            ItemDescriptionText.text = item.description;
         }
     }
 
     public void CloseDescription()
     {
         ItemDescription.SetActive(false);
+    }
+
+    public void LoadPanels()
+    {
+        for (int i = 0; i < inventoryItemsSO.Length; i++)
+        {
+            inventoryItems[i].title.text = inventoryItemsSO[i].itemName;
+            inventoryItems[i].itemImg = inventoryItemsSO[i].icon;
+        }
+    }
+
+    public void SelectItem(int btn)
+    {
+        ShowDescription(inventoryItemsSO[btn]);
+    }
+    private void Start()
+    {
+        for(int i = 0; i < inventoryItemsSO.Length; i++)
+        {
+            inventoryItemsGO[i].SetActive(true);
+        }
+        LoadPanels();
     }
 }
