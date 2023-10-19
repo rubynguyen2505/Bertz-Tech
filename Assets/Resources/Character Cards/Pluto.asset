@@ -17,6 +17,9 @@ MonoBehaviour:
   charFull: {fileID: 21300000, guid: 3cb727ca98f3fd64ca5a125fe34d01d4, type: 3}
   itemFrame: {fileID: 21300000, guid: 00b28cf53c9dd8d4380212727367e8d8, type: 3}
   stars: {fileID: 21300000, guid: 3960455f031684a4393337d23f667d83, type: 3}
+  starsAcross: {fileID: 21300000, guid: 145af9a49faf5e44d99a7afcda97e45c, type: 3}
+  charaFrame: {fileID: 21300000, guid: bc0e05d02bd1e9049b9ec4dc23d49a92, type: 3}
+  charaRole: {fileID: 21300000, guid: 4ef6e6f0b1946694c9aeb4e4e75ea2d4, type: 3}
   character: {fileID: 0}
   maxLv: 20
   lv: 1

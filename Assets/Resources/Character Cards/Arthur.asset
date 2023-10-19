@@ -15,19 +15,22 @@ MonoBehaviour:
   charaName: Arthur
   image: {fileID: 21300000, guid: da161e031a078b445bb3bff2321fa01d, type: 3}
   charFull: {fileID: 21300000, guid: 2a321e8bda1e03348b1708406b565145, type: 3}
-  itemFrame: {fileID: 21300000, guid: 20ab66ff3d04cb6498a6c4c090a0ecda, type: 3}
+  itemFrame: {fileID: 21300000, guid: b9f7eb3e7a711bb4f943863771280906, type: 3}
   stars: {fileID: 21300000, guid: d7430fbe53965f842b9653761ac5601c, type: 3}
+  starsAcross: {fileID: 21300000, guid: b23bb22558a73f540a402b45500347a3, type: 3}
+  charaFrame: {fileID: 21300000, guid: 511ea87a4409e564084cf9526efb7448, type: 3}
+  charaRole: {fileID: 21300000, guid: 43420f4c1870652409f857efc14b82d6, type: 3}
   character: {fileID: 0}
   maxLv: 20
   lv: 1
   role: 0
-  type: 0
+  type: 3
   rarity: 1
   unlocked: 1
   inTeam: 0
   hp: 12000
   atk: 1200
   def: 600
-  _hp: 0
-  _atk: 0
-  _def: 0
+  _hp: 12000
+  _atk: 1200
+  _def: 600

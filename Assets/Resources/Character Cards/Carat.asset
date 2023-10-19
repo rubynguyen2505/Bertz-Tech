@@ -17,6 +17,9 @@ MonoBehaviour:
   charFull: {fileID: 21300000, guid: a44517dd035b2724584893c7fadcc9fe, type: 3}
   itemFrame: {fileID: 21300000, guid: 00b28cf53c9dd8d4380212727367e8d8, type: 3}
   stars: {fileID: 21300000, guid: d7430fbe53965f842b9653761ac5601c, type: 3}
+  starsAcross: {fileID: 21300000, guid: b23bb22558a73f540a402b45500347a3, type: 3}
+  charaFrame: {fileID: 21300000, guid: bc0e05d02bd1e9049b9ec4dc23d49a92, type: 3}
+  charaRole: {fileID: 21300000, guid: 3e18730c0ec0d0d4aa3d7418276d1068, type: 3}
   character: {fileID: 0}
   maxLv: 20
   lv: 1
@@ -24,7 +27,7 @@ MonoBehaviour:
   type: 4
   rarity: 1
   unlocked: 1
-  inTeam: 0
+  inTeam: 1
   hp: 16000
   atk: 900
   def: 800

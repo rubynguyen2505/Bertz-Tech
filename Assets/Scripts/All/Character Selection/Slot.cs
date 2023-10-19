@@ -7,18 +7,24 @@ using TMPro;
 public class Slot : MonoBehaviour
 {
     public Card card;
-    public GameObject nameBG, cardImage;
+    public GameObject nameBG, cardImage, borderImage, starsImage, roleImage;
     public TextMeshProUGUI nameText;
 
     [HideInInspector]
     public int cardIdx;
 
     Image _cardImage;
+    Image _borderImage;
+    Image _starsImage;
+    Image _roleImage;
 
     // Start is called before the first frame update
     void Start()
     {
         _cardImage = cardImage.GetComponent<Image>();
+        _borderImage = borderImage.GetComponent<Image>();
+        _starsImage = starsImage.GetComponent<Image>();
+        _roleImage = roleImage.GetComponent<Image>();
     }
 
     private void OnEnable()
@@ -37,14 +43,26 @@ public class Slot : MonoBehaviour
         {
             nameBG.SetActive(true);
             cardImage.SetActive(true);
+            borderImage.SetActive(true);
+            starsImage.SetActive(true);
+            roleImage.SetActive(true);
             _cardImage.sprite = card.image;
+            _borderImage.sprite = card.charaFrame;
+            _starsImage.sprite = card.starsAcross;
+            _roleImage.sprite = card.charaRole;
             nameText.text = card.charaName;
         }
         else
         {
             nameBG.SetActive(false);
             cardImage.SetActive(false);
+            borderImage.SetActive(false);
+            starsImage.SetActive(false);
+            roleImage.SetActive(false);
             _cardImage.sprite = null;
+            _borderImage.sprite = null;
+            _starsImage.sprite = null;
+            _roleImage.sprite = null;
         }
     }
 }

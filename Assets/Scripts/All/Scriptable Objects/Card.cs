@@ -35,6 +35,9 @@ public class Card : ScriptableObject
     public Sprite charFull;
     public Sprite itemFrame;
     public Sprite stars;
+    public Sprite starsAcross;
+    public Sprite charaFrame;
+    public Sprite charaRole;
     public GameObject character;
     public int maxLv = 20, lv = 1;
     public Roles role;
