@@ -12,8 +12,8 @@ public class InventoryController : MonoBehaviour
     public Transform ItemContent;
     public InventoryItemSSO[] inventoryItemsSO;
     public InventoryTemplate[] inventoryItems;
-    public TMP_Text ItemDescriptionText;
-    public GameObject InventoryItem, ItemDescription;
+    public TMP_Text ItemDescriptionText, ItemUseText;
+    public GameObject InventoryItem, ItemDescription, ItemUse;
     public GameObject[] inventoryItemsGO;
     public Button[] inventoryButtons;
 
@@ -48,20 +48,44 @@ public class InventoryController : MonoBehaviour
             itemIcon.sprite = item.icon;
         }
     }
-    public void ShowDescription(InventoryItemSSO item)
+
+    public void SelectItem(InventoryItemSSO item)
     {
         if (item.usableInInventory == false)
         {
-            ItemDescription.SetActive(true);
-            ItemDescriptionText.text = item.description;
+            ShowDescription(item);
         }
+        else
+        {
+            ShowUseItem(item);
+        }
+    }
+    public void ShowDescription(InventoryItemSSO item)
+    {
+        ItemDescription.SetActive(true);
+        ItemDescriptionText.text = item.description;
     }
 
     public void CloseDescription()
     {
         ItemDescription.SetActive(false);
     }
+    
+    public void ShowUseItem(InventoryItemSSO item)
+    {
+        ItemUse.SetActive(true);
+        ItemUseText.text = item.description;
+    }
 
+    public void CloseUseItem()
+    {
+        ItemUse.SetActive(false);
+    }
+    public void UseItem(InventoryItemSSO item)
+    {
+        Debug.Log("Energy added");
+        ItemUse.SetActive(false);
+    }
     public void LoadPanels()
     {
         for (int i = 0; i < inventoryItemsSO.Length; i++)
