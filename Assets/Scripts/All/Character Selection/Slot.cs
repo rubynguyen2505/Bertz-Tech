@@ -7,8 +7,8 @@ using TMPro;
 public class Slot : MonoBehaviour
 {
     public Card card;
-    public GameObject nameBG, cardImage, borderImage, starsImage, roleImage;
-    public TextMeshProUGUI nameText;
+    public GameObject cardImage, borderImage, starsImage, roleImage;
+    public TextMeshProUGUI hpVal, atkVal, defVal;
 
     [HideInInspector]
     public int cardIdx;
@@ -41,7 +41,9 @@ public class Slot : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         if (card != null)
         {
-            nameBG.SetActive(true);
+            hpVal.text = card._hp.ToString();
+            atkVal.text = card._atk.ToString();
+            defVal.text = card._def.ToString();
             cardImage.SetActive(true);
             borderImage.SetActive(true);
             starsImage.SetActive(true);
@@ -50,11 +52,9 @@ public class Slot : MonoBehaviour
             _borderImage.sprite = card.charaFrame;
             _starsImage.sprite = card.starsAcross;
             _roleImage.sprite = card.charaRole;
-            nameText.text = card.charaName;
         }
         else
         {
-            nameBG.SetActive(false);
             cardImage.SetActive(false);
             borderImage.SetActive(false);
             starsImage.SetActive(false);
@@ -63,6 +63,9 @@ public class Slot : MonoBehaviour
             _borderImage.sprite = null;
             _starsImage.sprite = null;
             _roleImage.sprite = null;
+            hpVal.text = null;
+            atkVal.text = null;
+            defVal.text = null;
         }
     }
 }
