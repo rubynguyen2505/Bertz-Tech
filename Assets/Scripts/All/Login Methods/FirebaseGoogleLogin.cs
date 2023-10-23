@@ -9,6 +9,7 @@ using Firebase.Auth;
 using UnityEngine.UI;
 using Google;
 using System.Net.Http;
+using Firebase.Database;
 
 public class GoogleSigninManager : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class GoogleSigninManager : MonoBehaviour
     public TMPro.TMP_Text UsernameTxt, UserEmailTxt;
     public GameObject LoginScreen, ProfileScreen;
 
+    private string userID;
+    private DatabaseReference dbReference;
+
     void Awake()
     {
         configuration = new GoogleSignInConfiguration
@@ -34,6 +38,7 @@ public class GoogleSigninManager : MonoBehaviour
     void Start()
     {
         InitFirebase();
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
 
     }
     void InitFirebase()
@@ -81,14 +86,19 @@ public class GoogleSigninManager : MonoBehaviour
                 UsernameTxt.text = user.DisplayName;
                 UserEmailTxt.text = user.Email;
 
-                LoginScreen.SetActive(false);
-                ProfileScreen.SetActive(true);
+                //LoginScreen.SetActive(false);
+                //ProfileScreen.SetActive(true);
 
             });
-
+            //google user to database
+            userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+            if (dbReference.Child("user").Child(userID).GetValueAsync().Result.Exists == false)
+            {
+                User newUser = new User(userID);
+                string json = JsonUtility.ToJson(newUser);
+                dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
+            }
         }
-    }
-  
-
+    } 
 }
    

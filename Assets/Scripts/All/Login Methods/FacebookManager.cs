@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using TMPro;
 using Facebook.Unity;
 using System;
+using Firebase.Extensions;
+using Firebase.Database;
 
 
 public class FacebookManager : MonoBehaviour
@@ -15,11 +17,15 @@ public class FacebookManager : MonoBehaviour
     public RawImage rawImg;
     Firebase.Auth.FirebaseAuth auth;
 
+    private string userID;
+    private DatabaseReference dbReference;
+
     #region Initialize
 
     private void Awake()
     {
         FB.Init(SetInit, onHidenUnity);
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
 
         if (!FB.IsInitialized)
         {
@@ -161,6 +167,15 @@ public class FacebookManager : MonoBehaviour
             }
             Firebase.Auth.FirebaseUser newuser = task.Result;
             Debug.Log(newuser.DisplayName);
+
+            //fb user to database
+            userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+            if (dbReference.Child("user").Child(userID).GetValueAsync().Result.Exists == false)
+            {
+                User newUser = new User(userID);
+                string json = JsonUtility.ToJson(newUser);
+                dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
+            }
         });
     }
 

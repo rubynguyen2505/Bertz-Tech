@@ -7,6 +7,8 @@ using Firebase;
 using Firebase.Auth;
 using System.Threading.Tasks;
 using Firebase.Extensions;
+using Firebase.Database;
+
 
 public class FirebaseController : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class FirebaseController : MonoBehaviour
     public TMPro.TMP_InputField loginEmail, loginPassword, signupEmail, signupPassword, signupCPassword, signupUserName, forgetPassEmail;
     public Toggle rememberMe;
     public TMPro.TMP_Text profileUserName_Text, profileUserEmail_Text, notifTitle_Text, notifMessage_Text;
+
+    private string userID;
+    private DatabaseReference dbReference;
+
 
 
 
@@ -41,6 +47,7 @@ public class FirebaseController : MonoBehaviour
                 // Firebase Unity SDK is not safe to use here.
             }
         });
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
 
@@ -160,6 +167,14 @@ public class FirebaseController : MonoBehaviour
             Firebase.Auth.AuthResult result = task.Result;
             Debug.LogFormat("Firebase user created successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
+
+            //User to Database
+            userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+
+            User newUser = new User(userID);
+            string json = JsonUtility.ToJson(newUser);
+            dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
+            
 
             UpdateUserProfile(Username);
         });
@@ -368,6 +383,18 @@ public class FirebaseController : MonoBehaviour
             Firebase.Auth.AuthResult result = task.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
+
+            //User to Database
+            userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+
+            //Debug.Log(dbReference.Child("user").Child(userID).GetValueAsync().Result.Exists);
+            //anon user to database
+            if (dbReference.Child("user").Child(userID).GetValueAsync().Result.Exists == false)
+            {
+                User newUser = new User(userID);
+                string json = JsonUtility.ToJson(newUser);
+                dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
+            }
 
             CloseLoginPanel();
             OpendbTestPanel();
