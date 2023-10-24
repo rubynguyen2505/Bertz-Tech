@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
+
 [System.Serializable]
 public class BlankGoal
 {
@@ -11,11 +11,11 @@ public class BlankGoal
     public Sprite goalSprite;
     public string matchValue;
 }
-*/
+
 
 public class GoalManager : MonoBehaviour
 {
-    /*
+    
     public BlankGoal[] levelGoals;
     public List<GoalPanel> currentGoals = new List<GoalPanel>();
     public GameObject goalPrefab;
@@ -24,15 +24,16 @@ public class GoalManager : MonoBehaviour
     private Board board;
     private EndGameManager endGame;
 
+    
     // Start is called before the first frame update
     void Start()
     {
         board = FindAnyObjectByType<Board>();
         endGame = FindObjectOfType<EndGameManager>();
-        GetGoals();
+        //GetGoals();
         SetupIntroGoals();
     }
-
+    /*
     void GetGoals()
     {
         if (board != null)
@@ -53,27 +54,29 @@ public class GoalManager : MonoBehaviour
             }
         }
     }
+    */
     void SetupIntroGoals()
     {
         for (int i = 0; i < levelGoals.Length; i ++)
         {
             //Create a new Goal Panel at the goalIntroParent position
             GameObject goal = Instantiate(goalPrefab, goalIntroParent.transform.position, Quaternion.identity);
-            goal.transform.SetParent(goalIntroParent.transform, false);
+            goal.transform.SetParent(goalIntroParent.transform);
+            
             //Set the image and text of the goal
-            GoalPanel panel = goal.GetComponent<GoalPanel>();
-            panel.thisSprite = levelGoals[i].goalSprite;
-            panel.thisString = "0/" + levelGoals[i].numberNeeded;
+            //GoalPanel panel = goal.GetComponent<GoalPanel>();
+            //panel.thisSprite = levelGoals[i].goalSprite;
+            //panel.thisString = "0/" + levelGoals[i].numberNeeded;
             //Create a new Goal Panel at the goalIntroParent position
             GameObject gameGoal = Instantiate(goalPrefab, goalGameParent.transform.position, Quaternion.identity);
-            gameGoal.transform.SetParent(goalGameParent.transform, false);
-            panel = gameGoal.GetComponent<GoalPanel>();
-            currentGoals.Add(panel);
-            panel.thisSprite = levelGoals[i].goalSprite;
-            panel.thisString = "0/" + levelGoals[i].numberNeeded;
+            gameGoal.transform.SetParent(goalGameParent.transform);
+            //panel = gameGoal.GetComponent<GoalPanel>();
+            //currentGoals.Add(panel);
+            //panel.thisSprite = levelGoals[i].goalSprite;
+            //panel.thisString = "0/" + levelGoals[i].numberNeeded;
         }
     }
-
+    /*
     // Update is called once per frame
     public void UpdateGoals()
     {
