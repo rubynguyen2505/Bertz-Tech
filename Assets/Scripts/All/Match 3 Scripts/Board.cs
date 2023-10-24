@@ -99,7 +99,7 @@ public class Board : MonoBehaviour
     private ScoreManager scoreManager;
     
     private SoundManager soundManager;
-    //private GoalManager goalManager;
+    private GoalManager goalManager;
     
     public float refillDelay = 0.5f;
     
@@ -136,7 +136,7 @@ public class Board : MonoBehaviour
     void Start()
     {
         
-        //goalManager = FindObjectOfType<GoalManager>();
+        goalManager = FindObjectOfType<GoalManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
         soundManager = FindObjectOfType<SoundManager>();
         breakableTiles = new BackgroundTile[width, height];
@@ -528,13 +528,13 @@ public class Board : MonoBehaviour
             
             DamageConcrete(column, row);
             DamageSlime(column, row);
-
+            */
             if (goalManager != null)
             {
                 goalManager.CompareGoal(allDots[column, row].tag.ToString());
                 goalManager.UpdateGoals();
             }
-            */
+            
             
             //Does the sound manager exist
             if (soundManager != null)

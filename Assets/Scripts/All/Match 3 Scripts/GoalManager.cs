@@ -31,7 +31,7 @@ public class GoalManager : MonoBehaviour
         board = FindAnyObjectByType<Board>();
         endGame = FindObjectOfType<EndGameManager>();
         //GetGoals();
-        SetupIntroGoals();
+        SetupGoals();
     }
     /*
     void GetGoals()
@@ -55,7 +55,7 @@ public class GoalManager : MonoBehaviour
         }
     }
     */
-    void SetupIntroGoals()
+    void SetupGoals()
     {
         for (int i = 0; i < levelGoals.Length; i ++)
         {
@@ -64,19 +64,21 @@ public class GoalManager : MonoBehaviour
             goal.transform.SetParent(goalIntroParent.transform);
             
             //Set the image and text of the goal
-            //GoalPanel panel = goal.GetComponent<GoalPanel>();
-            //panel.thisSprite = levelGoals[i].goalSprite;
-            //panel.thisString = "0/" + levelGoals[i].numberNeeded;
+            GoalPanel panel = goal.GetComponent<GoalPanel>();
+            panel.thisSprite = levelGoals[i].goalSprite;
+            panel.thisString = "0/" + levelGoals[i].numberNeeded;
+
             //Create a new Goal Panel at the goalIntroParent position
             GameObject gameGoal = Instantiate(goalPrefab, goalGameParent.transform.position, Quaternion.identity);
             gameGoal.transform.SetParent(goalGameParent.transform);
-            //panel = gameGoal.GetComponent<GoalPanel>();
-            //currentGoals.Add(panel);
-            //panel.thisSprite = levelGoals[i].goalSprite;
-            //panel.thisString = "0/" + levelGoals[i].numberNeeded;
+            panel = gameGoal.GetComponent<GoalPanel>();
+
+            currentGoals.Add(panel);
+            panel.thisSprite = levelGoals[i].goalSprite;
+            panel.thisString = "0/" + levelGoals[i].numberNeeded;
         }
     }
-    /*
+    
     // Update is called once per frame
     public void UpdateGoals()
     {
@@ -93,14 +95,14 @@ public class GoalManager : MonoBehaviour
 
         if (goalsCompleted >= levelGoals.Length)
         {
-            if (endGame != null)
+            /*if (endGame != null)
             {
                 endGame.WinGame();
-            }
+            }*/
             Debug.Log("You win!");
         }
     }
-
+    
     public void CompareGoal(string goalToCompare)
     {
         for (int i = 0; i < levelGoals.Length; i ++)
@@ -111,5 +113,5 @@ public class GoalManager : MonoBehaviour
             }
         }
     }
-    */
+    
 }
