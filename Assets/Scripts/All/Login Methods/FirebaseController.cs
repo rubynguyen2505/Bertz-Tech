@@ -170,11 +170,14 @@ public class FirebaseController : MonoBehaviour
 
             //User to Database
             userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
-
             User newUser = new User(userID);
             string json = JsonUtility.ToJson(newUser);
             dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
-            
+
+            //add default currency
+            dbReference.Child("user").Child(userID).Child("currency").Child("coins").SetRawJsonValueAsync("0");
+            dbReference.Child("user").Child(userID).Child("currency").Child("gems").SetRawJsonValueAsync("0");
+
 
             UpdateUserProfile(Username);
         });
@@ -394,6 +397,10 @@ public class FirebaseController : MonoBehaviour
                 User newUser = new User(userID);
                 string json = JsonUtility.ToJson(newUser);
                 dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
+
+                //add default currency
+                dbReference.Child("user").Child(userID).Child("currency").Child("coins").SetRawJsonValueAsync("0");
+                dbReference.Child("user").Child(userID).Child("currency").Child("gems").SetRawJsonValueAsync("0");
             }
 
             CloseLoginPanel();

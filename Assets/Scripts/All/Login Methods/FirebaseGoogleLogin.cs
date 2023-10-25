@@ -97,6 +97,9 @@ public class GoogleSigninManager : MonoBehaviour
                 User newUser = new User(userID);
                 string json = JsonUtility.ToJson(newUser);
                 dbReference.Child("user").Child(userID).SetRawJsonValueAsync(json);
+                //add default currency
+                dbReference.Child("user").Child(userID).Child("currency").Child("coins").SetRawJsonValueAsync("0");
+                dbReference.Child("user").Child(userID).Child("currency").Child("gems").SetRawJsonValueAsync("0");
             }
         }
     } 
