@@ -27,7 +27,7 @@ public class ShopController : MonoBehaviour
 
 
 
-    void Start()
+    void OnEnable()
     {
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
         getCurrency();
@@ -166,6 +166,8 @@ public class ShopController : MonoBehaviour
             {
                 coins = coins - shopItemsSO[btnNm].baseCost;
                 coinsUI.text = coins.ToString("D9");
+                dbReference.Child("user").Child(userID).Child("currency").Child("coins").SetValueAsync(coins);
+
                 shopItemsSO[btnNm].amountAvailable -= 1;
                 shopItemsSO[btnNm].amountOwned += 1;
                 amount[btnNm].text = "x" + shopItemsSO[btnNm].getAmountAvailable() + " (" + shopItemsSO[btnNm].getAmountOwned() + " Owned)";
@@ -178,6 +180,8 @@ public class ShopController : MonoBehaviour
             {
                 gems -= shopItemsSO[btnNm].baseCost;
                 gemsUI.text = gems.ToString("D9");
+                dbReference.Child("user").Child(userID).Child("currency").Child("gems").SetValueAsync(gems);
+
                 shopItemsSO[btnNm].amountAvailable -= 1;
                 shopItemsSO[btnNm].amountOwned += 1;
                 amount[btnNm].text = "x" + shopItemsSO[btnNm].getAmountAvailable() + " (" + shopItemsSO[btnNm].getAmountOwned() + " Owned)";
