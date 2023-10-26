@@ -9,7 +9,7 @@ public class HomeController : MonoBehaviour
 {
 
     //public GameObject battleButton, shopButton, unitsButton, teamsButton, enhanceButton, inventoryBUtton, recruitButton;
-
+    public GameObject settingsCanvas, homeCanvas;
     public void onBattleButton()
     {
         SceneManager.LoadScene("Battle");
@@ -46,5 +46,10 @@ public class HomeController : MonoBehaviour
         SceneManager.LoadScene("Recruit Screen");
     }
     
+    public void onSettingsButton()
+    {
+        homeCanvas.SetActive(false);
+        settingsCanvas.SetActive(true);
+    }
 
 }
