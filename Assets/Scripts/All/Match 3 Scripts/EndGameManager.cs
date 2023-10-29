@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 //using UnityEditorInternal;
 //using Unity.Collections.LowLevel.Unsafe;
 
-/*
+
 public enum GameType
 {
     Moves,
     Time
 }
+
 [System.Serializable]
 public class EndGameRequirements
 {
     public GameType gameType;
     public int counterValue;
 }
-*/
+
 
 public class EndGameManager : MonoBehaviour
 {
-    /*
+    
     public GameObject moveLabel;
     public GameObject timeLabel;
     public GameObject youWinPanel;
@@ -37,11 +39,11 @@ public class EndGameManager : MonoBehaviour
     void Start()
     {
         board = FindObjectOfType<Board>();
-        SetGameType(); 
+        //SetGameType(); 
         SetupGame();
         
     }
-
+    /*
     void SetGameType()
     {
         if (board.world != null)
@@ -55,7 +57,7 @@ public class EndGameManager : MonoBehaviour
             }
                 
         }
-    }
+    }*/
     void SetupGame()
     {
 
@@ -74,20 +76,25 @@ public class EndGameManager : MonoBehaviour
         counter.text = "" + currentCounterValue;
         
     }
-
+    
     public void DecreaseCounterValue()
     {
-        if (board.currentState != gameState.pause)
+        //if (currentCounterValue >= 2)//board.currentState != gameState.pause)
         {
             currentCounterValue --;
             counter.text = "" + currentCounterValue;
             if (currentCounterValue <= 0)
             {
-                LoseGame();
+                //LoseGame();
+                Debug.Log("Lose");
+                currentCounterValue = 0;
+                counter.text = "" + currentCounterValue;
             }
         }
+        
     }
-
+    
+    /*
     public void WinGame()
     {
         youWinPanel.SetActive(true);
@@ -96,8 +103,8 @@ public class EndGameManager : MonoBehaviour
         counter.text = "" + currentCounterValue;
         FadePanelController fade = FindObjectOfType<FadePanelController>();
         fade.GameOver();
-    }
-
+    }*/
+    /*
     public void LoseGame()
     {
         tryAgainPanel.SetActive(true);
@@ -108,7 +115,7 @@ public class EndGameManager : MonoBehaviour
         FadePanelController fade = FindObjectOfType<FadePanelController>();
         fade.GameOver();
     }
-
+    */
     // Update is called once per frame
     void Update()
     {
@@ -122,5 +129,5 @@ public class EndGameManager : MonoBehaviour
             }
         }
     }
-    */
+    
 }

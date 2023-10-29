@@ -20,7 +20,7 @@ public class Dot : MonoBehaviour
     //private Animator animator;
     //private float shineDelay;
     //private float shineDelaySecond;
-    //private EndGameManager endgameManager;
+    private EndGameManager endgameManager;
     private HintManager hintManager;
     
 
@@ -59,8 +59,8 @@ public class Dot : MonoBehaviour
         shineDelay = Random.Range(3f, 6f);
         shineDelaySecond = shineDelay;
         animator = GetComponent<Animator>();
-        endgameManager = FindObjectOfType<EndGameManager>();
         */
+        endgameManager = FindObjectOfType<EndGameManager>();
         hintManager = FindObjectOfType<HintManager>();
         
 
@@ -219,14 +219,14 @@ public class Dot : MonoBehaviour
             
             else
             {
-                /*
+                
                 if (endgameManager != null)
                 {
                     if (endgameManager.requirements.gameType == GameType.Moves)
                     {
                         endgameManager.DecreaseCounterValue();
                     }
-                }*/
+                }
                 
                 board.DestroyMatches();
             }

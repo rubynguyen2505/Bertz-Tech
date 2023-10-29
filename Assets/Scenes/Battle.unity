@@ -1362,7 +1362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33200002, y: 0.69241667}
   m_AnchorMax: {x: 0.66800004, y: 0.9162084}
-  m_AnchoredPosition: {x: 171, y: -0.024993896}
+  m_AnchoredPosition: {x: 1.0999985, y: -0.024993896}
   m_SizeDelta: {x: -0.40620422, y: -0.048999786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &682718198
@@ -8893,7 +8893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1877224202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8984,7 +8984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1892664538}
-  - component: {fileID: 1892664539}
+  - component: {fileID: 1892664541}
   - component: {fileID: 1892664540}
   m_Layer: 0
   m_Name: EndGameManager
@@ -8992,7 +8992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1892664538
 Transform:
   m_ObjectHideFlags: 0
@@ -9008,18 +9008,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 750384143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1892664539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892664537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12de500da734f99428c4fa989c8405a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1892664540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9032,6 +9020,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6efd52f4766fb4d966002d946e7739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1892664541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892664537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12de500da734f99428c4fa989c8405a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveLabel: {fileID: 619226910}
+  timeLabel: {fileID: 189382864}
+  youWinPanel: {fileID: 0}
+  tryAgainPanel: {fileID: 0}
+  counter: {fileID: 1435289984}
+  requirements:
+    gameType: 1
+    counterValue: 2
+  currentCounterValue: 0
 --- !u!1 &1973381543
 GameObject:
   m_ObjectHideFlags: 0
