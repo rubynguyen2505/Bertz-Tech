@@ -8,9 +8,9 @@ public enum gameState
 {
     wait,
     move,
-    //win,
-    //lose,
-    //pause
+    win,
+    lose,
+    pause
 }
 
 
@@ -150,7 +150,7 @@ public class Board : MonoBehaviour
         blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
         SetUp();
-        //currentState = gameState.pause;
+        currentState = gameState.pause;
     }
 
     
