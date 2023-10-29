@@ -28,6 +28,13 @@ MonoBehaviour:
   rarity: 1
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Oxalis 1
+  - Oxalis 2
+  - Oxalis 3
+  - Oxalis 4
+  - Oxalis 5
+  isUnlockedFacts: 0000000000
   hp: 14000
   atk: 1500
   def: 700

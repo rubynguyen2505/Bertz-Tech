@@ -28,6 +28,12 @@ MonoBehaviour:
   rarity: 2
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Van Gogh 1
+  - Van Gogh 2
+  - Van Gogh 3
+  - Van Gogh 4
+  isUnlockedFacts: 00000000
   hp: 12000
   atk: 1000
   def: 700

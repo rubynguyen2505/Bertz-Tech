@@ -28,6 +28,14 @@ MonoBehaviour:
   rarity: 0
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Uranus 1
+  - Uranus 2
+  - Uranus 3
+  - Uranus 4
+  - Uranus 5
+  - Uranus 6
+  isUnlockedFacts: 000000000000
   hp: 14500
   atk: 1300
   def: 900

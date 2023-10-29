@@ -28,6 +28,14 @@ MonoBehaviour:
   rarity: 0
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Athena 1
+  - Athena 2
+  - Athena 3
+  - Athena 4
+  - Athena 5
+  - Athena 6
+  isUnlockedFacts: 000000000000
   hp: 12500
   atk: 1300
   def: 700

@@ -28,6 +28,13 @@ MonoBehaviour:
   rarity: 1
   unlocked: 1
   inTeam: 1
+  unitFacts:
+  - Carat 1
+  - Carat 2
+  - Carat 3
+  - Carat 4
+  - Carat 5
+  isUnlockedFacts: 0000000000
   hp: 16000
   atk: 900
   def: 800

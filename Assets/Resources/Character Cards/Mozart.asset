@@ -28,6 +28,12 @@ MonoBehaviour:
   rarity: 2
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Mozart 1
+  - Mozart 2
+  - Mozart 3
+  - Mozart 4
+  isUnlockedFacts: 00000000
   hp: 13000
   atk: 950
   def: 750

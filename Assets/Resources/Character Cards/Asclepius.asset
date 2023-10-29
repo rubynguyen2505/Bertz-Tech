@@ -28,6 +28,12 @@ MonoBehaviour:
   rarity: 2
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Asclepius 1
+  - Asclepius 2
+  - Asclepius 3
+  - Asclepius 4
+  isUnlockedFacts: 00000000
   hp: 15000
   atk: 800
   def: 500

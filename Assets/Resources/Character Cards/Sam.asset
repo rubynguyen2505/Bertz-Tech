@@ -28,6 +28,12 @@ MonoBehaviour:
   rarity: 2
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Sam 1
+  - Sam 2
+  - Sam 3
+  - Sam 4
+  isUnlockedFacts: 00000000
   hp: 15000
   atk: 800
   def: 1000

@@ -28,6 +28,13 @@ MonoBehaviour:
   rarity: 1
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Ferricia 1
+  - Ferricia 2
+  - Ferricia 3
+  - Ferricia 4
+  - Ferricia 5
+  isUnlockedFacts: 0000000000
   hp: 11000
   atk: 1300
   def: 600

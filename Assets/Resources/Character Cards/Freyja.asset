@@ -28,6 +28,14 @@ MonoBehaviour:
   rarity: 0
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Freyja 1
+  - Freyja 2
+  - Freyja 3
+  - Freyja 4
+  - Freyja 5
+  - Freyja 6
+  isUnlockedFacts: 000000000000
   hp: 14000
   atk: 800
   def: 800

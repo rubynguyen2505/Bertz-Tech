@@ -28,6 +28,12 @@ MonoBehaviour:
   rarity: 2
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Pluto 1
+  - Pluto 2
+  - Pluto 3
+  - Pluto 4
+  isUnlockedFacts: 00000000
   hp: 13000
   atk: 1250
   def: 650

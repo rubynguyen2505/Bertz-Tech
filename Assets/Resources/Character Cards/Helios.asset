@@ -28,6 +28,14 @@ MonoBehaviour:
   rarity: 0
   unlocked: 1
   inTeam: 1
+  unitFacts:
+  - Helios 1
+  - Helios 2
+  - Helios 3
+  - Helios 4
+  - Helios 5
+  - Helios 6
+  isUnlockedFacts: 000000000000
   hp: 12000
   atk: 1150
   def: 700

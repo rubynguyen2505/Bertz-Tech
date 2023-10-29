@@ -28,6 +28,12 @@ MonoBehaviour:
   rarity: 2
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Xenomorph 1
+  - Xenomorph 2
+  - Xenomorph 3
+  - Xenomorph 4
+  isUnlockedFacts: 00000000
   hp: 14500
   atk: 1450
   def: 600

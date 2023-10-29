@@ -45,7 +45,8 @@ public class Card : ScriptableObject
     public Rarity rarity;
     public bool unlocked;
     public bool inTeam;
-    
+    public string[] unitFacts;
+    public bool[] isUnlockedFacts;
 
     [Header("Base Stats")]
     public int hp;

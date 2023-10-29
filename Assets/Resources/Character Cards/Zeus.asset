@@ -28,6 +28,14 @@ MonoBehaviour:
   rarity: 0
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Zeus 1
+  - Zeus 2
+  - Zeus 3
+  - Zeus 4
+  - Zeus 5
+  - Zeus 6
+  isUnlockedFacts: 000000000000
   hp: 13000
   atk: 1600
   def: 900

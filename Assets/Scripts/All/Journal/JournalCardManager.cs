@@ -25,6 +25,7 @@ public class JournalCardManager : MonoBehaviour
     // Update is called once per frame
     void Selected()
     {
+        JournalManager.card = card;
         journalManager.SetUI();
     }
 }

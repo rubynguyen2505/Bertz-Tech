@@ -28,6 +28,13 @@ MonoBehaviour:
   rarity: 1
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Zircon 1
+  - Zircon 2
+  - Zircon 3
+  - Zircon 4
+  - Zircon 5
+  isUnlockedFacts: 0000000000
   hp: 15500
   atk: 1000
   def: 950

@@ -28,6 +28,14 @@ MonoBehaviour:
   rarity: 0
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Neon 1
+  - Neon 2
+  - Neon 3
+  - Neon 4
+  - Neon 5
+  - Neon 6
+  isUnlockedFacts: 000000000000
   hp: 12000
   atk: 1150
   def: 850

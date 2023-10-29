@@ -28,6 +28,13 @@ MonoBehaviour:
   rarity: 1
   unlocked: 1
   inTeam: 0
+  unitFacts:
+  - Hecate 1
+  - Hecate 2
+  - Hecate 3
+  - Hecate 4
+  - Hecate 5
+  isUnlockedFacts: 0000000000
   hp: 13000
   atk: 1400
   def: 900
