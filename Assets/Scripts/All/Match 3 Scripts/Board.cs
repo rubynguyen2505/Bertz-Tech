@@ -47,11 +47,11 @@ public class TileType
 
 public class Board : MonoBehaviour
 {
-    /*
+    
     [Header ("Scriptable Object Stuffs")]
     public World world;
     public int level;
-    */
+    
 
 
     public gameState currentState = gameState.move;
@@ -107,13 +107,14 @@ public class Board : MonoBehaviour
     //private bool makeSlime = true;
     
 
-    /*
+    
     private void Awake()
     {
+        /*
         if (PlayerPrefs.HasKey("Current Level"))
         {
             level = PlayerPrefs.GetInt("Current Level");
-        }
+        }*/
         if (world != null)
         {
             if (level < world.levels.Length)
@@ -130,7 +131,7 @@ public class Board : MonoBehaviour
             
         }
     }
-    */
+    
 
     // Start is called before the first frame update
     void Start()

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
+
 [CreateAssetMenu (fileName = "World", menuName = "Level")]
 public class Level : ScriptableObject
 {
@@ -12,7 +12,7 @@ public class Level : ScriptableObject
     [Header ("Starting Tiles")]
     public TileType[] boardLayout;
 
-    [Header ("Avaialable Dots")]
+    [Header ("Available Dots")]
     public GameObject[] dots;
 
     [Header ("Score Goals")]
@@ -22,4 +22,3 @@ public class Level : ScriptableObject
     public EndGameRequirements endGameRequirements;
     public BlankGoal[] levelGoals;
 }
-*/

@@ -39,11 +39,11 @@ public class EndGameManager : MonoBehaviour
     void Start()
     {
         board = FindObjectOfType<Board>();
-        //SetGameType(); 
+        SetGameType(); 
         SetupGame();
         
     }
-    /*
+    
     void SetGameType()
     {
         if (board.world != null)
@@ -57,7 +57,7 @@ public class EndGameManager : MonoBehaviour
             }
                 
         }
-    }*/
+    }
     void SetupGame()
     {
 

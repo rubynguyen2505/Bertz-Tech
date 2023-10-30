@@ -30,10 +30,10 @@ public class GoalManager : MonoBehaviour
     {
         board = FindAnyObjectByType<Board>();
         endGame = FindObjectOfType<EndGameManager>();
-        //GetGoals();
+        GetGoals();
         SetupGoals();
     }
-    /*
+    
     void GetGoals()
     {
         if (board != null)
@@ -54,7 +54,7 @@ public class GoalManager : MonoBehaviour
             }
         }
     }
-    */
+    
     void SetupGoals()
     {
         for (int i = 0; i < levelGoals.Length; i ++)

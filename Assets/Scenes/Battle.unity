@@ -1834,6 +1834,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ed62004ea523040962fc8ec609aaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  world: {fileID: 11400000, guid: ee4b5c522bddb8f49bcc65d240450f90, type: 2}
+  level: 2
   currentState: 1
   width: 6
   height: 8
@@ -1982,7 +1984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &786884343
 Transform:
   m_ObjectHideFlags: 0
@@ -8893,7 +8895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1877224202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9034,12 +9036,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveLabel: {fileID: 619226910}
   timeLabel: {fileID: 189382864}
-  youWinPanel: {fileID: 0}
-  tryAgainPanel: {fileID: 0}
+  youWinPanel: {fileID: 1344259720}
+  tryAgainPanel: {fileID: 1866554900}
   counter: {fileID: 1435289984}
   requirements:
-    gameType: 1
-    counterValue: 2
+    gameType: 0
+    counterValue: 20
   currentCounterValue: 0
 --- !u!1 &1973381543
 GameObject:
