@@ -8,4 +8,9 @@ public class InventoryTemplate : MonoBehaviour
     public InventoryItemSSO inventoryItem;
     public TMP_Text title;
     public Sprite itemImg;
+    void Start()
+    {
+        title.text = inventoryItem.itemName;
+    }
+    
 }

@@ -7,6 +7,7 @@ using UnityEngine;
 public class InventoryItemSSO : ScriptableObject
 {
     public int id;
+    public int amount;
     public string itemName;
     public int price;
     public Sprite icon;

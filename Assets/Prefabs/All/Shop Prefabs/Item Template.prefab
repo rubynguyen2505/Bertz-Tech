@@ -800,6 +800,7 @@ MonoBehaviour:
   descriptionTxt: {fileID: 8152656907266791530}
   amountAvailable: 0
   amountOwned: 0
+  currency: 0
   costTxt: {fileID: 5115957964554060222}
 --- !u!1 &9064187539889985492
 GameObject:
