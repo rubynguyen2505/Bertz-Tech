@@ -179,6 +179,10 @@ public class FacebookManager : MonoBehaviour
                 //add default currency
                 dbReference.Child("user").Child(userID).Child("currency").Child("coins").SetRawJsonValueAsync("0");
                 dbReference.Child("user").Child(userID).Child("currency").Child("gems").SetRawJsonValueAsync("0");
+
+                //add level score
+                dbReference.Child("user").Child(userID).Child("levelscores").Child("level0").SetRawJsonValueAsync("0");
+
             }
         });
     }
