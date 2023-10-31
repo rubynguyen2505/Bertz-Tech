@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EnergyItem
   m_EditorClassIdentifier: 
   id: 1
+  amount: 0
   itemName: Energy Restore
   price: 10
   icon: {fileID: 21300000, guid: 6c99d291183e59c47bc752417d5d703c, type: 3}

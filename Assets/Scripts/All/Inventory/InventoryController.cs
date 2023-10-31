@@ -12,10 +12,11 @@ public class InventoryController : MonoBehaviour
     public Transform ItemContent;
     public InventoryItemSSO[] inventoryItemsSO;
     public InventoryTemplate[] inventoryItems;
-    public TMP_Text ItemDescriptionText, ItemDescriptionTitle, ItemDescriptionAmount, ItemUseText;
+    public TMP_Text ItemDescriptionText, ItemDescriptionTitle, ItemDescriptionAmount;
+    public TMP_Text ItemUseText, ItemUseTitle, ItemUseAmount;
     public GameObject InventoryItem, ItemDescription, ItemUse;
     public GameObject[] inventoryItemsGO;
-    public Image ItemDescriptionImg;
+    public Image ItemDescriptionImg, ItemUseImg;
     public Button[] inventoryButtons;
 
     private void Awake()
@@ -79,6 +80,9 @@ public class InventoryController : MonoBehaviour
     {
         ItemUse.SetActive(true);
         ItemUseText.text = item.description;
+        ItemUseTitle.text = item.itemName;
+        ItemUseAmount.text = "Amount Owned: " + item.amount.ToString();
+        ItemUseImg.sprite = item.icon;
     }
 
     public void CloseUseItem()
@@ -95,7 +99,7 @@ public class InventoryController : MonoBehaviour
         for (int i = 0; i < inventoryItemsSO.Length; i++)
         {
             inventoryItems[i].title.text = inventoryItemsSO[i].itemName;
-            inventoryItems[i].itemImg = inventoryItemsSO[i].icon;
+            inventoryItems[i].itemImg.sprite = inventoryItemsSO[i].icon;
         }
     }
 
