@@ -38,11 +38,11 @@ public class LoadSceneManager : MonoBehaviour
         _loaderCanvas.SetActive(true);
         do
         {
-            await Task.Delay(1);
-
             _target = scene.progress;
         }
         while (scene.progress < 0.9f);
+
+        _target = 1;
 
         await Task.Delay(1000);
 
@@ -50,12 +50,11 @@ public class LoadSceneManager : MonoBehaviour
 
         await Task.Delay(2000);
         _loaderCanvas.SetActive(false);
-        _progressBar.fillAmount = 0;
 
     }
 
     void Update()
     {
-        _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount, _target, 3 * Time.deltaTime);
+        _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount, _target, Time.deltaTime);
     }
 }
