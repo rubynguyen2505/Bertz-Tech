@@ -28,7 +28,7 @@ EditorBuildSettings:
     guid: 3bc49d10ce6437242a4ebdc53d18ca7b
   - enabled: 1
     path: Assets/Scenes/Shop Screen.unity
-    guid: ed0ff70dd3c675f42bcfdd21c973a0d0
+    guid: 44d875785293c8249b433fba152c6fac
   - enabled: 1
     path: Assets/Scenes/Enhance Screen.unity
     guid: 6252036a691fe994894b07ce2e760707
