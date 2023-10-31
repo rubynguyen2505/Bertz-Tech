@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop Screen.unity
     guid: ed0ff70dd3c675f42bcfdd21c973a0d0
+  - enabled: 1
+    path: Assets/Scenes/Enhance Screen.unity
+    guid: 6252036a691fe994894b07ce2e760707
+  - enabled: 1
+    path: Assets/Scenes/Inventory Screen.unity
+    guid: 276ba3b07b248fb4d95de493bd356a7f
+  - enabled: 1
+    path: Assets/Scenes/Recruit Screen.unity
+    guid: 2aa0e544ae2ab764ba6bf8f36828bc9f
+  - enabled: 1
+    path: Assets/Scenes/Journal Screen.unity
+    guid: 3c01eeae7e8a0f94db17fd2f3ae9b181
   m_configObjects: {}

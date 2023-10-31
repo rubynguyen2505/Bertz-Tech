@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+#if UNITY_EDITOR // => Ignore from here to next endif if not in editor
 using UnityEditor;
+#endif
 using TMPro;
 
 public class GachaManager : MonoBehaviour
@@ -270,6 +272,7 @@ public class GachaManager : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR // => Ignore from here to next endif if not in editor
 [CustomEditor(typeof(GachaManager))]
 public class GachaEditor : Editor
 {
@@ -286,4 +289,4 @@ public class GachaEditor : Editor
         Legendary = EditorGUILayout.IntField("Legendary", (gm.Rates(Rarity.Legendary)));
     }
 }
-
+#endif

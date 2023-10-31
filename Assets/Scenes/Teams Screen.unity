@@ -332,6 +332,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11695526}
   m_CullTransparentMesh: 1
+--- !u!1001 &37148473
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 567.3734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1197.6619
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.102031
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008684568570723589, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756538539441549764, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
+      propertyPath: m_Name
+      value: Level Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccc65ac7d1ee36a4bb3924b7589a8b0b, type: 3}
 --- !u!1 &46447163
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,6 +3291,7 @@ GameObject:
   - component: {fileID: 401103932}
   - component: {fileID: 401103931}
   - component: {fileID: 401103934}
+  - component: {fileID: 401103935}
   m_Layer: 5
   m_Name: Home Button
   m_TagString: Untagged
@@ -3304,16 +3362,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1264254138}
-        m_TargetAssemblyTypeName: TeamScreenController, Assembly-CSharp
-        m_MethodName: OnHomeButton
-        m_Mode: 1
+      - m_Target: {fileID: 401103935}
+        m_TargetAssemblyTypeName: ChangeSceneButton, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Home Screen
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &401103932
@@ -3369,6 +3427,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &401103935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401103929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d828cbdbb8132245af9a885413ba4a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &402906888
 GameObject:
   m_ObjectHideFlags: 0
@@ -13273,3 +13343,4 @@ SceneRoots:
   - {fileID: 1868456916}
   - {fileID: 780795771}
   - {fileID: 1958866167}
+  - {fileID: 37148473}
