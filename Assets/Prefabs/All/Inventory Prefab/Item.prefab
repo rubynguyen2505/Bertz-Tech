@@ -331,19 +331,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5305989176383253403}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryController, Assembly-CSharp
-        m_MethodName: SelectItem
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 9cd0acdb3d35bbb459ba1b32f1192c03, type: 2}
-          m_ObjectArgumentAssemblyTypeName: InventoryItemSSO, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3938851086045949590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,4 +346,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryItem: {fileID: 11400000, guid: 9cd0acdb3d35bbb459ba1b32f1192c03, type: 2}
   title: {fileID: 2381669431644659291}
-  itemImg: {fileID: 7722312030327301020}
+  itemImg: {fileID: 0}
