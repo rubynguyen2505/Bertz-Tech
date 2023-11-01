@@ -22,7 +22,7 @@ MonoBehaviour:
   charaRole: {fileID: 21300000, guid: a1d5edb021806e245a2f1815b3411dc9, type: 3}
   character: {fileID: 0}
   maxLv: 20
-  lv: 1
+  lv: 40
   role: 2
   type: 2
   rarity: 2

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class JournalManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class JournalManager : MonoBehaviour
     public static Card card;
 
     [SerializeField] private Image charFull;
+    [SerializeField] private TextMeshProUGUI levelText;
 
     [SerializeField] private GameObject cardUIPrefab;
     [SerializeField] private GameObject infoUIPrefab;
@@ -55,6 +57,7 @@ public class JournalManager : MonoBehaviour
         InfoCanvas.SetActive(true);
 
         charFull.sprite = card.charFull;
+        levelText.text = "Level: " + card.lv;
 
         for (int i = 0; i < card.unitFacts.Length; i++)
         {
