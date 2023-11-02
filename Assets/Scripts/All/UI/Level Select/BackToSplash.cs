@@ -5,18 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class BackToSplash : MonoBehaviour
 {
-    /*
+    
     public string sceneToLoad;
-    private GameData gameData;
+    //private GameData gameData;
     private Board board;
 
     public void WinOK()
     {
+        /*
         if (gameData != null)
         {
             gameData.saveData.isActive[board.level + 1] = true;
             gameData.Save();
         }
+        */
         SceneManager.LoadScene(sceneToLoad);
     }
 
@@ -29,7 +31,7 @@ public class BackToSplash : MonoBehaviour
     void Start()
     {
         board = FindObjectOfType<Board>();
-        gameData = FindObjectOfType<GameData>();
+        //gameData = FindObjectOfType<GameData>();
     }
 
     // Update is called once per frame
@@ -37,5 +39,5 @@ public class BackToSplash : MonoBehaviour
     {
         
     }
-    */
+    
 }
