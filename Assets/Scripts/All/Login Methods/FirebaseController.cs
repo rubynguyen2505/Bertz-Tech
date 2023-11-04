@@ -18,6 +18,7 @@ public class FirebaseController : MonoBehaviour
     public TMPro.TMP_Text profileUserName_Text, profileUserEmail_Text, notifTitle_Text, notifMessage_Text;
 
     private string userID;
+    private bool isSignedIn;
     private DatabaseReference dbReference;
 
 
@@ -53,11 +54,20 @@ public class FirebaseController : MonoBehaviour
 
     public void OpenLoginPanel()
     {
-        titleScreen.SetActive(false);
-        loginPanel.SetActive(true);
-        signupPanel.SetActive(false);
-        profilePanel.SetActive(false);
-        forgetPasswordPanel.SetActive(false);
+        if (isSignIn == true)
+        {
+            titleScreen.SetActive(false);
+            profilePanel.SetActive(true);
+            loginPanel.SetActive(false);
+        }
+        else
+        {
+            titleScreen.SetActive(false);
+            loginPanel.SetActive(true);
+            signupPanel.SetActive(false);
+            profilePanel.SetActive(false);
+            forgetPasswordPanel.SetActive(false);
+        }
     }
     public void OpenSignUpPanel()
     {
@@ -93,6 +103,11 @@ public class FirebaseController : MonoBehaviour
     {
         dbTestPanel.SetActive(true);
     }
+
+    public void ExitdbTestPanel()
+    {
+        dbTestPanel.SetActive(false);
+    }
     
     public void LoginUser()
     {
@@ -114,6 +129,7 @@ public class FirebaseController : MonoBehaviour
         // Do Signup
         CreateUser(signupEmail.text, signupPassword.text, signupUserName.text);
     }
+
     
     public void forgetPass()
     {
@@ -123,12 +139,11 @@ public class FirebaseController : MonoBehaviour
             return;
         }
         ForgetPasswordSubmit(forgetPassEmail.text);
-
-
     }
 
     public void Logout()
     {
+        isSignIn = false;
         auth.SignOut();
         profileUserEmail_Text.text = "";
         profileUserName_Text.text = "";
