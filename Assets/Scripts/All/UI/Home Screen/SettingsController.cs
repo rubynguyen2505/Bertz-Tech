@@ -8,7 +8,7 @@ using TMPro;
 
 public class SettingsController : MonoBehaviour
 {
-    private Image[] spriteRenderers;
+    public Image[] brightnessPanels;
     public GameObject settingsCanvas, homeCanvas;
     public AudioSource backgroundMusic;
 
@@ -108,6 +108,10 @@ public class SettingsController : MonoBehaviour
     {
         _brightnessLevel = brightness;
         brightnessTextValue.text = brightness.ToString("0.0");
+        foreach(Image brightnessPanel in brightnessPanels)
+        {
+            brightnessPanel.color = new Color(brightnessPanel.color.r, brightnessPanel.color.g, brightnessPanel.color.b, 1.0f - brightness);
+        }
     }
 
     public void SetQuality(int qualityIndex)
@@ -126,7 +130,10 @@ public class SettingsController : MonoBehaviour
         */
 
         // Change our brightness with your postprocessing
-        Screen.brightness = _brightnessLevel;
+        foreach (Image brightnessPanel in brightnessPanels)
+        {
+            brightnessPanel.color = new Color(brightnessPanel.color.r, brightnessPanel.color.g, brightnessPanel.color.b, 1.0f - _brightnessLevel);
+        }
         PlayerPrefs.SetInt("MasterQuality", _qualityLevel);
         QualitySettings.SetQualityLevel(_qualityLevel);
 
