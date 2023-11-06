@@ -49,8 +49,8 @@ public class ShopController : MonoBehaviour
     }
     void Update()
     {
-        coinsUI.text = coins.ToString("D9");
-        gemsUI.text = gems.ToString("D9");
+        //coinsUI.text = coins.ToString("D9");
+        //gemsUI.text = gems.ToString("D9");
     }
     //Temporary function to test shop
     public void addCurrency()

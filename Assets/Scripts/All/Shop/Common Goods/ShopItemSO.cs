@@ -9,7 +9,6 @@ public class ShopItemSO : ScriptableObject
     public string title;
     public string description;
     public int baseCost;
-    //public int currencyType; // 0 = coins, 1 = gems
     public int amountAvailable;
     public int amountOwned;
     public Sprite itemImg;
