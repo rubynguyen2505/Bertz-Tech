@@ -443,4 +443,38 @@ public class FirebaseController : MonoBehaviour
         notificationPanel.SetActive(false);
 
     }
+    public void deleteAccount()
+    {
+        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
+        
+        if (user != null)
+        {
+            dbReference.Child("user").Child(userID).RemoveValueAsync().ContinueWith(task => {
+                if (task.IsCompleted)
+                {
+                    Debug.Log("User data for ID " + userID + " has been deleted.");
+                }
+                else if (task.IsFaulted)
+                {
+                    Debug.LogError("Failed to delete user data: " + task.Exception);
+                }
+            });
+            user.DeleteAsync().ContinueWith(task => {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("DeleteAsync was canceled.");
+                    Debug.LogError("The user must have signed in recently in order to delete account.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("DeleteAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                Debug.Log("User deleted successfully.");
+            });
+        }
+       
+    }
 }
