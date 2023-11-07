@@ -32,7 +32,7 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseScore(int amountToIncrease)
     {
         score += amountToIncrease;
-        /*
+        
         for (int i = 0; i < board.scoreGoals.Length; i ++)
         {
             if (score > board.scoreGoals[i] && numberStars < i + 1)
@@ -55,7 +55,7 @@ public class ScoreManager : MonoBehaviour
             }
             gameData.Save();
         }
-        */
+        
         UpdateBar();
         
     }

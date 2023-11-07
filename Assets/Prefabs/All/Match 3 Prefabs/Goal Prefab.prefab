@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2980814391882270900}
   - component: {fileID: 905657692081212592}
   - component: {fileID: -6928162304421534188}
+  - component: {fileID: -5031456883286840439}
   m_Layer: 5
   m_Name: Goal Prefab
   m_TagString: Untagged
@@ -38,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -17, y: 66.5}
-  m_SizeDelta: {x: 74.01, y: 99.21}
+  m_SizeDelta: {x: 100, y: 99.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2980814391882270900
 CanvasRenderer:
@@ -94,6 +95,26 @@ MonoBehaviour:
   thisSprite: {fileID: 0}
   thisText: {fileID: 4369070035493993728}
   thisString: 
+--- !u!114 &-5031456883286840439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892833055377764691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 74
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &1117456271130749591
 GameObject:
   m_ObjectHideFlags: 0
