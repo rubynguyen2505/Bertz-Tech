@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
         {
             playerLevel++;
             levelText.text = playerLevel.ToString();
-            currentEXP = 0;
-            experienceSlider.maxValue = (int)(100 * (1.0f + playerLevel * 0.1f));
+            currentEXP = currentEXP - (int)experienceSlider.maxValue;
+            experienceSlider.maxValue = (int)(experienceSlider.maxValue * (1.0f + playerLevel * 0.1f));
             experienceSlider.value = currentEXP;
         }
     }
