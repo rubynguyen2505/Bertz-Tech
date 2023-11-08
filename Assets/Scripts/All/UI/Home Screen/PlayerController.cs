@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private int playerLevel;
     private int currentEXP;
+    private float currentvelocity = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        experienceSlider.value = Mathf.SmoothDamp(experienceSlider.value, currentEXP, ref currentvelocity, 10 * Time.deltaTime);
         if (currentEXP >= experienceSlider.maxValue)
         {
             playerLevel++;
@@ -36,6 +38,5 @@ public class PlayerController : MonoBehaviour
     public void GainExperience()
     {
         currentEXP += 50;
-        experienceSlider.value = currentEXP;
     }
 }
