@@ -6,6 +6,12 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject profilePanel;
+
+    [Header("Profile Page Player's Stats")]
+    [SerializeField] private Slider profileEXPSlider;
+
+    [Header("Home Screen Player's Stats")]
     [SerializeField] private Slider experienceSlider;
     [SerializeField] private TextMeshProUGUI levelText;
 
@@ -19,6 +25,7 @@ public class PlayerController : MonoBehaviour
         levelText.text = playerLevel.ToString();
         currentEXP = 0;
         experienceSlider.value = currentEXP;
+        profileEXPSlider.value = currentEXP;
     }
 
     // Update is called once per frame
@@ -38,5 +45,17 @@ public class PlayerController : MonoBehaviour
     public void GainExperience()
     {
         currentEXP += 50;
+    }
+
+    public void OnProfilePage()
+    {
+        if (profilePanel.activeInHierarchy)
+        {
+            profilePanel.SetActive(false);
+        }
+        else
+        {
+            profilePanel.SetActive(true);
+        }
     }
 }
