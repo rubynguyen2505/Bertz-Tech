@@ -4437,6 +4437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14cabd91f0363847ac37bb64d1c8408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gems: 0
+  coins: 0
   Items: []
   ItemContent: {fileID: 293852285}
   inventoryItemsSO:
@@ -4451,6 +4453,8 @@ MonoBehaviour:
   ItemUseText: {fileID: 1204157263}
   ItemUseTitle: {fileID: 1435325086}
   ItemUseAmount: {fileID: 1223286816}
+  coinsUI: {fileID: 475327032}
+  gemsUI: {fileID: 827802008}
   InventoryItem: {fileID: 5703397628129819925, guid: 2ae4539dd98a3e84cbd2f0e2994325c5, type: 3}
   ItemDescription: {fileID: 1773881666}
   ItemUse: {fileID: 1104827115}

@@ -1,12 +1,17 @@
+using Firebase.Database;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase.Auth;
+using Firebase.Extensions; // for ContinueWithOnMainThread
 
 public class InventoryController : MonoBehaviour
 {
+    public int gems;
+    public int coins;
     public static InventoryController Instance;
     public List<InventoryItemSSO> Items = new List<InventoryItemSSO>();
     public Transform ItemContent;
@@ -14,10 +19,46 @@ public class InventoryController : MonoBehaviour
     public InventoryTemplate[] inventoryItems;
     public TMP_Text ItemDescriptionText, ItemDescriptionTitle, ItemDescriptionAmount;
     public TMP_Text ItemUseText, ItemUseTitle, ItemUseAmount;
+    public TMP_Text coinsUI;
+    public TMP_Text gemsUI;
     public GameObject InventoryItem, ItemDescription, ItemUse;
     public GameObject[] inventoryItemsGO;
     public Image ItemDescriptionImg, ItemUseImg;
     public Button[] inventoryButtons;
+    private string userID;
+    private DatabaseReference dbReference;
+
+    void OnEnable()
+    {
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+        getCurrency();
+        coinsUI.text = coins.ToString("D9");
+        gemsUI.text = gems.ToString("D9");
+    }
+    public void getCurrency()
+    {
+        userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        FirebaseDatabase.DefaultInstance.GetReference("user").Child(userID).Child("currency").GetValueAsync().ContinueWithOnMainThread(task =>
+
+        {
+            if (task.IsFaulted)
+            {
+                // Handle the error...
+                Debug.LogError("Get currency Faulted: " + task.Exception);
+
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                // Do something with snapshot...
+                coins = int.Parse(snapshot.Child("coins").Value.ToString());
+                Debug.Log("Get Coins:  " + coins);
+                gems = int.Parse(snapshot.Child("gems").Value.ToString());
+                Debug.Log("Get Gems:  " + gems);
+            }
+        });
+    }
 
     private void Awake()
     {
