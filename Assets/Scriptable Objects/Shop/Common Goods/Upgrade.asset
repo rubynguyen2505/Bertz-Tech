@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Lv. Up
   description: Material
+  dbName: upgrade_item
   baseCost: 10
   amountAvailable: 7
   amountOwned: 3

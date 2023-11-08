@@ -30,7 +30,7 @@ public class ShopController : MonoBehaviour
     void OnEnable()
     {
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
-        getCurrency();
+        GetCurrency();
         
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
@@ -40,36 +40,53 @@ public class ShopController : MonoBehaviour
         gemsUI.text = gems.ToString("D9");
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
-            amount[i].text = "x" + shopItemsSO[i].getAmountAvailable() + " (" + shopItemsSO[i].getAmountOwned() + " Owned)";
+            amount[i].text = "x" + shopItemsSO[i].GetAmountAvailable() + " (" + shopItemsSO[i].GetAmountOwned() + " Owned)";
         }
         LoadPanels();
         CheckPurchaseable();
         
         
     }
-    void Update()
-    {
-        //coinsUI.text = coins.ToString("D9");
-        //gemsUI.text = gems.ToString("D9");
-    }
+
     //Temporary function to test shop
-    public void addCurrency()
+    public void AddCurrency()
     {   // commented out to test getters and setters
         //coins++;
         //gems++;
 
         //testing get, add, and set
-        getCurrency();
-        addOne();
-        setCurrency();
+        GetCurrency();
+        AddOne();
+        SetCurrency();
 
 
         coinsUI.text = coins.ToString("D9");
         gemsUI.text = gems.ToString("D9");
         CheckPurchaseable();
     }
+
+    public void GetItems()
+    {
+        userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        FirebaseDatabase.DefaultInstance.GetReference("user").Child(userID).Child("items").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if(task.IsFaulted)
+            {
+                Debug.LogError("Get Items Faulted: " + task.Exception.ToString());
+            }
+            else if(task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                for(int i = 0; i < shopItemsSO.Length && snapshot != null; i++)
+                {
+                    shopItemsSO[i].amountOwned = int.Parse(snapshot.Child(shopItemsSO[i].GetDBName()).Value.ToString());
+                }
+            }
+
+        });
+    }
     //Get currency
-    public void getCurrency()
+    public void GetCurrency()
     {
         userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
         FirebaseDatabase.DefaultInstance.GetReference("user").Child(userID).Child("currency").GetValueAsync().ContinueWithOnMainThread(task =>
@@ -94,7 +111,7 @@ public class ShopController : MonoBehaviour
         });
     }
     //currency plus 1
-    public void addOne()
+    public void AddOne()
     {
         coins++;
         Debug.Log("plus 1 coins:  " + coins);
@@ -103,7 +120,7 @@ public class ShopController : MonoBehaviour
     }
 
     //set Currency
-    public void setCurrency()
+    public void SetCurrency()
     {
         dbReference.Child("user").Child(userID).Child("currency").Child("coins").SetValueAsync(coins);
         Debug.Log("Coins sent to database");
@@ -121,7 +138,7 @@ public class ShopController : MonoBehaviour
     {
         for (int i = 0; i < shopItemsSO.Length; i++)
         {
-            if (shopItemsSO[i].currency == ShopItemSO.currencyType.coins) 
+            if (shopItemsSO[i].currency == ShopItemSO.CurrencyType.coins) 
             { 
                 if (coins >= shopItemsSO[i].baseCost && shopItemsSO[i].amountAvailable > 0)
                 {
@@ -132,7 +149,7 @@ public class ShopController : MonoBehaviour
                     purchaseButtons[i].interactable = false;
                 }
             }
-            else if (shopItemsSO[i].currency == ShopItemSO.currencyType.gems)
+            else if (shopItemsSO[i].currency == ShopItemSO.CurrencyType.gems)
             {
                 if (gems >= shopItemsSO[i].baseCost && shopItemsSO[i].amountAvailable > 0)
                 {
@@ -158,7 +175,7 @@ public class ShopController : MonoBehaviour
     //Purchase an item
     public void PurchaseItem(int btnNm)
     {
-        if (shopItemsSO[btnNm].currency == ShopItemSO.currencyType.coins)
+        if (shopItemsSO[btnNm].currency == ShopItemSO.CurrencyType.coins)
         {
 
         
@@ -170,11 +187,12 @@ public class ShopController : MonoBehaviour
 
                 shopItemsSO[btnNm].amountAvailable -= 1;
                 shopItemsSO[btnNm].amountOwned += 1;
-                amount[btnNm].text = "x" + shopItemsSO[btnNm].getAmountAvailable() + " (" + shopItemsSO[btnNm].getAmountOwned() + " Owned)";
+                dbReference.Child("user").Child(userID).Child("items").Child(shopItemsSO[btnNm].GetDBName()).SetValueAsync(shopItemsSO[btnNm].amountOwned);
+                amount[btnNm].text = "x" + shopItemsSO[btnNm].GetAmountAvailable() + " (" + shopItemsSO[btnNm].GetAmountOwned() + " Owned)";
                 CheckPurchaseable();
             }
         }
-        else if (shopItemsSO[btnNm].currency == ShopItemSO.currencyType.gems)
+        else if (shopItemsSO[btnNm].currency == ShopItemSO.CurrencyType.gems)
         {
             if (gems >= shopItemsSO[btnNm].baseCost && shopItemsSO[btnNm].amountAvailable > 0)
             {
@@ -184,7 +202,8 @@ public class ShopController : MonoBehaviour
 
                 shopItemsSO[btnNm].amountAvailable -= 1;
                 shopItemsSO[btnNm].amountOwned += 1;
-                amount[btnNm].text = "x" + shopItemsSO[btnNm].getAmountAvailable() + " (" + shopItemsSO[btnNm].getAmountOwned() + " Owned)";
+                dbReference.Child("user").Child(userID).Child("items").Child(shopItemsSO[btnNm].GetDBName()).SetValueAsync(shopItemsSO[btnNm].amountOwned);
+                amount[btnNm].text = "x" + shopItemsSO[btnNm].GetAmountAvailable() + " (" + shopItemsSO[btnNm].GetAmountOwned() + " Owned)";
                 CheckPurchaseable();
             }
         }

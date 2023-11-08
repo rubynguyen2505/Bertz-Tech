@@ -13,12 +13,12 @@ public class ShopTemplate : MonoBehaviour
     public TMP_Text descriptionTxt;
     public int amountAvailable;
     public int amountOwned;
-    public enum currencyType
+    public enum CurrencyType
     {
         coins,
         gems
     };
-    public currencyType currency;
+    public CurrencyType currency;
     public TMP_Text costTxt;
 
     void Awake()
@@ -28,8 +28,8 @@ public class ShopTemplate : MonoBehaviour
 
     void DisplayImg()
     {
-        currencyImg.sprite = shopItem.getCurrencyImg();
-        itemImg.sprite = shopItem.getItemImg();
+        currencyImg.sprite = shopItem.GetCurrencyImg();
+        itemImg.sprite = shopItem.GetItemImg();
     }   
 
     

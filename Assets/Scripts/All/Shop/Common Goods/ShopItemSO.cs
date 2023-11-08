@@ -8,35 +8,41 @@ public class ShopItemSO : ScriptableObject
 {
     public string title;
     public string description;
+    [SerializeField] 
+    private string dbName;
     public int baseCost;
     public int amountAvailable;
     public int amountOwned;
     public Sprite itemImg;
     public Sprite currencyImg;
-    public enum currencyType
+    public enum CurrencyType
     {
         coins,
         gems
     };
-    public currencyType currency;
-    public Sprite getItemImg()
+    public CurrencyType currency;
+    public Sprite GetItemImg()
     {
         return itemImg;
     }
-    public Sprite getCurrencyImg()
+    public Sprite GetCurrencyImg()
     {
         return currencyImg;
     }
-    public int getAmountAvailable()
+    public int GetAmountAvailable()
     {
         return amountAvailable;
     }
-    public int getAmountOwned()
+    public int GetAmountOwned()
     {
         return amountOwned;
     }
-    public currencyType GetCurrencyType()
+    public CurrencyType GetCurrencyType()
     {
         return currency;
+    }
+    public string GetDBName()
+    {
+        return dbName;
     }
 }
