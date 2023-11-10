@@ -60,12 +60,13 @@ public class Dot : MonoBehaviour
         shineDelaySecond = shineDelay;
         animator = GetComponent<Animator>();
         */
+
         endgameManager = FindObjectOfType<EndGameManager>();
         hintManager = FindObjectOfType<HintManager>();
         
 
-        //board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
-        board = FindObjectOfType<Board>();
+        board = GameObject.FindWithTag("Board").GetComponent<Board>(); ;
+        //board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
         //targetX = (int)transform.position.x;
         //targetY = (int)transform.position.y;

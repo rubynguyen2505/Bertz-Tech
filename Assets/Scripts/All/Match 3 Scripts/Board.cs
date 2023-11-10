@@ -401,12 +401,14 @@ public class Board : MonoBehaviour
         matchType.type = 0;
         matchType.color = "";
         return matchType;
+        
     }
 
 
 
     private void CheckToMakeBombs()
     {
+        
         if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7)
         {
             
@@ -463,6 +465,7 @@ public class Board : MonoBehaviour
                 findMatches.CheckBombs(typeOfMatch);
             }
         }
+        
     }
     
 
@@ -800,9 +803,8 @@ public class Board : MonoBehaviour
     
     private IEnumerator FillBoardCo()
     {
-        
-        RefillBoard();
         yield return new WaitForSeconds(refillDelay);
+        RefillBoard();
         while (MatchesOnBoard())
         {
             streakValue ++;
