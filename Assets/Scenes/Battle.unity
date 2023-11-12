@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: {fileID: 11400000, guid: ee4b5c522bddb8f49bcc65d240450f90, type: 2}
-  level: 2
+  level: 6
   currentState: 1
   width: 6
   height: 8
@@ -1847,7 +1847,8 @@ MonoBehaviour:
   - {fileID: 8037622303665789753, guid: 41c995b4c05e9fb47820d47c5fa4cc25, type: 3}
   - {fileID: 6496350191541928849, guid: 90279b4465fdee44b9c309b64e94f7e4, type: 3}
   - {fileID: 1530666440189001784, guid: cc77239d5abd0944fbd2b6ddfb369476, type: 3}
-  - {fileID: 5024903885498996077, guid: 645611d5eb2323241bf87fed7c02964c, type: 3}
+  - {fileID: 5145155175555517389, guid: 9a578da8687129e4d807c5468cdbe930, type: 3}
+  - {fileID: 1015204175331204409, guid: b47bea7f54533a54c838b7a107970e72, type: 3}
   destroyEffect: {fileID: 7818459985641179223, guid: 3a9b61a82b425cf468e26fc335ae6a92, type: 3}
   boardLayout:
   - x: 3
@@ -1984,7 +1985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &786884343
 Transform:
   m_ObjectHideFlags: 0
@@ -8952,7 +8953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1877224202
 RectTransform:
   m_ObjectHideFlags: 0

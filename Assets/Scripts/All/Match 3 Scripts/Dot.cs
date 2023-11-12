@@ -17,9 +17,9 @@ public class Dot : MonoBehaviour
     
 
     
-    //private Animator animator;
-    //private float shineDelay;
-    //private float shineDelaySecond;
+    private Animator animator;
+    private float shineDelay;
+    private float shineDelaySecond;
     private EndGameManager endgameManager;
     private HintManager hintManager;
     
@@ -55,11 +55,10 @@ public class Dot : MonoBehaviour
         isRowBomb = false;
         isColorBomb = false;
         isAdjacentBomb = false;
-        /*
-        shineDelay = Random.Range(3f, 6f);
+        
+        shineDelay = UnityEngine.Random.Range(3f, 6f);
         shineDelaySecond = shineDelay;
         animator = GetComponent<Animator>();
-        */
 
         endgameManager = FindObjectOfType<EndGameManager>();
         hintManager = FindObjectOfType<HintManager>();
@@ -102,7 +101,7 @@ public class Dot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         shineDelaySecond -= Time.deltaTime;
         if (shineDelaySecond <= 0)
         {
@@ -110,7 +109,7 @@ public class Dot : MonoBehaviour
             StartCoroutine(StartShineCo());
         }
         
-        */
+        
         
         /*
         if (isMatched)
@@ -170,7 +169,7 @@ public class Dot : MonoBehaviour
     }
     
     
-    /*
+    
     IEnumerator StartShineCo()
     {
         animator.SetBool("Shine", true);
@@ -184,7 +183,7 @@ public class Dot : MonoBehaviour
     {
         animator.SetBool("Popped", true);
     }
-    */
+    
 
     
     public IEnumerator CheckMoveCo()
@@ -240,12 +239,12 @@ public class Dot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        /*
+        
         if (animator != null)
         {
             animator.SetBool("Touched", true);
         }
-        */
+        
         //Destroy the hint
         if (hintManager != null)
         {
@@ -265,7 +264,7 @@ public class Dot : MonoBehaviour
     
     private void OnMouseUp()
     {
-        //animator.SetBool("Touched", false);
+        animator.SetBool("Touched", false);
         if (board.currentState == gameState.move)
         {
             finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
