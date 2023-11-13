@@ -134,7 +134,7 @@ public class Dot : MonoBehaviour
                 findMatches.FindAllMatches();
             }
             
-            findMatches.FindAllMatches(); //Adjust later
+            //findMatches.FindAllMatches(); //Adjust later
         }
         else
         {
@@ -156,7 +156,7 @@ public class Dot : MonoBehaviour
                 findMatches.FindAllMatches();
             }
             
-            findMatches.FindAllMatches(); //Adjust later
+            //findMatches.FindAllMatches(); //Adjust later
         }
         else
         {

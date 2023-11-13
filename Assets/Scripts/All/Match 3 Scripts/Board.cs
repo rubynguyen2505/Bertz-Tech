@@ -364,12 +364,12 @@ public class Board : MonoBehaviour
                     continue;
                 }
 
-                if (nextDot.column == thisDot.column && nextDot.tag == color)
+                else if (nextDot.column == thisDot.column && nextDot.tag == color)
                 {
                     columnMatch++;
                 }
 
-                if (nextDot.row == thisDot.row && nextDot.tag == color)
+                else if (nextDot.row == thisDot.row && nextDot.tag == color)
                 {
                     rowMatch++;
                 }
@@ -545,15 +545,14 @@ public class Board : MonoBehaviour
             {
                 soundManager.PlayRandomDestroyNoise();
             }
-            
+
 
             //findMatches.currentMatches.Remove(allDots[column, row]);
+            allDots[column, row].GetComponent<Dot>().PopAnimation();
 
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
-
+            
             Destroy(particle, .5f);
-
-            allDots[column, row].GetComponent<Dot>().PopAnimation();
 
             Destroy(allDots[column, row]);
             scoreManager.IncreaseScore(basePieceValue * streakValue);
@@ -570,9 +569,9 @@ public class Board : MonoBehaviour
         {
             CheckToMakeBombs();
         }
-        
-        
-        
+
+        findMatches.currentMatches.Clear();
+
         for (int i = 0; i < width; i ++)
         {
             for (int j = 0; j < height; j ++)
@@ -583,7 +582,6 @@ public class Board : MonoBehaviour
                 }
             }
         }
-        findMatches.currentMatches.Clear();
         StartCoroutine(DecreaseRowCo2());
     }
     
@@ -811,15 +809,15 @@ public class Board : MonoBehaviour
         {
             streakValue ++;
             DestroyMatches();
-            yield return new WaitForSeconds(2 * refillDelay);
-            //yield break;
+            //yield return new WaitForSeconds(2 * refillDelay);
+            yield break;
         }
         /*
         currentDot = null;
         //CheckToMakeSlime();
         */
         
-        findMatches.currentMatches.Clear();
+        //findMatches.currentMatches.Clear();
         currentDot = null;
 
         if (IsDeadlocked())
