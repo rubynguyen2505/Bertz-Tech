@@ -7,6 +7,7 @@ public class JournalCardManager : MonoBehaviour
 {
     public Card card;
     [SerializeField] private Image clippedSprite;
+    [SerializeField] private Image typeBG;
     [SerializeField] private TextMeshProUGUI nameText;
     Button button;
     JournalManager journalManager; 
@@ -17,6 +18,7 @@ public class JournalCardManager : MonoBehaviour
 
         journalManager = FindObjectOfType<JournalManager>();
         clippedSprite.sprite = card.charFull;
+        typeBG.sprite = card.journalBG;
         nameText.text = card.charaName;
 
         button.onClick.AddListener(Selected);

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
+
 
 public enum Roles
 {
@@ -21,12 +23,14 @@ public enum Type
     Purple
 }
 
+
 public enum Rarity
 {
     Legendary,
     Epic,
     Rare
 }
+
 [CreateAssetMenu(fileName = "New Card", menuName = "Character Card")]
 public class Card : ScriptableObject
 {
@@ -38,6 +42,7 @@ public class Card : ScriptableObject
     public Sprite starsAcross;
     public Sprite charaFrame;
     public Sprite charaRole;
+    public Sprite journalBG;
     public GameObject character;
     public int maxLv = 20, lv = 1;
     public Roles role;
@@ -47,7 +52,7 @@ public class Card : ScriptableObject
     public bool inTeam;
     public string[] unitFacts;
     public bool[] isUnlockedFacts;
-
+    
     [Header("Base Stats")]
     public int hp;
     public int atk;
@@ -74,5 +79,6 @@ public class Card : ScriptableObject
     //updated def: int
     //unlocked: bool
     //in team: bool
+
 }
 

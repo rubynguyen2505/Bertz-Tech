@@ -20,6 +20,7 @@ MonoBehaviour:
   starsAcross: {fileID: 21300000, guid: 145af9a49faf5e44d99a7afcda97e45c, type: 3}
   charaFrame: {fileID: 21300000, guid: b8b91042938e0aa4ea2349ca9ac91423, type: 3}
   charaRole: {fileID: 21300000, guid: a1d5edb021806e245a2f1815b3411dc9, type: 3}
+  journalBG: {fileID: 21300000, guid: 277cdff3e453aac42b2b9cc77fbc4d0d, type: 3}
   character: {fileID: 0}
   maxLv: 20
   lv: 40

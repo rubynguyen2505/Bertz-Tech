@@ -11,6 +11,7 @@ public class JournalManager : MonoBehaviour
     public static Card card;
 
     [SerializeField] private Image charFull;
+    [SerializeField] private Image journalBG;
     [SerializeField] private TextMeshProUGUI levelText;
 
     [SerializeField] private GameObject cardUIPrefab;
@@ -32,6 +33,7 @@ public class JournalManager : MonoBehaviour
     JournalInfoManager journalInfoManager;
     void Awake()
     {
+        
         SelectionCanvas.SetActive(true);
         cards = Resources.LoadAll<Card>("Character Cards");
         for (int i = 0; i < cards.Length; i++)
@@ -55,7 +57,6 @@ public class JournalManager : MonoBehaviour
     public void SetUI()
     {
         InfoCanvas.SetActive(true);
-
         charFull.sprite = card.charFull;
         levelText.text = "Level: " + card.lv;
 
