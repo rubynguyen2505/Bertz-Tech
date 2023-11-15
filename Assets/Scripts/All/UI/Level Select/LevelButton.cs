@@ -9,14 +9,14 @@ public class LevelButton : MonoBehaviour
 {
     [Header ("Active Stuffs")]
     public bool isActive;
-    public Sprite activeSprite;
-    public Sprite lockedSprite;
     private Image buttonImage;
     private Button myButton;
+    public GameObject Lock;
     private int starsActive;
 
     [Header ("Level UI")]
     public Image[] stars;
+    public Image[] starsNone;
     public TextMeshProUGUI levelText;
     public int level;
     public GameObject confirmPanel;
@@ -62,20 +62,37 @@ public class LevelButton : MonoBehaviour
             stars[i].enabled = true;
         }
     }
+    void ActivateStarsNone()
+    {
+        for (int i = 0; i < starsActive; i++)
+        {
+            starsNone[i].enabled = true;
+        }
+    }
+
+    void DeactivateStarsNone()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            starsNone[i].enabled = false;
+        }
+    }
 
     void DecideSprite()
     {
         if (isActive)
         {
-            buttonImage.sprite = activeSprite;
             myButton.enabled = true;
+            Lock.SetActive(false);
             levelText.enabled = true;
+            ActivateStarsNone();
         }
         else
         {
-            buttonImage.sprite= lockedSprite;
             myButton.enabled = false;
+            Lock.SetActive(true);
             levelText.enabled = false;
+            DeactivateStarsNone();
         }
     }
 
