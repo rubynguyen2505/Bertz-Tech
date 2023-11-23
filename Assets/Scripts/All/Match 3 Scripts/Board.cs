@@ -19,9 +19,9 @@ public enum TileKind
 {
     Breakable,
     Blank,
-    //Lock,
-    //Concrete,
-    //Slime,
+    Lock,
+    Concrete,
+    Slime,
     Normal
 }
 
@@ -66,7 +66,7 @@ public class Board : MonoBehaviour
     [Header("Prefabs")]
     public GameObject tilePrefab;
     public GameObject breakableTilePrefab;
-    //public GameObject lockTilePrefab;
+    public GameObject lockTilePrefab;
     //public GameObject concreteTilePrefab;
     //public GameObject slimePiecePrefab;
     public GameObject[] dots;
@@ -77,7 +77,7 @@ public class Board : MonoBehaviour
     public TileType[] boardLayout;
     private bool[,] blankSpaces;
     private BackgroundTile[,] breakableTiles;
-    //public BackgroundTile[,] lockTiles;
+    public BackgroundTile[,] lockTiles;
     
     private BackgroundTile[,] concreteTiles;
     //private BackgroundTile[,] slimeTiles;
@@ -141,7 +141,7 @@ public class Board : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
         soundManager = FindObjectOfType<SoundManager>();
         breakableTiles = new BackgroundTile[width, height];
-        //lockTiles = new BackgroundTile[width, height];
+        lockTiles = new BackgroundTile[width, height];
         
         concreteTiles = new BackgroundTile[width, height];
         //slimeTiles = new BackgroundTile[width, height];
@@ -185,7 +185,7 @@ public class Board : MonoBehaviour
     }
     
 
-    /*
+    
     private void GenerateLockTiles()
     {
         //Look at all the tiles in the layout
@@ -201,7 +201,7 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
     /*
     private void GenerateConcreteTiles()
@@ -244,9 +244,9 @@ public class Board : MonoBehaviour
         
         GenerateBlankSpace();
         GenerateBreakableTiles();
-        /*
+        
         GenerateLockTiles();
-        GenerateConcreteTiles();
+        /*GenerateConcreteTiles();
         GenerateSlimeTiles();
         */
 
@@ -519,7 +519,7 @@ public class Board : MonoBehaviour
                     breakableTiles[column, row] = null;
                 }
             }
-            /*
+            
             if (lockTiles[column, row] != null)
             {
                 //If it does, give one damage
@@ -529,7 +529,7 @@ public class Board : MonoBehaviour
                     lockTiles[column, row] = null;
                 }
             }
-            
+            /*
             DamageConcrete(column, row);
             DamageSlime(column, row);
             */

@@ -294,8 +294,8 @@ public class Dot : MonoBehaviour
         otherDot = board.allDots[column + (int)direction.x, row + (int)direction.y];
         previousRow = row;
         previousColumn = column;
-        //if (board.lockTiles[column, row] == null && board.lockTiles[column + (int)direction.x, row + (int)direction.y] == null)
-        //{
+        if (board.lockTiles[column, row] == null && board.lockTiles[column + (int)direction.x, row + (int)direction.y] == null)
+        {
             if (otherDot != null)
             {
                 otherDot.GetComponent<Dot>().column += -1 * (int)direction.x;
@@ -308,11 +308,11 @@ public class Dot : MonoBehaviour
             {
                 board.currentState = gameState.move;
             }
-        //}
-        //else
-        //{
-            //board.currentState = gameState.move;
-        //}
+        }
+        else
+        {
+            board.currentState = gameState.move;
+        }
 
 
     }
