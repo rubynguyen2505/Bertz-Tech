@@ -67,7 +67,7 @@ public class Board : MonoBehaviour
     public GameObject tilePrefab;
     public GameObject breakableTilePrefab;
     public GameObject lockTilePrefab;
-    //public GameObject concreteTilePrefab;
+    public GameObject concreteTilePrefab;
     //public GameObject slimePiecePrefab;
     public GameObject[] dots;
     public GameObject destroyEffect;
@@ -78,7 +78,6 @@ public class Board : MonoBehaviour
     private bool[,] blankSpaces;
     private BackgroundTile[,] breakableTiles;
     public BackgroundTile[,] lockTiles;
-    
     private BackgroundTile[,] concreteTiles;
     //private BackgroundTile[,] slimeTiles;
     //private BackgroundTile[,] allTiles;
@@ -203,7 +202,7 @@ public class Board : MonoBehaviour
     }
     
 
-    /*
+    
     private void GenerateConcreteTiles()
     {
         //Look at all the tiles in the layout
@@ -219,7 +218,7 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
     /*
     private void GenerateSlimeTiles()
@@ -246,15 +245,15 @@ public class Board : MonoBehaviour
         GenerateBreakableTiles();
         
         GenerateLockTiles();
-        /*GenerateConcreteTiles();
-        GenerateSlimeTiles();
-        */
+        GenerateConcreteTiles();
+        //GenerateSlimeTiles();
+        
 
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
-                if (!blankSpaces[i, j]) //&& !concreteTiles[i, j] && !slimeTiles[i, j])
+                if (!blankSpaces[i, j] && !concreteTiles[i, j]) //&& !slimeTiles[i, j])
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
                     Vector2 tilePosition = new Vector2(i, j);
@@ -529,10 +528,10 @@ public class Board : MonoBehaviour
                     lockTiles[column, row] = null;
                 }
             }
-            /*
+            
             DamageConcrete(column, row);
-            DamageSlime(column, row);
-            */
+            //DamageSlime(column, row);
+            
             if (goalManager != null)
             {
                 goalManager.CompareGoal(allDots[column, row].tag.ToString());
@@ -586,7 +585,7 @@ public class Board : MonoBehaviour
     }
     
 
-    /*
+    
     private void DamageConcrete(int column, int row)
     {
         if (column > 0)
@@ -634,7 +633,7 @@ public class Board : MonoBehaviour
             }
         }
     }
-    */
+    
 
     /*
     private void DamageSlime(int column, int row)
@@ -698,7 +697,7 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++)
             {
                 //IIf the current spot isn't blank and is empty
-                if (!blankSpaces[i, j] && allDots[i, j] == null)// && !concreteTiles[i, j] && !slimeTiles[i, j])
+                if (!blankSpaces[i, j] && allDots[i, j] == null && !concreteTiles[i, j]) //&& !slimeTiles[i, j])
                 {
                     //Loop from the space above tot he top of the column
                     for (int k = j + 1; k < height; k ++)
@@ -754,7 +753,7 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j ++)
             {
-                if (allDots[i, j] == null && !blankSpaces[i, j])// && !concreteTiles[i, j] && !slimeTiles[i, j])
+                if (allDots[i, j] == null && !blankSpaces[i, j] && !concreteTiles[i, j])// && !slimeTiles[i, j])
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
                     int dotToUse = Random.Range(0, dots.Length);
@@ -1032,7 +1031,7 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++)
             {
                 //If this spot shouldn't be blank
-                if (!blankSpaces[i, j])// && !concreteTiles[i, j] && !slimeTiles[i, j])
+                if (!blankSpaces[i, j] && !concreteTiles[i, j])// && !slimeTiles[i, j])
                 {
                     //Pick a random number
                     int pieceToUse = Random.Range(0, newBoard.Count);

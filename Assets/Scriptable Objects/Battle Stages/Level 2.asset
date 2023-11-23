@@ -20,13 +20,13 @@ MonoBehaviour:
     tileKind: 4
   - x: 3
     y: 4
-    tileKind: 4
-  - x: 4
-    y: 3
     tileKind: 2
   - x: 4
+    y: 3
+    tileKind: 3
+  - x: 4
     y: 4
-    tileKind: 4
+    tileKind: 3
   dots:
   - {fileID: 5145155175555517389, guid: 9a578da8687129e4d807c5468cdbe930, type: 3}
   - {fileID: 1780393611618516764, guid: a34ced14ed190974f843844c8d8a4dbb, type: 3}
@@ -39,7 +39,7 @@ MonoBehaviour:
     counterValue: 100
   levelGoals:
   - numberNeeded: 10
-    numberCollected: 3
+    numberCollected: 14
     goalSprite: {fileID: 21300000, guid: 713f3e913e83c514ca070a9571e2f5d5, type: 3}
     matchValue: Green Dot
   - numberNeeded: 4
