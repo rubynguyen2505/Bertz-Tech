@@ -11,7 +11,7 @@ using Firebase.Extensions; // for ContinueWithOnMainThread
 public class DatabaseManager : MonoBehaviour
 {
     private string userID;
-    public TMPro.TMP_InputField Score;
+    public TMPro.TMP_InputField Score, Username;
     private DatabaseReference dbReference;
     public TMPro.TMP_Text ScoreText;
     public int score;
@@ -65,6 +65,16 @@ public class DatabaseManager : MonoBehaviour
         level = "1";
         score = 999;
         dbReference.Child("user").Child(userID).Child("levelscores").Child("level" + level).SetValueAsync(score);
+    }
+
+    public void updateUsername()
+    {
+        string username = Username.text;
+        userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        //string username = "testing";
+        Debug.Log("username: " + username);
+        dbReference.Child("user").Child(userID).Child("username").SetValueAsync(username);
+
     }
     /*
     public void CreateUser()

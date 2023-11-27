@@ -198,6 +198,7 @@ public class FirebaseController : MonoBehaviour
 
 
             UpdateUserProfile(Username);
+            updateUsername(Username);
         });
     }
     public void SignInUser(string email, string password)
@@ -307,6 +308,7 @@ public class FirebaseController : MonoBehaviour
 
     void Update()
     {
+       
         if(isSignIn)
         {
             if(!isSigned)
@@ -317,6 +319,7 @@ public class FirebaseController : MonoBehaviour
                 //OpenLoginPanel();
             }
         }
+       
     }
 
     private static string GetErrorMessage(AuthError errorCode)
@@ -476,5 +479,10 @@ public class FirebaseController : MonoBehaviour
             });
         }
        
+    }
+    public void updateUsername(string username)
+    {
+        dbReference.Child("user").Child(userID).Child("username").SetValueAsync(username);
+
     }
 }
