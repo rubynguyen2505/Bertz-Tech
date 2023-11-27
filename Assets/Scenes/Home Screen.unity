@@ -11704,6 +11704,7 @@ GameObject:
   - component: {fileID: 1733737573}
   - component: {fileID: 1733737575}
   - component: {fileID: 1733737576}
+  - component: {fileID: 1733737577}
   m_Layer: 0
   m_Name: SettingsController
   m_TagString: Untagged
@@ -11797,6 +11798,22 @@ MonoBehaviour:
   profileEXPSlider: {fileID: 2047957219}
   experienceSlider: {fileID: 24247036}
   levelText: {fileID: 1111341849}
+--- !u!114 &1733737577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733737571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd390a853571ba489e68b6ada6e48e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 0
+  gems: 0
+  coinsUI: {fileID: 1548770790}
+  gemsUI: {fileID: 1487147536}
 --- !u!1 &1736966384
 GameObject:
   m_ObjectHideFlags: 0
