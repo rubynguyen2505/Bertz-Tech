@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory Item", menuName = "Item/Create New Item")]
@@ -13,4 +14,10 @@ public class InventoryItemSSO : ScriptableObject
     public Sprite icon;
     public bool usableInInventory;
     public string description;
+    [SerializeField]
+    private string dbName;
+    public string GetDBName()
+    {
+        return dbName;
+    }
 }

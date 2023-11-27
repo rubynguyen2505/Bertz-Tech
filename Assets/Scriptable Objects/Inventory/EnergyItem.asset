@@ -19,3 +19,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6c99d291183e59c47bc752417d5d703c, type: 3}
   usableInInventory: 1
   description: Restores 10 energy to user.
+  dbName: stam_pot_item

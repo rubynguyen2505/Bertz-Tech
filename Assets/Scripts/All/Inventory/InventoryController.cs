@@ -60,36 +60,37 @@ public class InventoryController : MonoBehaviour
         });
     }
 
+    public void GetItems()
+    {
+        userID = Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        FirebaseDatabase.DefaultInstance.GetReference("user").Child(userID).Child("items").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Get Items Faulted: " + task.Exception.ToString());
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                for (int i = 0; i < inventoryItemsSO.Length && snapshot != null; i++)
+                {
+                    if (snapshot != null)
+                    {
+                        inventoryItemsSO[i].amount = int.Parse(snapshot.Child(inventoryItemsSO[i].GetDBName()).Value.ToString());
+                    }
+                    else
+                    {
+                        dbReference.Child("user").Child(userID).Child("items").Child(inventoryItemsSO[i].GetDBName()).SetRawJsonValueAsync("0");
+                        inventoryItemsSO[i].amount = 0;
+                    }
+                }
+            }
+
+        });
+    }
     private void Awake()
     {
         Instance = this;
-    }
-
-    public void Add(InventoryItemSSO item)
-    {
-        Items.Add(item);
-    }
-
-    public void Remove(InventoryItemSSO item)
-    {
-        Items.Remove(item);
-    }
-    public void ListItems()
-    {
-        foreach (Transform item in ItemContent)
-        {
-            //clean duplicates
-            Destroy(item.gameObject);
-        }
-        foreach (InventoryItemSSO item in Items)
-        {
-            GameObject obj = Instantiate(InventoryItem, ItemContent);
-            var itemName = obj.transform.Find("Item/ItemName").GetComponent<Text>();
-            var itemIcon = obj.transform.Find("Item/ItemIcon").GetComponent<Image>();
-
-            itemName.text = item.itemName;
-            itemIcon.sprite = item.icon;
-        }
     }
 
     public void SelectItem(InventoryItemSSO item)
@@ -134,11 +135,22 @@ public class InventoryController : MonoBehaviour
     {
         Debug.Log("Energy added");
         ItemUse.SetActive(false);
+        inventoryItemsSO[1].amount -= 1;
+        dbReference.Child("user").Child(userID).Child("items").Child(inventoryItemsSO[1].GetDBName()).SetValueAsync(inventoryItemsSO[1].amount);
+        for (int i = 0; i < inventoryItemsSO.Length; i++)
+        {
+            if (inventoryItemsSO[i].amount != 0)
+            {
+                inventoryItemsGO[i].SetActive(true);
+            }
+        }
+
     }
     public void LoadPanels()
     {
         for (int i = 0; i < inventoryItemsSO.Length; i++)
         {
+
             inventoryItems[i].title.text = inventoryItemsSO[i].itemName;
             inventoryItems[i].itemImg.sprite = inventoryItemsSO[i].icon;
         }
@@ -150,9 +162,13 @@ public class InventoryController : MonoBehaviour
     }
     private void Start()
     {
+        GetItems();
         for(int i = 0; i < inventoryItemsSO.Length; i++)
         {
-            inventoryItemsGO[i].SetActive(true);
+            if (inventoryItemsSO[i].amount != 0)
+            {
+                inventoryItemsGO[i].SetActive(true);
+            }
         }
         LoadPanels();
     }
