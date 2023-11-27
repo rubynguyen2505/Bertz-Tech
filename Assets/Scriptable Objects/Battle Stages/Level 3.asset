@@ -35,6 +35,6 @@ MonoBehaviour:
     counterValue: 10
   levelGoals:
   - numberNeeded: 7
-    numberCollected: 0
-    goalSprite: {fileID: 21300000, guid: 990d9a67878c47f45999c1be2ac7af4c, type: 3}
+    numberCollected: 9
+    goalSprite: {fileID: 1683629947, guid: 8727119280bfce34bbe5c1613affc9e5, type: 3}
     matchValue: Yellow Dot

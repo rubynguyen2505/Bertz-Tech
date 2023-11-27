@@ -17,13 +17,13 @@ MonoBehaviour:
   boardLayout:
   - x: 3
     y: 3
-    tileKind: 4
+    tileKind: 3
   - x: 3
     y: 4
-    tileKind: 2
+    tileKind: 3
   - x: 4
     y: 3
-    tileKind: 4
+    tileKind: 3
   - x: 4
     y: 4
     tileKind: 3
@@ -39,10 +39,10 @@ MonoBehaviour:
     counterValue: 100
   levelGoals:
   - numberNeeded: 10
-    numberCollected: 28
+    numberCollected: 23
     goalSprite: {fileID: -2056511583, guid: 8727119280bfce34bbe5c1613affc9e5, type: 3}
     matchValue: Green Dot
-  - numberNeeded: 4
+  - numberNeeded: 1
     numberCollected: 1
     goalSprite: {fileID: 21300000, guid: 2b324fad4285c2949955cf07bbe57f4d, type: 3}
     matchValue: Concrete
