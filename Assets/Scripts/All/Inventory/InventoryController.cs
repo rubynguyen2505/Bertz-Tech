@@ -74,7 +74,7 @@ public class InventoryController : MonoBehaviour
                 DataSnapshot snapshot = task.Result;
                 for (int i = 0; i < inventoryItemsSO.Length && snapshot != null; i++)
                 {
-                    if (snapshot != null)
+                    if (snapshot.Exists)
                     {
                         inventoryItemsSO[i].amount = int.Parse(snapshot.Child(inventoryItemsSO[i].GetDBName()).Value.ToString());
                     }
@@ -133,10 +133,17 @@ public class InventoryController : MonoBehaviour
     }
     public void UseItem(InventoryItemSSO item)
     {
-        Debug.Log("Energy added");
-        ItemUse.SetActive(false);
-        inventoryItemsSO[1].amount -= 1;
-        dbReference.Child("user").Child(userID).Child("items").Child(inventoryItemsSO[1].GetDBName()).SetValueAsync(inventoryItemsSO[1].amount);
+        if (inventoryItemsSO[1].amount > 0)
+        {
+            Debug.Log("Energy added");
+            ItemUse.SetActive(false);
+            inventoryItemsSO[1].amount -= 1;
+            dbReference.Child("user").Child(userID).Child("items").Child(inventoryItemsSO[1].GetDBName()).SetValueAsync(inventoryItemsSO[1].amount);
+        }
+        else
+        {
+            Debug.Log("You do not have any of this item!");
+        }
         for (int i = 0; i < inventoryItemsSO.Length; i++)
         {
             if (inventoryItemsSO[i].amount != 0)
@@ -162,6 +169,7 @@ public class InventoryController : MonoBehaviour
     }
     private void Start()
     {
+        getCurrency();
         GetItems();
         for(int i = 0; i < inventoryItemsSO.Length; i++)
         {

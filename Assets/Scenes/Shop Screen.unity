@@ -4673,7 +4673,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1167064729}
         m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
-        m_MethodName: addCurrency
+        m_MethodName: AddCurrency
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
