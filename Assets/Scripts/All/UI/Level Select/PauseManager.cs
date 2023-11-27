@@ -8,7 +8,7 @@ using TMPro;
 
 public class PauseManager : MonoBehaviour
 {
-    /*
+    
     public GameObject pausePanel;
     private Board board;
     public bool paused = false;
@@ -92,5 +92,5 @@ public class PauseManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level Select");
     }
-    */
+    
 }
