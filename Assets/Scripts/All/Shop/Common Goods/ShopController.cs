@@ -79,14 +79,16 @@ public class ShopController : MonoBehaviour
                 DataSnapshot snapshot = task.Result;
                 for(int i = 0; i < shopItemsSO.Length && snapshot != null; i++)
                 {
-                    if(snapshot != null)
+                    if(snapshot.Exists)
                     {
                         shopItemsSO[i].amountOwned = int.Parse(snapshot.Child(shopItemsSO[i].GetDBName()).Value.ToString());
+                        Debug.Log("exists");
                     }
                     else
                     {
                         dbReference.Child("user").Child(userID).Child("items").Child(shopItemsSO[i].GetDBName()).SetRawJsonValueAsync("0");
                         shopItemsSO[i].amountOwned = 0;
+                        Debug.Log("does not exists");
                     }
                 }
             }
