@@ -26,7 +26,10 @@ public class ShopController : MonoBehaviour
     private DatabaseReference dbReference;
 
 
-
+    private void OnRenderObject()
+    {
+        CheckPurchaseable();
+    }
     void OnEnable()
     {
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
@@ -43,6 +46,7 @@ public class ShopController : MonoBehaviour
         {
             amount[i].text = "x" + shopItemsSO[i].GetAmountAvailable() + " (" + shopItemsSO[i].GetAmountOwned() + " Owned)";
         }*/
+        
         CheckPurchaseable();
     }
 
@@ -57,9 +61,6 @@ public class ShopController : MonoBehaviour
         AddOne();
         SetCurrency();
 
-
-        coinsUI.text = coins.ToString("D9");
-        gemsUI.text = gems.ToString("D9");
         CheckPurchaseable();
     }
 
