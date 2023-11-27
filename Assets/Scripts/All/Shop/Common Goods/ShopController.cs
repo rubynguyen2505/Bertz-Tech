@@ -44,7 +44,7 @@ public class ShopController : MonoBehaviour
         }
         LoadPanels();
         CheckPurchaseable();
-        
+        GetItems();
         
     }
 

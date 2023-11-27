@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   amount: 0
   itemName: Upgrade Item
-  price: 0
+  price: 10
   icon: {fileID: 21300000, guid: 6c99d291183e59c47bc752417d5d703c, type: 3}
   usableInInventory: 0
   description: Allows a unit to be upgraded.
