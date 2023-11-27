@@ -36,16 +36,14 @@ public class ShopController : MonoBehaviour
         {
             shopPanelsGO[i].SetActive(true);
         }
-        coinsUI.text = coins.ToString("D9");
-        gemsUI.text = gems.ToString("D9");
-        for (int i = 0; i < shopItemsSO.Length; i++)
+        GetCurrency();
+        GetItems();
+        LoadPanels();
+        /*for (int i = 0; i < shopItemsSO.Length; i++)
         {
             amount[i].text = "x" + shopItemsSO[i].GetAmountAvailable() + " (" + shopItemsSO[i].GetAmountOwned() + " Owned)";
-        }
-        LoadPanels();
+        }*/
         CheckPurchaseable();
-        GetItems();
-        
     }
 
     //Temporary function to test shop
@@ -90,6 +88,7 @@ public class ShopController : MonoBehaviour
                         shopItemsSO[i].amountOwned = 0;
                         Debug.Log("does not exists");
                     }
+                    amount[i].text = "x" + shopItemsSO[i].GetAmountAvailable() + " (" + shopItemsSO[i].GetAmountOwned() + " Owned)";
                 }
             }
 
@@ -115,18 +114,20 @@ public class ShopController : MonoBehaviour
                 // Do something with snapshot...
                 coins = int.Parse(snapshot.Child("coins").Value.ToString());
                 Debug.Log("Get Coins:  " + coins);
+                coinsUI.text = coins.ToString("D9");
                 gems = int.Parse(snapshot.Child("gems").Value.ToString());
                 Debug.Log("Get Gems:  " + gems);
+                gemsUI.text = gems.ToString("D9");
             }
         });
     }
-    //currency plus 1
+    //currency plus 100
     public void AddOne()
     {
-        coins++;
-        Debug.Log("plus 1 coins:  " + coins);
-        gems++;
-        Debug.Log("plus 1 gems:  " + gems);
+        coins += 100;
+        Debug.Log("plus 100 coins:  " + coins);
+        gems += 100;
+        Debug.Log("plus 100 gems:  " + gems);
     }
 
     //set Currency
@@ -180,6 +181,7 @@ public class ShopController : MonoBehaviour
             shopPanels[i].titleTxt.text = shopItemsSO[i].title;
             shopPanels[i].descriptionTxt.text = shopItemsSO[i].description;
             shopPanels[i].costTxt.text = shopItemsSO[i].baseCost.ToString();
+            shopPanels[i].amountOwned = shopItemsSO[i].amountOwned;
         }
     }
     //Purchase an item

@@ -54,7 +54,9 @@ public class InventoryController : MonoBehaviour
                 // Do something with snapshot...
                 coins = int.Parse(snapshot.Child("coins").Value.ToString());
                 Debug.Log("Get Coins:  " + coins);
+                coinsUI.text = coins.ToString("D9");
                 gems = int.Parse(snapshot.Child("gems").Value.ToString());
+                gemsUI.text = gems.ToString("D9");
                 Debug.Log("Get Gems:  " + gems);
             }
         });
@@ -163,17 +165,13 @@ public class InventoryController : MonoBehaviour
         }
     }
 
-    public void SelectItem(int btn)
-    {
-        ShowDescription(inventoryItemsSO[btn]);
-    }
     private void Start()
     {
         getCurrency();
         GetItems();
         for(int i = 0; i < inventoryItemsSO.Length; i++)
         {
-            if (inventoryItemsSO[i].amount != 0)
+            if (inventoryItemsSO[i].amount > 0)
             {
                 inventoryItemsGO[i].SetActive(true);
             }
