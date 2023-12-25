@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
     {
         board = FindObjectOfType<Board>();
         gameData = FindObjectOfType<GameData>();
-        //UpdateBar();
+        UpdateBar();
     }
 
     // Update is called once per frame
@@ -68,5 +68,6 @@ public class ScoreManager : MonoBehaviour
             scoreBar.fillAmount = (float)score / (float)board.scoreGoals[length - 1];
         }
     }
+
     
 }
